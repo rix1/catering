@@ -1,782 +1,2031 @@
 <!DOCTYPE html>
 
 <html lang="nb">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Italiensk sharingbuffet – arbeidsmeny for 75 personer</title>
-<style>
-  :root {
-    --ink:#1d1d1b;
-    --muted:#6c6a64;
-    --line:#d9d5cc;
-    --paper:#fffdf8;
-    --accent:#7b2d26;
-    --soft:#f2eee5;
-  }
-  * { box-sizing:border-box; }
-  html { background:#ece9e2; }
-  body {
-    margin:0 auto;
-    max-width:980px;
-    background:var(--paper);
-    color:var(--ink);
-    font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-    line-height:1.42;
-    font-size:15px;
-  }
-  main { padding:18mm 16mm; }
-  h1,h2,h3 { margin:0; line-height:1.08; }
-  h1 { font-family:Georgia, "Times New Roman", serif; font-size:42px; letter-spacing:-.03em; }
-  h2 { font-family:Georgia, "Times New Roman", serif; font-size:31px; letter-spacing:-.02em; }
-  h3 { font-size:15px; letter-spacing:.08em; text-transform:uppercase; margin:24px 0 8px; }
-  p { margin:0 0 10px; }
-  strong { font-weight:750; }
-  .kicker { color:var(--accent); text-transform:uppercase; letter-spacing:.16em; font-size:12px; font-weight:800; margin-bottom:10px; }
-  .subhead { color:var(--muted); font-size:17px; max-width:680px; margin-top:10px; }
-  .meta-row { display:flex; gap:12px; flex-wrap:wrap; margin:22px 0 26px; }
-  .chip { border:1px solid var(--line); border-radius:999px; padding:6px 10px; font-size:12px; background:white; }
-  .note { border-left:4px solid var(--accent); background:var(--soft); padding:12px 14px; margin:18px 0; }
-  .cover { min-height:245mm; display:flex; flex-direction:column; }
-  .cover-header { padding-bottom:22px; border-bottom:2px solid var(--ink); }
-  .menu-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px 28px; margin-top:24px; }
-  .menu-group { break-inside:avoid; }
-  .menu-group h3 { margin-top:0; color:var(--accent); }
-  .menu-item { margin:0 0 13px; }
-  .menu-item b { display:block; font-size:16px; }
-  .menu-item span { color:var(--muted); }
-  .cover-footer { margin-top:auto; border-top:1px solid var(--line); padding-top:12px; color:var(--muted); font-size:12px; display:flex; justify-content:space-between; gap:16px; }
-  .dish { break-before:page; page-break-before:always; }
-  .dish-header { border-bottom:2px solid var(--ink); padding-bottom:15px; margin-bottom:18px; }
-  .dish-titleline { display:flex; justify-content:space-between; gap:20px; align-items:flex-end; }
-  .dish-number { color:var(--accent); font-size:14px; font-weight:800; letter-spacing:.12em; }
-  .weight { text-align:right; font-size:13px; color:var(--muted); white-space:nowrap; }
-  .prepbox { display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--line); margin:18px 0 20px; break-inside:avoid; }
-  .prepbox > div { padding:12px 14px; }
-  .prepbox > div + div { border-left:1px solid var(--line); }
-  .prepbox b { display:block; margin-bottom:4px; }
-  table { width:100%; border-collapse:collapse; margin:8px 0 18px; font-size:14px; }
-  th { text-align:left; font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); border-bottom:2px solid var(--ink); padding:7px 8px; }
-  td { border-bottom:1px solid var(--line); padding:7px 8px; vertical-align:top; }
-  td.qty { width:120px; font-variant-numeric:tabular-nums; white-space:nowrap; font-weight:700; }
-  ol { margin:8px 0 18px 22px; padding:0; }
-  li { margin:0 0 8px; padding-left:3px; }
-  .serve { background:var(--soft); padding:13px 15px; margin:10px 0 16px; break-inside:avoid; }
-  .tip { border:1px solid var(--line); padding:12px 14px; break-inside:avoid; }
-  .tip strong { color:var(--accent); }
-  .small { font-size:12px; color:var(--muted); }
-  .workflow { break-before:page; page-break-before:always; }
-  .workflow-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
-  .workflow-card { border:1px solid var(--line); padding:14px; break-inside:avoid; }
-  .workflow-card h3 { margin-top:0; }
-  @media print {
-    @page { size:A4; margin:13mm 14mm 14mm; }
-    html,body { background:white; }
-    body { max-width:none; font-size:10.5pt; }
-    main { padding:0; }
-    h1 { font-size:31pt; }
-    h2 { font-size:23pt; }
-    .cover { min-height:267mm; }
-    .dish { min-height:267mm; }
-    a { color:inherit; text-decoration:none; }
-  }
-  @media (max-width:700px) {
-    main { padding:24px 18px; }
-    .menu-grid,.workflow-grid { grid-template-columns:1fr; }
-    .prepbox { grid-template-columns:1fr; }
-    .prepbox > div + div { border-left:0; border-top:1px solid var(--line); }
-    .dish-titleline { display:block; }
-    .weight { text-align:left; margin-top:8px; }
-  }
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Italiensk sharingbuffet – arbeidsmeny for 75 personer</title>
+    <style>
+    :root {
+      --ink: #1d1d1b;
+      --muted: #6c6a64;
+      --line: #d9d5cc;
+      --paper: #fffdf8;
+      --accent: #7b2d26;
+      --soft: #f2eee5;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    html {
+      background: #ece9e2;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 980px;
+      padding: 40px 20px 72px;
+      background: transparent;
+      color: var(--ink);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Arial, sans-serif;
+      line-height: 1.42;
+      font-size: 15px;
+    }
+    main {
+      padding: 0;
+    }
+    .cover,
+    .dish,
+    .workflow,
+    .shopping {
+      background: var(--paper);
+      padding: 48px 52px;
+      margin: 0 0 36px;
+      border-radius: 6px;
+      box-shadow: 0 1px 2px rgba(29,29,27,.08), 0 14px 40px rgba(29,29,27,.08);
+    }
+    main > section:last-child {
+      margin-bottom: 0;
+    }
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.08;
+    }
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 42px;
+      letter-spacing: -.03em;
+    }
+    h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 31px;
+      letter-spacing: -.02em;
+    }
+    h3 {
+      font-size: 15px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin: 24px 0 8px;
+    }
+    p {
+      margin: 0 0 10px;
+    }
+    strong {
+      font-weight: 750;
+    }
+    .kicker {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .subhead {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 680px;
+      margin-top: 10px;
+    }
+    .meta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 22px 0 26px;
+    }
+    .chip {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px;
+      background: white;
+    }
+    .note {
+      border-left: 4px solid var(--accent);
+      background: var(--soft);
+      padding: 12px 14px;
+      margin: 18px 0;
+    }
+    .cover {
+      display: flex;
+      flex-direction: column;
+    }
+    .cover-header {
+      padding-bottom: 22px;
+      border-bottom: 2px solid var(--ink);
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 28px;
+      margin-top: 24px;
+    }
+    .menu-group {
+      break-inside: avoid;
+    }
+    .menu-group h3 {
+      margin-top: 0;
+      color: var(--accent);
+    }
+    .menu-item {
+      margin: 0 0 13px;
+    }
+    .menu-item b {
+      display: block;
+      font-size: 16px;
+    }
+    .menu-item span {
+      color: var(--muted);
+    }
+    .cover-footer {
+      margin-top: 32px;
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
+      color: var(--muted);
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .dish {
+      break-before: page;
+      page-break-before: always;
+    }
+    .dish-header {
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 15px;
+      margin-bottom: 18px;
+    }
+    .dish-titleline {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: flex-end;
+    }
+    .dish-number {
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+    .weight {
+      text-align: right;
+      font-size: 13px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .prepbox {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--line);
+      margin: 18px 0 20px;
+      break-inside: avoid;
+    }
+    .prepbox > div {
+      padding: 12px 14px;
+    }
+    .prepbox > div + div {
+      border-left: 1px solid var(--line);
+    }
+    .prepbox b {
+      display: block;
+      margin-bottom: 4px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 8px 0 18px;
+      font-size: 14px;
+    }
+    th {
+      text-align: left;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--muted);
+      border-bottom: 2px solid var(--ink);
+      padding: 7px 8px;
+    }
+    td {
+      border-bottom: 1px solid var(--line);
+      padding: 7px 8px;
+      vertical-align: top;
+    }
+    td.qty {
+      width: 120px;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+      font-weight: 700;
+    }
+    ol {
+      margin: 8px 0 18px 22px;
+      padding: 0;
+    }
+    li {
+      margin: 0 0 8px;
+      padding-left: 3px;
+    }
+    .serve {
+      background: var(--soft);
+      padding: 13px 15px;
+      margin: 10px 0 16px;
+      break-inside: avoid;
+    }
+    .tip {
+      border: 1px solid var(--line);
+      padding: 12px 14px;
+      break-inside: avoid;
+    }
+    .tip strong {
+      color: var(--accent);
+    }
+    .small {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .workflow {
+      break-before: page;
+      page-break-before: always;
+    }
+    .workflow-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .workflow-card {
+      border: 1px solid var(--line);
+      padding: 14px;
+      break-inside: avoid;
+    }
+    .workflow-card h3 {
+      margin-top: 0;
+    }
+    @media print {
+      @page {
+        size: A4;
+        margin: 13mm 14mm 14mm;
+      }
+      html,
+      body {
+        background: white;
+      }
+      body {
+        max-width: none;
+        font-size: 10.5pt;
+        padding: 0;
+      }
+      main {
+        padding: 0;
+      }
+      .cover,
+      .dish,
+      .workflow,
+      .shopping {
+        background: none;
+        padding: 0;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      h1 {
+        font-size: 31pt;
+      }
+      h2 {
+        font-size: 23pt;
+      }
+      .cover {
+        min-height: 267mm;
+      }
+      .cover-footer {
+        margin-top: auto;
+      }
+      .dish {
+        min-height: 267mm;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+    @media (max-width:700px) {
+      body {
+        padding: 14px 10px 48px;
+      }
+      .cover,
+      .dish,
+      .workflow,
+      .shopping {
+        padding: 28px 18px;
+        margin-bottom: 18px;
+        border-radius: 4px;
+      }
+      h1 {
+        font-size: 33px;
+      }
+      h2 {
+        font-size: 26px;
+      }
+      .menu-grid,
+      .workflow-grid {
+        grid-template-columns: 1fr;
+      }
+      .prepbox {
+        grid-template-columns: 1fr;
+      }
+      .prepbox > div + div {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+      }
+      .dish-titleline {
+        display: block;
+      }
+      .weight {
+        text-align: left;
+        margin-top: 8px;
+      }
+    }
 
-  .shopping { break-before:page; page-break-before:always; }
-  .shopping-intro { max-width:760px; color:var(--muted); margin:0 0 18px; }
-  .shopping-group { margin:0 0 22px; break-inside:avoid-page; }
-  .shopping-group h3 { color:var(--accent); border-bottom:1px solid var(--line); padding-bottom:7px; }
-  .shopping td:first-child { width:28px; text-align:center; font-size:16px; }
-  .shopping td:nth-child(2) { width:150px; font-weight:750; white-space:nowrap; }
-  .shopping .buy { color:var(--muted); }
-  tr { break-inside:avoid; page-break-inside:avoid; }
-  thead { display:table-header-group; }
-</style>
-</head>
-<body>
-<main>
-<section class="cover">
-<div class="cover-header">
-<div class="kicker">Arbeidsmeny · 75 gjester</div>
-<h1>Italiensk sharingbuffet</h1>
-<p class="subhead">Aperitivo, antipasti, varme fat og lasagne som nattmat. Mengdene er dimensjonert som deler av én samlet buffet – ikke som 75 fulle porsjoner av hver rett.</p>
-<div class="meta-row">
-<span class="chip">Hovedbuffet: ca. 65–68 kg ferdig mat</span>
-<span class="chip">Nattmat: ca. 50–55 porsjoner</span>
-<span class="chip">Serveringsform: store fat og boller</span>
-<span class="chip">Fest: lørdag 22. august 2026</span>
-</div>
-<section class="guest-overview">
-  <h2>Gjester & kosthensyn</h2>
+    .shopping {
+      break-before: page;
+      page-break-before: always;
+    }
+    .shopping-intro {
+      max-width: 760px;
+      color: var(--muted);
+      margin: 0 0 18px;
+    }
+    .shopping-group {
+      margin: 0 0 22px;
+      break-inside: avoid-page;
+    }
+    .shopping-group h3 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 7px;
+    }
+    .shopping td:first-child {
+      width: 28px;
+      text-align: center;
+      font-size: 16px;
+    }
+    .shopping td:nth-child(2) {
+      width: 150px;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+    .shopping .buy {
+      color: var(--muted);
+    }
+    tr {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    thead {
+      display: table-header-group;
+    }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="cover">
+        <div class="cover-header">
+          <div class="kicker">Arbeidsmeny · 75 gjester</div>
+          <h1>Italiensk sharingbuffet</h1>
+          <p
+            class="subhead">Aperitivo, antipasti, varme fat og lasagne som nattmat. Mengdene er dimensjonert som deler av én samlet buffet – ikke som 75 fulle porsjoner av hver rett.</p>
+          <div class="meta-row">
+            <span class="chip">Hovedbuffet: ca. 65–68 kg ferdig mat</span>
+            <span class="chip">Nattmat: ca. 50–55 porsjoner</span>
+            <span class="chip">Serveringsform: store fat og boller</span>
+            <span class="chip">Fest: lørdag 22. august 2026</span>
+          </div>
+          <section class="guest-overview">
+            <h2>Gjester & kosthensyn</h2>
 
-  <p class="note">
+            <p class="note">
     Foreløpige tall. Noen endringer kan komme, men middagen blir ikke større enn 76 personer.
   </p>
 
-  <h3>Antall gjester</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>Måltid</th>
-        <th>Antall</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Lunsj</td>
-        <td><strong>45</strong></td>
-      </tr>
-      <tr>
-        <td>Middag</td>
-        <td><strong>76</strong> <span class="muted">(maks)</span></td>
-      </tr>
-      <tr>
-        <td>Frokost</td>
-        <td><strong>43</strong></td>
-      </tr>
-    </tbody>
-  </table>
+            <h3>Antall gjester</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Måltid</th>
+                  <th>Antall</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Lunsj</td>
+                  <td><strong>45</strong></td>
+                </tr>
+                <tr>
+                  <td>Middag</td>
+                  <td><strong>76</strong> <span class="muted">(maks)</span></td>
+                </tr>
+                <tr>
+                  <td>Frokost</td>
+                  <td><strong>43</strong></td>
+                </tr>
+              </tbody>
+            </table>
 
-  <h3>Allergier og intoleranser</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>Hensyn</th>
-        <th>Antall</th>
-        <th>Gjelder</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Gluten</td>
-        <td>1</td>
-        <td>Middag</td>
-      </tr>
-      <tr>
-        <td>Hasselnøtter</td>
-        <td>1</td>
-        <td>Middag</td>
-      </tr>
-      <tr>
-        <td>Laktose</td>
-        <td>1</td>
-        <td>Middag</td>
-      </tr>
-    </tbody>
-  </table>
+            <h3>Allergier og intoleranser</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Hensyn</th>
+                  <th>Antall</th>
+                  <th>Gjelder</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Gluten</td>
+                  <td>1</td>
+                  <td>Middag</td>
+                </tr>
+                <tr>
+                  <td>Hasselnøtter</td>
+                  <td>1</td>
+                  <td>Middag</td>
+                </tr>
+                <tr>
+                  <td>Laktose</td>
+                  <td>1</td>
+                  <td>Middag</td>
+                </tr>
+              </tbody>
+            </table>
 
-  <h3>Kostpreferanser</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>Hensyn</th>
-        <th>Lunsj</th>
-        <th>Middag</th>
-        <th>Frokost</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Spiser ikke svin</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <td>Spiser ikke rødt kjøtt</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <td>Vegetar</td>
-        <td>1</td>
-        <td>3</td>
-        <td>3</td>
-      </tr>
-    </tbody>
-  </table>
+            <h3>Kostpreferanser</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Hensyn</th>
+                  <th>Lunsj</th>
+                  <th>Middag</th>
+                  <th>Frokost</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Spiser ikke svin</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td>Spiser ikke rødt kjøtt</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td>Vegetar</td>
+                  <td>1</td>
+                  <td>3</td>
+                  <td>3</td>
+                </tr>
+              </tbody>
+            </table>
 
-  <h3>Planleggingsgrunnlag</h3>
-  <ul>
-    <li>Skaler lunsjen etter 45 gjester.</li>
-    <li>Skaler middagsbuffeten etter 76 gjester.</li>
-    <li>Skaler frokosten etter 43 gjester.</li>
-    <li>Allergiene gjelder kun middagen.</li>
-    <li>Én vegetar deltar på lunsj og middag; totalt tre vegetarianere deltar på middag og frokost.</li>
-    <li>Gjesten uten svin og gjesten uten rødt kjøtt skal ivaretas ved alle måltider.</li>
-  </ul>
-</section>
-</div>
-<div class="menu-grid">
-<div class="menu-group">
-<h3>Brød &amp; antipasti</h3>
-<p class="menu-item"><b>Focaccia &amp; aioli</b><span>Rosmarin, flaksalt, olivenolje og sitron-hvitløksaioli.</span></p>
-<p class="menu-item"><b>Antipastifat</b><span>Prosciutto, salami, coppa, Parmigiano, pecorino, taleggio, oliven og marinerte artisjokker.</span></p>
-<p class="menu-item"><b>Bruschetta al pomodoro</b><span>Ristet ciabatta, tomat, hvitløk, basilikum og olivenolje.</span></p>
-</div>
-<div class="menu-group">
-<h3>Salater &amp; grønnsaker</h3>
-<p class="menu-item"><b>Caprese</b><span>Modne tomater, mozzarella, basilikum, olivenolje og balsamico.</span></p>
-<p class="menu-item"><b>Milles sommersalat</b><span>Burrata, grillet fersken, ruccola, pistasj og honning-sitrondressing.</span></p>
-<p class="menu-item"><b>Verdure grigliate marinate</b><span>Aubergine, squash, paprika, fennikel og rødløk med sitron, hvitløk og urter.</span></p>
-</div>
-<div class="menu-group">
-<h3>Varme retter</h3>
-<p class="menu-item"><b>Polpette al sugo</b><span>Små kjøttboller i tomatsaus med parmesan og bladpersille.</span></p>
-<p class="menu-item"><b>Pollo al limone</b><span>Saftige kyllinglår med sitron, hvitløk, rosmarin og timian.</span></p>
-<p class="menu-item"><b>Strozzapreti med tomat og pesto</b><span>Ovnsbakte cherrytomater, lettsyltet rødløk, pesto, parmesan, pinjekjerner og basilikum.</span></p>
-</div>
-<div class="menu-group">
-<h3>Nattmat</h3>
-<p class="menu-item"><b>Lasagne al forno</b><span>Langkokt ragù, béchamel, mozzarella og Parmigiano. Beregnet til ca. 50–55 sene porsjoner.</span></p>
-<div class="note"><strong>Skaleringslogikk:</strong> Buffeten gir omtrent 850–900 g mat per gjest før nattmaten. Det er raust, men realistisk for et selskap der maten står lenge og gjestene forsyner seg flere ganger.</div>
-</div>
-</div>
-<div class="cover-footer"><span>Italiensk sharingbuffet · produksjonsdokument</span><span>75 personer</span></div>
-</section>
-<section class="dish">
-<header class="dish-header">
-<div class="dish-number">01 · BRØD</div>
-<div class="dish-titleline"><h2>Focaccia &amp; aioli</h2><div class="weight">Ca. 6,5 kg brød + 1,5 kg aioli<br/>75 små buffetstykker</div></div>
-</header>
-<div class="prepbox">
-<div><b>Lag på forhånd</b>Sett focacciadeigen 12–24 timer før. Aiolien kan lages 1–2 dager før.</div>
-<div><b>Oppbevaring</b>Deigen kaldheves tildekket. Ferdig focaccia avkjøles helt og pakkes tett ved romtemperatur. Aioli oppbevares kaldt, maks 4 °C.</div>
-</div>
-<h3>Ingredienser</h3>
-<table><thead><tr><th>Mengde</th><th>Ingrediens</th></tr></thead><tbody>
-<tr><td class="qty">3,8 kg</td><td>Hvetemel, gjerne sterkt pizzamel</td></tr>
-<tr><td class="qty">3,0 l</td><td>Kaldt vann</td></tr>
-<tr><td class="qty">35 g</td><td>Tørrgjær, eller ca. 100 g fersk gjær</td></tr>
-<tr><td class="qty">95 g</td><td>Fint salt</td></tr>
-<tr><td class="qty">60 g</td><td>Honning eller sukker</td></tr>
-<tr><td class="qty">550 ml</td><td>Olivenolje totalt, til deig, former og topping</td></tr>
-<tr><td class="qty">60 g</td><td>Rosmarin, grovhakket</td></tr>
-<tr><td class="qty">35 g</td><td>Flaksalt</td></tr>
-<tr><td class="qty">1,2 kg</td><td>God majones</td></tr>
-<tr><td class="qty">50 g</td><td>Hvitløk, finrevet</td></tr>
-<tr><td class="qty">120 ml</td><td>Sitronsaft</td></tr>
-<tr><td class="qty">100 ml</td><td>Olivenolje til aioli</td></tr>
-</tbody></table>
-<h3>Fremgangsmåte</h3>
-<ol>
-<li>Rør gjær og honning ut i vannet. Bland inn melet til en grov, klissete deig. La stå 20 minutter.</li>
-<li>Arbeid inn salt og 300 ml olivenolje. Gjør 3–4 runder med strekk og brett med 20 minutters mellomrom.</li>
-<li>Dekk tett og kaldhev 12–24 timer. Fordel deigen i fire godt oljede langpanner eller 1/1-gastrobakker.</li>
-<li>La etterheve 1–2 timer. Trykk dype groper med oljede fingertupper, drypp over resten av oljen og topp med grovhakket rosmarin og flaksalt.</li>
-<li>Stek ved 220 °C i 20–28 minutter til godt gyllen. Avkjøl på rist. Skjær i omtrent 75 kvadratiske eller rektangulære stykker.</li>
-<li>Rør sammen majones, finrevet hvitløk, sitron og olivenolje. Smak til med salt og pepper.</li>
-</ol>
-<div class="serve"><strong>Servering:</strong> Legg focaccia i lave kurver eller på trefat, gjerne i to omganger. Server aioli i 3–4 brede skåler med små serveringsskjeer.</div>
-<div class="tip"><strong>Tips:</strong> Varm focacciaen 6–8 minutter ved 180 °C før servering. Ikke pakk den mens den er varm; da blir skorpen seig.</div>
-</section>
-<section class="dish">
-<header class="dish-header">
-<div class="dish-number">02 · ANTIPASTI</div>
-<div class="dish-titleline"><h2>Antipastifat</h2><div class="weight">Ca. 7,0–7,5 kg totalt<br/>4–5 store fat</div></div>
-</header>
-<div class="prepbox">
-<div><b>Lag på forhånd</b>Hard ost kan brytes og kuttes dagen før. Artisjokker og oliven kan dreneres og krydres dagen før. Spekemat legges opp samme dag.</div>
-<div><b>Oppbevaring</b>Oppbevar kjøtt, ost, oliven og artisjokker hver for seg, tett tildekket og kaldt. Ta ost og spekemat ut 30–45 minutter før servering.</div>
-</div>
-<h3>Ingredienser</h3>
-<table><thead><tr><th>Mengde</th><th>Ingrediens</th></tr></thead><tbody>
-<tr><td class="qty">1,0 kg</td><td>Prosciutto</td></tr>
-<tr><td class="qty">800 g</td><td>Salami Milano</td></tr>
-<tr><td class="qty">700 g</td><td>Coppa</td></tr>
-<tr><td class="qty">600 g</td><td>Sterk italiensk salami</td></tr>
-<tr><td class="qty">600 g</td><td>Parmigiano Reggiano</td></tr>
-<tr><td class="qty">600 g</td><td>Pecorino</td></tr>
-<tr><td class="qty">700 g</td><td>Taleggio eller annen mild, myk italiensk ost</td></tr>
-<tr><td class="qty">1,2 kg</td><td>Oliven, avrent vekt</td></tr>
-<tr><td class="qty">800 g</td><td>Marinerte artisjokker, avrent vekt</td></tr>
-<tr><td class="qty">150 ml</td><td>Olivenolje</td></tr>
-<tr><td class="qty">50 g</td><td>Persille eller oregano, grovhakket</td></tr>
-<tr><td class="qty">2 stk.</td><td>Sitroner, kun finrevet skall</td></tr>
-</tbody></table>
-<h3>Fremgangsmåte</h3>
-<ol>
-<li>Brekk Parmigiano i rustikke biter på 15–20 g. Skjær pecorino i tynne trekanter og taleggio i omtrent 2 cm store biter.</li>
-<li>Del store artisjokkhjerter i to eller fire. Vend dem med litt olivenolje, grovhakkede urter og sitronskall.</li>
-<li>Drener oliven godt. Smak eventuelt til med litt olivenolje og oregano.</li>
-<li>Fold prosciutto løst. Legg salami og coppa i overlappende rader eller små rosetter, slik at gjestene enkelt får tak i én skive.</li>
-<li>Fordel kjøtt, ost, oliven og artisjokker på flere fat i stedet for ett overfylt fat. Gjenta samme sammensetning på begge sider av buffeten.</li>
-</ol>
-<div class="serve"><strong>Servering:</strong> Bruk 4–5 store, flate fat. Legg de myke ostene i egne soner og gi hver ost en egen kniv eller klype.</div>
-<div class="tip"><strong>Tips:</strong> Ikke legg oliven eller oljete artisjokker direkte inntil spekematen mange timer før; oljen gjør kjøttet blankt og bløtt.</div>
-</section>
-<section class="dish">
-<header class="dish-header">
-<div class="dish-number">03 · CICCHETTI</div>
-<div class="dish-titleline"><h2>Bruschetta al pomodoro</h2><div class="weight">Ca. 5,5 kg totalt<br/>75–85 små bruschetta</div></div>
-</header>
-<div class="prepbox">
-<div><b>Lag på forhånd</b>Brødet kan skjæres dagen før. Tomatblandingen kan lages 3–4 timer før og bør få renne av.</div>
-<div><b>Oppbevaring</b>Oppbevar brød tørt ved romtemperatur. Tomatblandingen kaldt i sil over bolle. Monter maks 20–30 minutter før servering.</div>
-</div>
-<h3>Ingredienser</h3>
-<table><thead><tr><th>Mengde</th><th>Ingrediens</th></tr></thead><tbody>
-<tr><td class="qty">2,6 kg</td><td>Ciabatta eller lyst surdeigsbrød</td></tr>
-<tr><td class="qty">2,7 kg</td><td>Modne tomater</td></tr>
-<tr><td class="qty">100 g</td><td>Frisk basilikum</td></tr>
-<tr><td class="qty">40 g</td><td>Hvitløk</td></tr>
-<tr><td class="qty">250 ml</td><td>Extra virgin olivenolje</td></tr>
-<tr><td class="qty">70 ml</td><td>Rødvinseddik eller mild balsamico</td></tr>
-<tr><td class="qty">40 g</td><td>Salt, pluss pepper</td></tr>
-</tbody></table>
-<h3>Fremgangsmåte</h3>
-<ol>
-<li>Skjær brødet i 1,5 cm tykke skiver. Del store skiver diagonalt, slik at hver bit kan spises i to–tre munnfuller.</li>
-<li>Fjern den mest vannrike kjernen fra tomatene og skjær resten i 8–10 mm terninger. Salt lett og la renne av i 20–30 minutter.</li>
-<li>Finhakk halvparten av hvitløken. Riv eller grovhakk basilikumen rett før blanding. Vend tomat, hvitløk, basilikum, olje og eddik sammen.</li>
-<li>Rist brødet ved 210 °C i 6–9 minutter. Gni de varme skivene lett med resten av hvitløken.</li>
-<li>Legg en knapp spiseskje tomatblanding på hver skive like før servering.</li>
-</ol>
-<div class="serve"><strong>Servering:</strong> Legg bruschetta i ett lag på brede fat. Fyll heller på flere ganger enn å stable dem; da holder brødet seg sprøtt.</div>
-<div class="tip"><strong>Tips:</strong> Ha en hullsleiv til tomatblandingen. Overskuddsvæske er hovedårsaken til bløt bruschetta.</div>
-</section>
-<section class="dish">
-<header class="dish-header">
-<div class="dish-number">04 · SALAT</div>
-<div class="dish-titleline"><h2>Caprese</h2><div class="weight">Ca. 6,0 kg totalt<br/>3 store fat</div></div>
-</header>
-<div class="prepbox">
-<div><b>Lag på forhånd</b>Mozzarella kan dreneres 2–4 timer før. Tomatene kan skjæres 1–2 timer før.</div>
-<div><b>Oppbevaring</b>Oppbevar tomater og mozzarella hver for seg. Monter 30–45 minutter før servering. Basilikum og salt tilsettes helt til slutt.</div>
-</div>
-<h3>Ingredienser</h3>
-<table><thead><tr><th>Mengde</th><th>Ingrediens</th></tr></thead><tbody>
-<tr><td class="qty">3,4 kg</td><td>Modne tomater, gjerne flere sorter og størrelser</td></tr>
-<tr><td class="qty">2,0 kg</td><td>Fersk mozzarella</td></tr>
-<tr><td class="qty">120 g</td><td>Basilikum</td></tr>
-<tr><td class="qty">250 ml</td><td>Extra virgin olivenolje</td></tr>
-<tr><td class="qty">100 ml</td><td>Balsamicokrem, valgfritt</td></tr>
-<tr><td class="qty">45 g</td><td>Flaksalt, pluss svart pepper</td></tr>
-</tbody></table>
-<h3>Fremgangsmåte</h3>
-<ol>
-<li>Skjær store tomater i 8–10 mm skiver. Del mellomstore tomater i båter og små tomater i to.</li>
-<li>Skjær mozzarella i omtrent samme tykkelse som tomatskivene. La den renne godt av på rist eller kjøkkenpapir.</li>
-<li>Legg tomat og mozzarella i overlappende rader eller brede sirkler. Fordel små tomater i mellomrommene.</li>
-<li>Drypp over olivenolje og eventuelt litt balsamicokrem. Topp med hele eller grovt revne basilikumblader, flaksalt og pepper rett før servering.</li>
-</ol>
-<div class="serve"><strong>Servering:</strong> Bruk tre brede fat med lav kant. Sett fatene på ulike steder i buffeten slik at gjestene ikke må stå i én kø.</div>
-<div class="tip"><strong>Tips:</strong> Salt først ved servering. Saltede tomater begynner raskt å slippe væske og gjør fatet vassent.</div>
-</section>
-<section class="dish">
-<header class="dish-header">
-<div class="dish-number">05 · SALAT</div>
-<div class="dish-titleline"><h2>Milles sommersalat</h2><div class="weight">Ca. 5,0–5,2 kg totalt<br/>3 store fat</div></div>
-</header>
-<div class="prepbox">
-<div><b>Lag på forhånd</b>Dressing og ristede pistasjnøtter kan lages 2 dager før. Fersken kan grilles 4–6 timer før.</div>
-<div><b>Oppbevaring</b>Oppbevar ruccola tørr og kald, fersken og dressing hver for seg. Burrata åpnes og rives først ved montering.</div>
-</div>
-<h3>Ingredienser</h3>
-<table><thead><tr><th>Mengde</th><th>Ingrediens</th></tr></thead><tbody>
-<tr><td class="qty">2,3 kg</td><td>Modne, men faste fersken, ca. 16–18 stk.</td></tr>
-<tr><td class="qty">1,5 kg</td><td>Burrata, for eksempel 6 × 250 g</td></tr>
-<tr><td class="qty">600 g</td><td>Ruccola</td></tr>
-<tr><td class="qty">250 g</td><td>Pistasjnøtter, grovhakket og ristet</td></tr>
-<tr><td class="qty">250 ml</td><td>Olivenolje</td></tr>
-<tr><td class="qty">180 ml</td><td>Sitronsaft</td></tr>
-<tr><td class="qty">180 g</td><td>Flytende honning</td></tr>
-<tr><td class="qty">10 g</td><td>Salt, pluss svart pepper</td></tr>
-</tbody></table>
-<h3>Fremgangsmåte</h3>
-<ol>
-<li>Del fersken i to, fjern steinen og skjær hver halvdel i fire båter.</li>
-<li>Pensle lett med olje og grill eller stek hardt på snittflatene til de får tydelige merker, men fortsatt holder formen. Avkjøl på brett.</li>
-<li>Visp sammen olivenolje, sitronsaft, honning, salt og pepper.</li>
-<li>Fordel tørr ruccola på fatene. Legg ferskenbåtene jevnt utover.</li>
-<li>Riv burrata i store, ujevne biter på 5–6 cm og legg mellom ferskenene. Drypp over dressing og topp med grovhakkede pistasjnøtter.</li>
-</ol>
-<div class="serve"><strong>Servering:</strong> Server på brede, lyse fat der fersken og burrata ligger synlig oppå ruccolaen. Ha litt ekstra dressing i en liten mugge.</div>
-<div class="tip"><strong>Tips:</strong> Ikke bland salaten i bolle. Lag den direkte på fatene; da beholder burrataen strukturen og ruccolaen kollapser ikke.</div>
-</section>
-<section class="dish">
-<header class="dish-header">
-<div class="dish-number">06 · GRØNNSAKER</div>
-<div class="dish-titleline"><h2>Verdure grigliate marinate</h2><div class="weight">Ca. 7,5–8,0 kg ferdig rett<br/>3–4 store fat</div></div>
-</header>
-<div class="prepbox">
-<div><b>Lag på forhånd</b>Hele retten kan stekes og marineres dagen før. Den blir bedre etter 8–24 timer.</div>
-<div><b>Oppbevaring</b>Oppbevar grønnsakstypene hver for seg eller i brede grupper, tett tildekket og kaldt. Bland og legg opp 1–2 timer før servering.</div>
-</div>
-<h3>Ingredienser</h3>
-<table><thead><tr><th>Mengde</th><th>Ingrediens</th></tr></thead><tbody>
-<tr><td class="qty">2,0 kg</td><td>Aubergine, ca. 4–5 stk.</td></tr>
-<tr><td class="qty">2,0 kg</td><td>Squash, ca. 6–8 stk.</td></tr>
-<tr><td class="qty">2,5 kg</td><td>Paprika, ca. 8–10 stk.</td></tr>
-<tr><td class="qty">1,2 kg</td><td>Fennikel, ca. 4 store</td></tr>
-<tr><td class="qty">1,0 kg</td><td>Rødløk, ca. 5 store</td></tr>
-<tr><td class="qty">850 ml</td><td>Olivenolje totalt</td></tr>
-<tr><td class="qty">180 ml</td><td>Sitronsaft</td></tr>
-<tr><td class="qty">100 ml</td><td>Rødvinseddik</td></tr>
-<tr><td class="qty">60 g</td><td>Hvitløk, finrevet</td></tr>
-<tr><td class="qty">150 g</td><td>Bladpersille, grovhakket</td></tr>
-<tr><td class="qty">80 g</td><td>Basilikum, grovt revet</td></tr>
-<tr><td class="qty">4 stk.</td><td>Sitroner, finrevet skall</td></tr>
-<tr><td class="qty">70 g</td><td>Salt, pluss pepper og eventuelt chiliflak</td></tr>
-</tbody></table>
-<h3>Fremgangsmåte</h3>
-<ol>
-<li>Skjær aubergine i 1,5 cm tykke halvmåner. Skjær squash i 1 cm tykke diagonale skiver.</li>
-<li>Fjern kjernehus fra paprika og skjær den i 3–4 cm brede strimler. Skjær rødløk i 2 cm brede båter.</li>
-<li>Del fennikelen i to og fjern den harde kjernen. Skjær på tvers i 8–10 mm tykke halvmåner; store biter deles én gang til etter steking.</li>
-<li>Vend hver grønnsakstype separat med olje og salt. Stek på 220–230 °C i ett lag til godt brunet. Aubergine og paprika trenger vanligvis lengst; squash kortest.</li>
-<li>Visp sammen 350 ml olivenolje, sitronsaft, eddik, hvitløk, sitronskall, salt og pepper.</li>
-<li>Vend de varme grønnsakene separat med litt marinade. Avkjøl og oppbevar hver type for seg. Vend inn persille og basilikum ved opplegging.</li>
-</ol>
-<div class="serve"><strong>Servering:</strong> Legg grønnsakene i brede, overlappende seksjoner på fatene – ikke som en sammenblandet haug. La fennikelen være tydelig synlig og drypp litt ekstra sitron over den.</div>
-<div class="tip"><strong>Tips:</strong> Stek i flere omganger uten å overfylle brettene. Grønnsakene skal karamelliseres, ikke dampes.</div>
-</section>
-<section class="dish">
-<header class="dish-header">
-<div class="dish-number">07 · VARM RETT</div>
-<div class="dish-titleline"><h2>Polpette al sugo</h2><div class="weight">Ca. 11–12 kg ferdig rett<br/>Ca. 175–185 små kjøttboller</div></div>
-</header>
-<div class="prepbox">
-<div><b>Lag på forhånd</b>Lag den felles tomatbasen til både polpette og lasagne opptil 2 dager før. Kjøttbollene kan ferdigstilles i sin halvdel av sausen 1–2 dager før.</div>
-<div><b>Oppbevaring</b>Del tomatbasen i to etter koking. Avkjøl raskt i grunne beholdere. Oppbevar kjøttbollene i sausen, tett tildekket og ved maks 4 °C.</div>
-</div>
-<div class="note"><strong>Felles sausproduksjon:</strong> Tomatbasen nedenfor dekker både denne retten og lasagnen. Lag én stor batch, vei eller mål den ferdige sausen og fordel den omtrent 50/50. Ingrediensene skal derfor bare kjøpes inn én gang.</div>
-<h3>Kjøttboller</h3>
-<table><thead><tr><th>Mengde</th><th>Ingrediens</th></tr></thead><tbody>
-<tr><td class="qty">4,8 kg</td><td>Kjøttdeig, gjerne 60 % storfe og 40 % svin</td></tr>
-<tr><td class="qty">550 g</td><td>Brødsmuler</td></tr>
-<tr><td class="qty">650 ml</td><td>Helmelk</td></tr>
-<tr><td class="qty">9 stk.</td><td>Egg</td></tr>
-<tr><td class="qty">450 g</td><td>Finrevet Parmigiano</td></tr>
-<tr><td class="qty">500 g</td><td>Gul løk, finhakket og mykstekt</td></tr>
-<tr><td class="qty">60 g</td><td>Hvitløk, finrevet</td></tr>
-<tr><td class="qty">160 g</td><td>Bladpersille, finhakket</td></tr>
-<tr><td class="qty">100 g</td><td>Fint salt, pluss svart pepper</td></tr>
-</tbody></table>
-<h3>Felles tomatbase til polpette og lasagne</h3>
-<table><thead><tr><th>Mengde</th><th>Ingrediens</th></tr></thead><tbody>
-<tr><td class="qty">1,6 kg</td><td>Gul løk, finhakket</td></tr>
-<tr><td class="qty">120 g</td><td>Hvitløk, finhakket</td></tr>
-<tr><td class="qty">550 ml</td><td>Olivenolje</td></tr>
-<tr><td class="qty">300 g</td><td>Tomatpuré</td></tr>
-<tr><td class="qty">1,25 l</td><td>Rødvin, eventuelt alkoholfri vin eller kraft</td></tr>
-<tr><td class="qty">10,0 kg</td><td>Passata eller knuste tomater</td></tr>
-<tr><td class="qty">80 g</td><td>Basilikum og/eller bladpersille til polpettehalvdelen</td></tr>
-</tbody></table>
-<h3>Fremgangsmåte</h3>
-<ol>
-<li><strong>Lag felles tomatbase:</strong> Mykstek 1,6 kg finhakket løk i olivenoljen i en stor gryte. Tilsett 120 g finhakket hvitløk og tomatpuré. Stek videre i 2–3 minutter.</li>
-<li>Hell i rødvin og kok inn i 5–8 minutter. Tilsett passata og la sausen småkoke uten lokk i 40–60 minutter. Smak til med salt og pepper.</li>
-<li>Vei eller mål den ferdige tomatbasen og fordel den omtrent 50/50. Sett halvparten av til lasagnen. Hold polpettehalvdelen litt løs; den reduseres videre sammen med kjøttbollene.</li>
-<li>Bløtlegg brødsmulene i melken i 10 minutter. Bland kjøtt, egg, parmesan, mykstekt finhakket løk, hvitløk, finhakket persille, salt og pepper forsiktig sammen.</li>
-<li>Form boller på 30–35 g, omtrent på størrelse med en liten valnøtt. Legg dem på oljede brett.</li>
-<li>Stek ved 220 °C i 12–15 minutter til de har fått farge, men ikke nødvendigvis er helt gjennomstekte.</li>
-<li>Legg kjøttbollene i sin halvdel av tomatbasen og la dem trekke rolig i 20–30 minutter. Smak til med urter, salt og pepper.</li>
-</ol>
-<div class="serve"><strong>Servering:</strong> Bruk to brede, varme serveringskar. Topp med litt ekstra finrevet Parmigiano og finhakket persille rett før de settes ut.</div>
-<div class="tip"><strong>Tips:</strong> Ikke elt farsen hardt; da blir bollene kompakte. Lag én prøvebolle og stek den før du former resten. Merk den reserverte lasagnesausen tydelig før kjøttbollene går i gryten.</div>
-</section>
-<section class="dish">
-<header class="dish-header">
-<div class="dish-number">08 · VARM RETT</div>
-<div class="dish-titleline"><h2>Pollo al limone</h2><div class="weight">Ca. 6,5–7,0 kg ferdig kylling<br/>75–90 buffetbiter</div></div>
-</header>
-<div class="prepbox">
-<div><b>Lag på forhånd</b>Mariner kyllingen 12–18 timer før. Urter, sitron og hvitløk kan klargjøres dagen før.</div>
-<div><b>Oppbevaring</b>Mariner kaldt og tildekket. Stek helst samme dag. Hold varm over 60 °C, eller avkjøl raskt og varm opp igjen rett før servering.</div>
-</div>
-<h3>Ingredienser</h3>
-<table><thead><tr><th>Mengde</th><th>Ingrediens</th></tr></thead><tbody>
-<tr><td class="qty">8,0 kg</td><td>Utbeinede kyllinglår, gjerne med skinn</td></tr>
-<tr><td class="qty">750 ml</td><td>Olivenolje</td></tr>
-<tr><td class="qty">600 ml</td><td>Sitronsaft</td></tr>
-<tr><td class="qty">8 stk.</td><td>Sitroner, finrevet skall</td></tr>
-<tr><td class="qty">120 g</td><td>Hvitløk, finrevet</td></tr>
-<tr><td class="qty">80 g</td><td>Rosmarin, finhakket</td></tr>
-<tr><td class="qty">80 g</td><td>Timian, finhakket</td></tr>
-<tr><td class="qty">100 g</td><td>Bladpersille, grovhakket til servering</td></tr>
-<tr><td class="qty">140 g</td><td>Salt, pluss svart pepper</td></tr>
-<tr><td class="qty">6 stk.</td><td>Sitroner til grilling og servering</td></tr>
-</tbody></table>
-<h3>Fremgangsmåte</h3>
-<ol>
-<li>Trim bort store fettfliker. Del svært store kyllinglår i to; sikte på biter på 90–110 g som er enkle å ta med klype.</li>
-<li>Bland olje, sitronsaft, sitronskall, finrevet hvitløk, finhakket rosmarin og timian, salt og pepper. Vend kyllingen grundig i marinaden.</li>
-<li>Legg kyllingen i ett lag på brett, med eventuell skinnside opp. Stek ved 210 °C i 25–35 minutter, avhengig av størrelse.</li>
-<li>Kontroller med termometer at den tykkeste delen har nådd minst 72 °C. La hvile 10–15 minutter.</li>
-<li>Del serveringssitronene i to og grill eller stek snittflaten mørkt gyllen.</li>
-</ol>
-<div class="serve"><strong>Servering:</strong> Legg kyllingen på varme fat med grillet sitron mellom bitene. Øs over litt av den varme stekesjyen og topp med grovhakket persille.</div>
-<div class="tip"><strong>Tips:</strong> Ikke legg rå kylling i for dype lag i marinaden; fordel den i flere beholdere så den kjøles jevnt og marinaden kommer til overalt.</div>
-</section>
-<section class="dish">
-<header class="dish-header">
-<div class="dish-number">09 · PASTA</div>
-<div class="dish-titleline"><h2>Strozzapreti med tomat og pesto</h2><div class="weight">Ca. 9,5–10,0 kg ferdig rett<br/>75 buffetporsjoner</div></div>
-</header>
-<div class="prepbox">
-<div><b>Lag på forhånd</b>Tomater, pesto, syltet rødløk og ristede pinjekjerner kan lages 1–2 dager før. Pastaen kokes samme dag.</div>
-<div><b>Oppbevaring</b>Hold alle komponenter hver for seg. Vend sammen pasta, pesto og parmesan 1–2 timer før servering; tomat, løk, nøtter og basilikum tilsettes nærmere servering.</div>
-</div>
-<h3>Ingredienser</h3>
-<table><thead><tr><th>Mengde</th><th>Ingrediens</th></tr></thead><tbody>
-<tr><td class="qty">2,8 kg</td><td>Tørr strozzapreti</td></tr>
-<tr><td class="qty">2,2 kg</td><td>Cherrytomater</td></tr>
-<tr><td class="qty">700 g</td><td>Rødløk</td></tr>
-<tr><td class="qty">250 ml</td><td>Rødvinseddik til løken</td></tr>
-<tr><td class="qty">250 ml</td><td>Vann til løken</td></tr>
-<tr><td class="qty">120 g</td><td>Sukker til løken</td></tr>
-<tr><td class="qty">20 g</td><td>Salt til løken</td></tr>
-<tr><td class="qty">750 g</td><td>Pesto genovese</td></tr>
-<tr><td class="qty">450 g</td><td>Finrevet Parmigiano</td></tr>
-<tr><td class="qty">250 g</td><td>Pinjekjerner</td></tr>
-<tr><td class="qty">120 g</td><td>Frisk basilikum</td></tr>
-<tr><td class="qty">250 ml</td><td>Olivenolje</td></tr>
-<tr><td class="qty">Etter behov</td><td>Salt, pepper og litt pastavann</td></tr>
-</tbody></table>
-<h3>Fremgangsmåte</h3>
-<ol>
-<li>Del cherrytomatene i to. Vend med litt olivenolje og salt, og bak dem med snittflaten opp ved 150 °C i 60–90 minutter til konsentrerte, men fortsatt saftige.</li>
-<li>Skjær rødløken i svært tynne halvmåner. Kok opp eddik, vann, sukker og salt, hell over løken og avkjøl. La renne godt av før bruk.</li>
-<li>Rist pinjekjernene gyllne i tørr panne eller på brett i ovn. Avkjøl helt.</li>
-<li>Kok pastaen i godt saltet vann til tydelig al dente. Ta vare på litt pastavann. Spre pastaen utover store brett og vend med litt olivenolje.</li>
-<li>Mens pastaen fortsatt er lun, vend inn pesto, parmesan og akkurat nok pastavann til at blandingen blir blank og smidig.</li>
-<li>Vend forsiktig inn ovnsbakte tomater og godt avrent rødløk. Topp med pinjekjerner og grovt revet basilikum rett før servering.</li>
-</ol>
-<div class="serve"><strong>Servering:</strong> Bruk to eller tre brede boller i stedet for én dyp. Ha noen tomater, pinjekjerner og basilikum igjen til topping slik at ingrediensene er synlige.</div>
-<div class="tip"><strong>Tips:</strong> Pastaen skal være litt saftigere enn du tror når den blandes; den absorberer dressing mens den står. Spe med pastavann, ikke bare mer olje.</div>
-</section>
-<section class="dish">
-<header class="dish-header">
-<div class="dish-number">10 · NATTMAT</div>
-<div class="dish-titleline"><h2>Lasagne al forno</h2><div class="weight">Ca. 16–17 kg ferdig lasagne<br/>Ca. 50–55 nattmatporsjoner</div></div>
-</header>
-<div class="prepbox">
-<div><b>Lag på forhånd</b>Bruk den reserverte halvparten av den felles tomatbasen. Ragù kan ferdigstilles torsdag. Lasagnen bør monteres og stekes helt ferdig fredag, kjøles raskt ned og bare varmes opp til nattmat lørdag.</div>
-<div><b>Oppbevaring</b>Avkjøl ragù og ferdig lasagne raskt i grunne former. Oppbevar tildekket og ved maks 4 °C. Varm lasagnen rykende varm helt gjennom.</div>
-</div>
-<div class="note"><strong>Felles sausproduksjon:</strong> Løk, hvitløk, tomatpuré, vin og passata er allerede medregnet i den felles tomatbasen på polpette-siden. De skal ikke kjøpes inn på nytt til lasagnen.</div>
-<h3>Ingredienser</h3>
-<table><thead><tr><th>Mengde</th><th>Ingrediens</th></tr></thead><tbody>
-<tr><td class="qty">Ca. 50 %</td><td>Reservert felles tomatbase fra polpette-oppskriften</td></tr>
-<tr><td class="qty">4,0 kg</td><td>Kjøttdeig, gjerne storfe og svin</td></tr>
-<tr><td class="qty">500 g</td><td>Gulrot, fin terning på 4–5 mm</td></tr>
-<tr><td class="qty">400 g</td><td>Stangselleri, fin terning på 4–5 mm</td></tr>
-<tr><td class="qty">1,0 l</td><td>Kraft eller vann</td></tr>
-<tr><td class="qty">4,5 l</td><td>Helmelk</td></tr>
-<tr><td class="qty">400 g</td><td>Smør</td></tr>
-<tr><td class="qty">400 g</td><td>Hvetemel</td></tr>
-<tr><td class="qty">10 g</td><td>Revet muskat</td></tr>
-<tr><td class="qty">2,0 kg</td><td>Lasagneplater</td></tr>
-<tr><td class="qty">1,0 kg</td><td>Revet mozzarella</td></tr>
-<tr><td class="qty">600 g</td><td>Finrevet Parmigiano</td></tr>
-<tr><td class="qty">Etter behov</td><td>Salt, svart pepper og tørket oregano</td></tr>
-</tbody></table>
-<h3>Fremgangsmåte</h3>
-<ol>
-<li>Skjær gulrot og selleri i jevne terninger på 4–5 mm. Mykstek dem i litt fett fra bruningen av kjøttet eller en liten øse av tomatbasen.</li>
-<li>Brun kjøttet i flere omganger, slik at det steker i stedet for å koke. Ha kjøtt og grønnsaker i den reserverte halvparten av tomatbasen.</li>
-<li>Tilsett kraft eller vann. La ragùen småkoke i minst 1,5–2 timer til den er tykk, konsentrert og fortsatt saftig. Smak til med salt, pepper og oregano.</li>
-<li>Til béchamel: smelt smør, visp inn mel og spe gradvis med melk. Kok under omrøring til glatt og middels tykk. Smak til med salt, pepper og muskat.</li>
-<li>Monter i tre store, dype former: et tynt lag ragù, lasagneplater, ragù, béchamel og litt ost. Gjenta til formene er fulle. Avslutt med béchamel, mozzarella og Parmigiano.</li>
-<li>Stek ved 185 °C i 45–60 minutter. Dekk med folie dersom toppen blir for mørk. La hvile minst 30 minutter før oppskjæring.</li>
-<li>Skjær hver form i 17–18 rektangulære biter.</li>
-</ol>
-<div class="serve"><strong>Servering:</strong> Hold lasagnen i formene og sett ut én form om gangen. Server med brede stekespader og eventuelt litt ekstra revet Parmigiano ved siden av.</div>
-<div class="tip"><strong>Tips:</strong> Den felles tomatbasen gir betydelig mindre dobbeltarbeid. Bygg likevel ragùen ferdig separat med brunet kjøtt, gulrot, selleri og kraft; polpettesausen skal være renere og friskere.</div>
-</section>
-<section class="workflow">
-<header class="dish-header">
-<div class="dish-number">PRODUKSJONSPLAN · FEST LØRDAG 22. AUGUST</div>
-<h2>Uke- og dagsprogram</h2>
-</header>
-<div class="note"><strong>Mål:</strong> Fredag kveld skal alt som tåler lagring være ferdig. Lørdag mellom ca. 11:30 og 14:00 er kjøkkenet i praksis reservert til biff-ciabatta-lunsjen. Etter lunsj skal du hovedsakelig steke kylling, koke pasta, varme polpette og montere fat.</div>
+            <h3>Planleggingsgrunnlag</h3>
+            <ul>
+              <li>Skaler lunsjen etter 45 gjester.</li>
+              <li>Skaler middagsbuffeten etter 76 gjester.</li>
+              <li>Skaler frokosten etter 43 gjester.</li>
+              <li>Allergiene gjelder kun middagen.</li>
+              <li>Én vegetar deltar på lunsj og middag; totalt tre vegetarianere deltar på middag og frokost.</li>
+              <li>Gjesten uten svin og gjesten uten rødt kjøtt skal ivaretas ved alle måltider.</li>
+            </ul>
+          </section>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-group">
+            <h3>Brød &amp; antipasti</h3>
+            <p
+              class="menu-item"><b>Focaccia &amp; aioli</b><span>Rosmarin, flaksalt, olivenolje og sitron-hvitløksaioli.</span></p>
+            <p
+              class="menu-item"><b>Antipastifat</b><span>Prosciutto, salami, coppa, Parmigiano, pecorino, taleggio, oliven og marinerte artisjokker.</span></p>
+            <p
+              class="menu-item"><b>Bruschetta al pomodoro</b><span>Ristet ciabatta, tomat, hvitløk, basilikum og olivenolje.</span></p>
+          </div>
+          <div class="menu-group">
+            <h3>Salater &amp; grønnsaker</h3>
+            <p
+              class="menu-item"><b>Caprese</b><span>Modne tomater, mozzarella, basilikum, olivenolje og balsamico.</span></p>
+            <p
+              class="menu-item"><b>Milles sommersalat</b><span>Burrata, grillet fersken, ruccola, pistasj og honning-sitrondressing.</span></p>
+            <p
+              class="menu-item"><b>Verdure grigliate marinate</b><span>Aubergine, squash, paprika, fennikel og rødløk med sitron, hvitløk og urter.</span></p>
+          </div>
+          <div class="menu-group">
+            <h3>Varme retter</h3>
+            <p
+              class="menu-item"><b>Polpette al sugo</b><span>Små kjøttboller i tomatsaus med parmesan og bladpersille.</span></p>
+            <p
+              class="menu-item"><b>Pollo al limone</b><span>Saftige kyllinglår med sitron, hvitløk, rosmarin og timian.</span></p>
+            <p
+              class="menu-item"><b>Strozzapreti med tomat og pesto</b><span>Ovnsbakte cherrytomater, lettsyltet rødløk, pesto, parmesan, pinjekjerner og basilikum.</span></p>
+          </div>
+          <div class="menu-group">
+            <h3>Nattmat</h3>
+            <p
+              class="menu-item"><b>Lasagne al forno</b><span>Langkokt ragù, béchamel, mozzarella og Parmigiano. Beregnet til ca. 50–55 sene porsjoner.</span></p>
+            <div
+              class="note"><strong>Skaleringslogikk:</strong> Buffeten gir omtrent 850–900 g mat per gjest før nattmaten. Det er raust, men realistisk for et selskap der maten står lenge og gjestene forsyner seg flere ganger.</div>
+          </div>
+        </div>
+        <div
+          class="cover-footer"><span>Italiensk sharingbuffet · produksjonsdokument</span><span>75 personer</span></div>
+      </section>
+      <section class="dish">
+        <header class="dish-header">
+          <div class="dish-number">01 · BRØD</div>
+          <div class="dish-titleline">
+            <h2>Focaccia &amp; aioli</h2>
+            <div
+              class="weight">Ca. 6,5 kg brød + 1,5 kg aioli<br/>75 små buffetstykker</div>
+          </div>
+        </header>
+        <div class="prepbox">
+          <div><b>Lag på forhånd</b>Sett focacciadeigen 12–24 timer før. Aiolien kan lages 1–2 dager før.</div>
+          <div><b>Oppbevaring</b>Deigen kaldheves tildekket. Ferdig focaccia avkjøles helt og pakkes tett ved romtemperatur. Aioli oppbevares kaldt, maks 4 °C.</div>
+        </div>
+        <h3>Ingredienser</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Mengde</th>
+              <th>Ingrediens</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="qty">3,8 kg</td>
+              <td>Hvetemel, gjerne sterkt pizzamel</td>
+            </tr>
+            <tr>
+              <td class="qty">3,0 l</td>
+              <td>Kaldt vann</td>
+            </tr>
+            <tr>
+              <td class="qty">35 g</td>
+              <td>Tørrgjær, eller ca. 100 g fersk gjær</td>
+            </tr>
+            <tr>
+              <td class="qty">95 g</td>
+              <td>Fint salt</td>
+            </tr>
+            <tr>
+              <td class="qty">60 g</td>
+              <td>Honning eller sukker</td>
+            </tr>
+            <tr>
+              <td class="qty">550 ml</td>
+              <td>Olivenolje totalt, til deig, former og topping</td>
+            </tr>
+            <tr>
+              <td class="qty">60 g</td>
+              <td>Rosmarin, grovhakket</td>
+            </tr>
+            <tr>
+              <td class="qty">35 g</td>
+              <td>Flaksalt</td>
+            </tr>
+            <tr>
+              <td class="qty">1,2 kg</td>
+              <td>God majones</td>
+            </tr>
+            <tr>
+              <td class="qty">50 g</td>
+              <td>Hvitløk, finrevet</td>
+            </tr>
+            <tr>
+              <td class="qty">120 ml</td>
+              <td>Sitronsaft</td>
+            </tr>
+            <tr>
+              <td class="qty">100 ml</td>
+              <td>Olivenolje til aioli</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Fremgangsmåte</h3>
+        <ol>
+          <li>Rør gjær og honning ut i vannet. Bland inn melet til en grov, klissete deig. La stå 20 minutter.</li>
+          <li>Arbeid inn salt og 300 ml olivenolje. Gjør 3–4 runder med strekk og brett med 20 minutters mellomrom.</li>
+          <li>Dekk tett og kaldhev 12–24 timer. Fordel deigen i fire godt oljede langpanner eller 1/1-gastrobakker.</li>
+          <li>La etterheve 1–2 timer. Trykk dype groper med oljede fingertupper, drypp over resten av oljen og topp med grovhakket rosmarin og flaksalt.</li>
+          <li>Stek ved 220 °C i 20–28 minutter til godt gyllen. Avkjøl på rist. Skjær i omtrent 75 kvadratiske eller rektangulære stykker.</li>
+          <li>Rør sammen majones, finrevet hvitløk, sitron og olivenolje. Smak til med salt og pepper.</li>
+        </ol>
+        <div
+          class="serve"><strong>Servering:</strong> Legg focaccia i lave kurver eller på trefat, gjerne i to omganger. Server aioli i 3–4 brede skåler med små serveringsskjeer.</div>
+        <div
+          class="tip"><strong>Tips:</strong> Varm focacciaen 6–8 minutter ved 180 °C før servering. Ikke pakk den mens den er varm; da blir skorpen seig.</div>
+      </section>
+      <section class="dish">
+        <header class="dish-header">
+          <div class="dish-number">02 · ANTIPASTI</div>
+          <div class="dish-titleline">
+            <h2>Antipastifat</h2>
+            <div class="weight">Ca. 7,0–7,5 kg totalt<br/>4–5 store fat</div>
+          </div>
+        </header>
+        <div class="prepbox">
+          <div><b>Lag på forhånd</b>Hard ost kan brytes og kuttes dagen før. Artisjokker og oliven kan dreneres og krydres dagen før. Spekemat legges opp samme dag.</div>
+          <div><b>Oppbevaring</b>Oppbevar kjøtt, ost, oliven og artisjokker hver for seg, tett tildekket og kaldt. Ta ost og spekemat ut 30–45 minutter før servering.</div>
+        </div>
+        <h3>Ingredienser</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Mengde</th>
+              <th>Ingrediens</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="qty">1,0 kg</td>
+              <td>Prosciutto</td>
+            </tr>
+            <tr>
+              <td class="qty">800 g</td>
+              <td>Salami Milano</td>
+            </tr>
+            <tr>
+              <td class="qty">700 g</td>
+              <td>Coppa</td>
+            </tr>
+            <tr>
+              <td class="qty">600 g</td>
+              <td>Sterk italiensk salami</td>
+            </tr>
+            <tr>
+              <td class="qty">600 g</td>
+              <td>Parmigiano Reggiano</td>
+            </tr>
+            <tr>
+              <td class="qty">600 g</td>
+              <td>Pecorino</td>
+            </tr>
+            <tr>
+              <td class="qty">700 g</td>
+              <td>Taleggio eller annen mild, myk italiensk ost</td>
+            </tr>
+            <tr>
+              <td class="qty">1,2 kg</td>
+              <td>Oliven, avrent vekt</td>
+            </tr>
+            <tr>
+              <td class="qty">800 g</td>
+              <td>Marinerte artisjokker, avrent vekt</td>
+            </tr>
+            <tr>
+              <td class="qty">150 ml</td>
+              <td>Olivenolje</td>
+            </tr>
+            <tr>
+              <td class="qty">50 g</td>
+              <td>Persille eller oregano, grovhakket</td>
+            </tr>
+            <tr>
+              <td class="qty">2 stk.</td>
+              <td>Sitroner, kun finrevet skall</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Fremgangsmåte</h3>
+        <ol>
+          <li>Brekk Parmigiano i rustikke biter på 15–20 g. Skjær pecorino i tynne trekanter og taleggio i omtrent 2 cm store biter.</li>
+          <li>Del store artisjokkhjerter i to eller fire. Vend dem med litt olivenolje, grovhakkede urter og sitronskall.</li>
+          <li>Drener oliven godt. Smak eventuelt til med litt olivenolje og oregano.</li>
+          <li>Fold prosciutto løst. Legg salami og coppa i overlappende rader eller små rosetter, slik at gjestene enkelt får tak i én skive.</li>
+          <li>Fordel kjøtt, ost, oliven og artisjokker på flere fat i stedet for ett overfylt fat. Gjenta samme sammensetning på begge sider av buffeten.</li>
+        </ol>
+        <div
+          class="serve"><strong>Servering:</strong> Bruk 4–5 store, flate fat. Legg de myke ostene i egne soner og gi hver ost en egen kniv eller klype.</div>
+        <div
+          class="tip"><strong>Tips:</strong> Ikke legg oliven eller oljete artisjokker direkte inntil spekematen mange timer før; oljen gjør kjøttet blankt og bløtt.</div>
+      </section>
+      <section class="dish">
+        <header class="dish-header">
+          <div class="dish-number">03 · CICCHETTI</div>
+          <div class="dish-titleline">
+            <h2>Bruschetta al pomodoro</h2>
+            <div class="weight">Ca. 5,5 kg totalt<br/>75–85 små bruschetta</div>
+          </div>
+        </header>
+        <div class="prepbox">
+          <div><b>Lag på forhånd</b>Brødet kan skjæres dagen før. Tomatblandingen kan lages 3–4 timer før og bør få renne av.</div>
+          <div><b>Oppbevaring</b>Oppbevar brød tørt ved romtemperatur. Tomatblandingen kaldt i sil over bolle. Monter maks 20–30 minutter før servering.</div>
+        </div>
+        <h3>Ingredienser</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Mengde</th>
+              <th>Ingrediens</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="qty">2,6 kg</td>
+              <td>Ciabatta eller lyst surdeigsbrød</td>
+            </tr>
+            <tr>
+              <td class="qty">2,7 kg</td>
+              <td>Modne tomater</td>
+            </tr>
+            <tr>
+              <td class="qty">100 g</td>
+              <td>Frisk basilikum</td>
+            </tr>
+            <tr>
+              <td class="qty">40 g</td>
+              <td>Hvitløk</td>
+            </tr>
+            <tr>
+              <td class="qty">250 ml</td>
+              <td>Extra virgin olivenolje</td>
+            </tr>
+            <tr>
+              <td class="qty">70 ml</td>
+              <td>Rødvinseddik eller mild balsamico</td>
+            </tr>
+            <tr>
+              <td class="qty">40 g</td>
+              <td>Salt, pluss pepper</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Fremgangsmåte</h3>
+        <ol>
+          <li>Skjær brødet i 1,5 cm tykke skiver. Del store skiver diagonalt, slik at hver bit kan spises i to–tre munnfuller.</li>
+          <li>Fjern den mest vannrike kjernen fra tomatene og skjær resten i 8–10 mm terninger. Salt lett og la renne av i 20–30 minutter.</li>
+          <li>Finhakk halvparten av hvitløken. Riv eller grovhakk basilikumen rett før blanding. Vend tomat, hvitløk, basilikum, olje og eddik sammen.</li>
+          <li>Rist brødet ved 210 °C i 6–9 minutter. Gni de varme skivene lett med resten av hvitløken.</li>
+          <li>Legg en knapp spiseskje tomatblanding på hver skive like før servering.</li>
+        </ol>
+        <div
+          class="serve"><strong>Servering:</strong> Legg bruschetta i ett lag på brede fat. Fyll heller på flere ganger enn å stable dem; da holder brødet seg sprøtt.</div>
+        <div
+          class="tip"><strong>Tips:</strong> Ha en hullsleiv til tomatblandingen. Overskuddsvæske er hovedårsaken til bløt bruschetta.</div>
+      </section>
+      <section class="dish">
+        <header class="dish-header">
+          <div class="dish-number">04 · SALAT</div>
+          <div class="dish-titleline">
+            <h2>Caprese</h2>
+            <div class="weight">Ca. 6,0 kg totalt<br/>3 store fat</div>
+          </div>
+        </header>
+        <div class="prepbox">
+          <div><b>Lag på forhånd</b>Mozzarella kan dreneres 2–4 timer før. Tomatene kan skjæres 1–2 timer før.</div>
+          <div><b>Oppbevaring</b>Oppbevar tomater og mozzarella hver for seg. Monter 30–45 minutter før servering. Basilikum og salt tilsettes helt til slutt.</div>
+        </div>
+        <h3>Ingredienser</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Mengde</th>
+              <th>Ingrediens</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="qty">3,4 kg</td>
+              <td>Modne tomater, gjerne flere sorter og størrelser</td>
+            </tr>
+            <tr>
+              <td class="qty">2,0 kg</td>
+              <td>Fersk mozzarella</td>
+            </tr>
+            <tr>
+              <td class="qty">120 g</td>
+              <td>Basilikum</td>
+            </tr>
+            <tr>
+              <td class="qty">250 ml</td>
+              <td>Extra virgin olivenolje</td>
+            </tr>
+            <tr>
+              <td class="qty">100 ml</td>
+              <td>Balsamicokrem, valgfritt</td>
+            </tr>
+            <tr>
+              <td class="qty">45 g</td>
+              <td>Flaksalt, pluss svart pepper</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Fremgangsmåte</h3>
+        <ol>
+          <li>Skjær store tomater i 8–10 mm skiver. Del mellomstore tomater i båter og små tomater i to.</li>
+          <li>Skjær mozzarella i omtrent samme tykkelse som tomatskivene. La den renne godt av på rist eller kjøkkenpapir.</li>
+          <li>Legg tomat og mozzarella i overlappende rader eller brede sirkler. Fordel små tomater i mellomrommene.</li>
+          <li>Drypp over olivenolje og eventuelt litt balsamicokrem. Topp med hele eller grovt revne basilikumblader, flaksalt og pepper rett før servering.</li>
+        </ol>
+        <div
+          class="serve"><strong>Servering:</strong> Bruk tre brede fat med lav kant. Sett fatene på ulike steder i buffeten slik at gjestene ikke må stå i én kø.</div>
+        <div
+          class="tip"><strong>Tips:</strong> Salt først ved servering. Saltede tomater begynner raskt å slippe væske og gjør fatet vassent.</div>
+      </section>
+      <section class="dish">
+        <header class="dish-header">
+          <div class="dish-number">05 · SALAT</div>
+          <div class="dish-titleline">
+            <h2>Milles sommersalat</h2>
+            <div class="weight">Ca. 5,0–5,2 kg totalt<br/>3 store fat</div>
+          </div>
+        </header>
+        <div class="prepbox">
+          <div><b>Lag på forhånd</b>Dressing og ristede pistasjnøtter kan lages 2 dager før. Fersken kan grilles 4–6 timer før.</div>
+          <div><b>Oppbevaring</b>Oppbevar ruccola tørr og kald, fersken og dressing hver for seg. Burrata åpnes og rives først ved montering.</div>
+        </div>
+        <h3>Ingredienser</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Mengde</th>
+              <th>Ingrediens</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="qty">2,3 kg</td>
+              <td>Modne, men faste fersken, ca. 16–18 stk.</td>
+            </tr>
+            <tr>
+              <td class="qty">1,5 kg</td>
+              <td>Burrata, for eksempel 6 × 250 g</td>
+            </tr>
+            <tr>
+              <td class="qty">600 g</td>
+              <td>Ruccola</td>
+            </tr>
+            <tr>
+              <td class="qty">250 g</td>
+              <td>Pistasjnøtter, grovhakket og ristet</td>
+            </tr>
+            <tr>
+              <td class="qty">250 ml</td>
+              <td>Olivenolje</td>
+            </tr>
+            <tr>
+              <td class="qty">180 ml</td>
+              <td>Sitronsaft</td>
+            </tr>
+            <tr>
+              <td class="qty">180 g</td>
+              <td>Flytende honning</td>
+            </tr>
+            <tr>
+              <td class="qty">10 g</td>
+              <td>Salt, pluss svart pepper</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Fremgangsmåte</h3>
+        <ol>
+          <li>Del fersken i to, fjern steinen og skjær hver halvdel i fire båter.</li>
+          <li>Pensle lett med olje og grill eller stek hardt på snittflatene til de får tydelige merker, men fortsatt holder formen. Avkjøl på brett.</li>
+          <li>Visp sammen olivenolje, sitronsaft, honning, salt og pepper.</li>
+          <li>Fordel tørr ruccola på fatene. Legg ferskenbåtene jevnt utover.</li>
+          <li>Riv burrata i store, ujevne biter på 5–6 cm og legg mellom ferskenene. Drypp over dressing og topp med grovhakkede pistasjnøtter.</li>
+        </ol>
+        <div
+          class="serve"><strong>Servering:</strong> Server på brede, lyse fat der fersken og burrata ligger synlig oppå ruccolaen. Ha litt ekstra dressing i en liten mugge.</div>
+        <div
+          class="tip"><strong>Tips:</strong> Ikke bland salaten i bolle. Lag den direkte på fatene; da beholder burrataen strukturen og ruccolaen kollapser ikke.</div>
+      </section>
+      <section class="dish">
+        <header class="dish-header">
+          <div class="dish-number">06 · GRØNNSAKER</div>
+          <div class="dish-titleline">
+            <h2>Verdure grigliate marinate</h2>
+            <div
+              class="weight">Ca. 7,5–8,0 kg ferdig rett<br/>3–4 store fat</div>
+          </div>
+        </header>
+        <div class="prepbox">
+          <div><b>Lag på forhånd</b>Hele retten kan stekes og marineres dagen før. Den blir bedre etter 8–24 timer.</div>
+          <div><b>Oppbevaring</b>Oppbevar grønnsakstypene hver for seg eller i brede grupper, tett tildekket og kaldt. Bland og legg opp 1–2 timer før servering.</div>
+        </div>
+        <h3>Ingredienser</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Mengde</th>
+              <th>Ingrediens</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="qty">2,0 kg</td>
+              <td>Aubergine, ca. 4–5 stk.</td>
+            </tr>
+            <tr>
+              <td class="qty">2,0 kg</td>
+              <td>Squash, ca. 6–8 stk.</td>
+            </tr>
+            <tr>
+              <td class="qty">2,5 kg</td>
+              <td>Paprika, ca. 8–10 stk.</td>
+            </tr>
+            <tr>
+              <td class="qty">1,2 kg</td>
+              <td>Fennikel, ca. 4 store</td>
+            </tr>
+            <tr>
+              <td class="qty">1,0 kg</td>
+              <td>Rødløk, ca. 5 store</td>
+            </tr>
+            <tr>
+              <td class="qty">850 ml</td>
+              <td>Olivenolje totalt</td>
+            </tr>
+            <tr>
+              <td class="qty">180 ml</td>
+              <td>Sitronsaft</td>
+            </tr>
+            <tr>
+              <td class="qty">100 ml</td>
+              <td>Rødvinseddik</td>
+            </tr>
+            <tr>
+              <td class="qty">60 g</td>
+              <td>Hvitløk, finrevet</td>
+            </tr>
+            <tr>
+              <td class="qty">150 g</td>
+              <td>Bladpersille, grovhakket</td>
+            </tr>
+            <tr>
+              <td class="qty">80 g</td>
+              <td>Basilikum, grovt revet</td>
+            </tr>
+            <tr>
+              <td class="qty">4 stk.</td>
+              <td>Sitroner, finrevet skall</td>
+            </tr>
+            <tr>
+              <td class="qty">70 g</td>
+              <td>Salt, pluss pepper og eventuelt chiliflak</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Fremgangsmåte</h3>
+        <ol>
+          <li>Skjær aubergine i 1,5 cm tykke halvmåner. Skjær squash i 1 cm tykke diagonale skiver.</li>
+          <li>Fjern kjernehus fra paprika og skjær den i 3–4 cm brede strimler. Skjær rødløk i 2 cm brede båter.</li>
+          <li>Del fennikelen i to og fjern den harde kjernen. Skjær på tvers i 8–10 mm tykke halvmåner; store biter deles én gang til etter steking.</li>
+          <li>Vend hver grønnsakstype separat med olje og salt. Stek på 220–230 °C i ett lag til godt brunet. Aubergine og paprika trenger vanligvis lengst; squash kortest.</li>
+          <li>Visp sammen 350 ml olivenolje, sitronsaft, eddik, hvitløk, sitronskall, salt og pepper.</li>
+          <li>Vend de varme grønnsakene separat med litt marinade. Avkjøl og oppbevar hver type for seg. Vend inn persille og basilikum ved opplegging.</li>
+        </ol>
+        <div
+          class="serve"><strong>Servering:</strong> Legg grønnsakene i brede, overlappende seksjoner på fatene – ikke som en sammenblandet haug. La fennikelen være tydelig synlig og drypp litt ekstra sitron over den.</div>
+        <div
+          class="tip"><strong>Tips:</strong> Stek i flere omganger uten å overfylle brettene. Grønnsakene skal karamelliseres, ikke dampes.</div>
+      </section>
+      <section class="dish">
+        <header class="dish-header">
+          <div class="dish-number">07 · VARM RETT</div>
+          <div class="dish-titleline">
+            <h2>Polpette al sugo</h2>
+            <div
+              class="weight">Ca. 11–12 kg ferdig rett<br/>Ca. 175–185 små kjøttboller</div>
+          </div>
+        </header>
+        <div class="prepbox">
+          <div><b>Lag på forhånd</b>Lag den felles tomatbasen til både polpette og lasagne opptil 2 dager før. Kjøttbollene kan ferdigstilles i sin halvdel av sausen 1–2 dager før.</div>
+          <div><b>Oppbevaring</b>Del tomatbasen i to etter koking. Avkjøl raskt i grunne beholdere. Oppbevar kjøttbollene i sausen, tett tildekket og ved maks 4 °C.</div>
+        </div>
+        <div
+          class="note"><strong>Felles sausproduksjon:</strong> Tomatbasen nedenfor dekker både denne retten og lasagnen. Lag én stor batch, vei eller mål den ferdige sausen og fordel den omtrent 50/50. Ingrediensene skal derfor bare kjøpes inn én gang.</div>
+        <h3>Kjøttboller</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Mengde</th>
+              <th>Ingrediens</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="qty">4,8 kg</td>
+              <td>Kjøttdeig, gjerne 60 % storfe og 40 % svin</td>
+            </tr>
+            <tr>
+              <td class="qty">550 g</td>
+              <td>Brødsmuler</td>
+            </tr>
+            <tr>
+              <td class="qty">650 ml</td>
+              <td>Helmelk</td>
+            </tr>
+            <tr>
+              <td class="qty">9 stk.</td>
+              <td>Egg</td>
+            </tr>
+            <tr>
+              <td class="qty">450 g</td>
+              <td>Finrevet Parmigiano</td>
+            </tr>
+            <tr>
+              <td class="qty">500 g</td>
+              <td>Gul løk, finhakket og mykstekt</td>
+            </tr>
+            <tr>
+              <td class="qty">60 g</td>
+              <td>Hvitløk, finrevet</td>
+            </tr>
+            <tr>
+              <td class="qty">160 g</td>
+              <td>Bladpersille, finhakket</td>
+            </tr>
+            <tr>
+              <td class="qty">100 g</td>
+              <td>Fint salt, pluss svart pepper</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Felles tomatbase til polpette og lasagne</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Mengde</th>
+              <th>Ingrediens</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="qty">1,6 kg</td>
+              <td>Gul løk, finhakket</td>
+            </tr>
+            <tr>
+              <td class="qty">120 g</td>
+              <td>Hvitløk, finhakket</td>
+            </tr>
+            <tr>
+              <td class="qty">550 ml</td>
+              <td>Olivenolje</td>
+            </tr>
+            <tr>
+              <td class="qty">300 g</td>
+              <td>Tomatpuré</td>
+            </tr>
+            <tr>
+              <td class="qty">1,25 l</td>
+              <td>Rødvin, eventuelt alkoholfri vin eller kraft</td>
+            </tr>
+            <tr>
+              <td class="qty">10,0 kg</td>
+              <td>Passata eller knuste tomater</td>
+            </tr>
+            <tr>
+              <td class="qty">80 g</td>
+              <td>Basilikum og/eller bladpersille til polpettehalvdelen</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Fremgangsmåte</h3>
+        <ol>
+          <li><strong>Lag felles tomatbase:</strong> Mykstek 1,6 kg finhakket løk i olivenoljen i en stor gryte. Tilsett 120 g finhakket hvitløk og tomatpuré. Stek videre i 2–3 minutter.</li>
+          <li>Hell i rødvin og kok inn i 5–8 minutter. Tilsett passata og la sausen småkoke uten lokk i 40–60 minutter. Smak til med salt og pepper.</li>
+          <li>Vei eller mål den ferdige tomatbasen og fordel den omtrent 50/50. Sett halvparten av til lasagnen. Hold polpettehalvdelen litt løs; den reduseres videre sammen med kjøttbollene.</li>
+          <li>Bløtlegg brødsmulene i melken i 10 minutter. Bland kjøtt, egg, parmesan, mykstekt finhakket løk, hvitløk, finhakket persille, salt og pepper forsiktig sammen.</li>
+          <li>Form boller på 30–35 g, omtrent på størrelse med en liten valnøtt. Legg dem på oljede brett.</li>
+          <li>Stek ved 220 °C i 12–15 minutter til de har fått farge, men ikke nødvendigvis er helt gjennomstekte.</li>
+          <li>Legg kjøttbollene i sin halvdel av tomatbasen og la dem trekke rolig i 20–30 minutter. Smak til med urter, salt og pepper.</li>
+        </ol>
+        <div
+          class="serve"><strong>Servering:</strong> Bruk to brede, varme serveringskar. Topp med litt ekstra finrevet Parmigiano og finhakket persille rett før de settes ut.</div>
+        <div
+          class="tip"><strong>Tips:</strong> Ikke elt farsen hardt; da blir bollene kompakte. Lag én prøvebolle og stek den før du former resten. Merk den reserverte lasagnesausen tydelig før kjøttbollene går i gryten.</div>
+      </section>
+      <section class="dish">
+        <header class="dish-header">
+          <div class="dish-number">08 · VARM RETT</div>
+          <div class="dish-titleline">
+            <h2>Pollo al limone</h2>
+            <div
+              class="weight">Ca. 6,5–7,0 kg ferdig kylling<br/>75–90 buffetbiter</div>
+          </div>
+        </header>
+        <div class="prepbox">
+          <div><b>Lag på forhånd</b>Mariner kyllingen 12–18 timer før. Urter, sitron og hvitløk kan klargjøres dagen før.</div>
+          <div><b>Oppbevaring</b>Mariner kaldt og tildekket. Stek helst samme dag. Hold varm over 60 °C, eller avkjøl raskt og varm opp igjen rett før servering.</div>
+        </div>
+        <h3>Ingredienser</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Mengde</th>
+              <th>Ingrediens</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="qty">8,0 kg</td>
+              <td>Utbeinede kyllinglår, gjerne med skinn</td>
+            </tr>
+            <tr>
+              <td class="qty">750 ml</td>
+              <td>Olivenolje</td>
+            </tr>
+            <tr>
+              <td class="qty">600 ml</td>
+              <td>Sitronsaft</td>
+            </tr>
+            <tr>
+              <td class="qty">8 stk.</td>
+              <td>Sitroner, finrevet skall</td>
+            </tr>
+            <tr>
+              <td class="qty">120 g</td>
+              <td>Hvitløk, finrevet</td>
+            </tr>
+            <tr>
+              <td class="qty">80 g</td>
+              <td>Rosmarin, finhakket</td>
+            </tr>
+            <tr>
+              <td class="qty">80 g</td>
+              <td>Timian, finhakket</td>
+            </tr>
+            <tr>
+              <td class="qty">100 g</td>
+              <td>Bladpersille, grovhakket til servering</td>
+            </tr>
+            <tr>
+              <td class="qty">140 g</td>
+              <td>Salt, pluss svart pepper</td>
+            </tr>
+            <tr>
+              <td class="qty">6 stk.</td>
+              <td>Sitroner til grilling og servering</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Fremgangsmåte</h3>
+        <ol>
+          <li>Trim bort store fettfliker. Del svært store kyllinglår i to; sikte på biter på 90–110 g som er enkle å ta med klype.</li>
+          <li>Bland olje, sitronsaft, sitronskall, finrevet hvitløk, finhakket rosmarin og timian, salt og pepper. Vend kyllingen grundig i marinaden.</li>
+          <li>Legg kyllingen i ett lag på brett, med eventuell skinnside opp. Stek ved 210 °C i 25–35 minutter, avhengig av størrelse.</li>
+          <li>Kontroller med termometer at den tykkeste delen har nådd minst 72 °C. La hvile 10–15 minutter.</li>
+          <li>Del serveringssitronene i to og grill eller stek snittflaten mørkt gyllen.</li>
+        </ol>
+        <div
+          class="serve"><strong>Servering:</strong> Legg kyllingen på varme fat med grillet sitron mellom bitene. Øs over litt av den varme stekesjyen og topp med grovhakket persille.</div>
+        <div
+          class="tip"><strong>Tips:</strong> Ikke legg rå kylling i for dype lag i marinaden; fordel den i flere beholdere så den kjøles jevnt og marinaden kommer til overalt.</div>
+      </section>
+      <section class="dish">
+        <header class="dish-header">
+          <div class="dish-number">09 · PASTA</div>
+          <div class="dish-titleline">
+            <h2>Strozzapreti med tomat og pesto</h2>
+            <div
+              class="weight">Ca. 9,5–10,0 kg ferdig rett<br/>75 buffetporsjoner</div>
+          </div>
+        </header>
+        <div class="prepbox">
+          <div><b>Lag på forhånd</b>Tomater, pesto, syltet rødløk og ristede pinjekjerner kan lages 1–2 dager før. Pastaen kokes samme dag.</div>
+          <div><b>Oppbevaring</b>Hold alle komponenter hver for seg. Vend sammen pasta, pesto og parmesan 1–2 timer før servering; tomat, løk, nøtter og basilikum tilsettes nærmere servering.</div>
+        </div>
+        <h3>Ingredienser</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Mengde</th>
+              <th>Ingrediens</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="qty">2,8 kg</td>
+              <td>Tørr strozzapreti</td>
+            </tr>
+            <tr>
+              <td class="qty">2,2 kg</td>
+              <td>Cherrytomater</td>
+            </tr>
+            <tr>
+              <td class="qty">700 g</td>
+              <td>Rødløk</td>
+            </tr>
+            <tr>
+              <td class="qty">250 ml</td>
+              <td>Rødvinseddik til løken</td>
+            </tr>
+            <tr>
+              <td class="qty">250 ml</td>
+              <td>Vann til løken</td>
+            </tr>
+            <tr>
+              <td class="qty">120 g</td>
+              <td>Sukker til løken</td>
+            </tr>
+            <tr>
+              <td class="qty">20 g</td>
+              <td>Salt til løken</td>
+            </tr>
+            <tr>
+              <td class="qty">750 g</td>
+              <td>Pesto genovese</td>
+            </tr>
+            <tr>
+              <td class="qty">450 g</td>
+              <td>Finrevet Parmigiano</td>
+            </tr>
+            <tr>
+              <td class="qty">250 g</td>
+              <td>Pinjekjerner</td>
+            </tr>
+            <tr>
+              <td class="qty">120 g</td>
+              <td>Frisk basilikum</td>
+            </tr>
+            <tr>
+              <td class="qty">250 ml</td>
+              <td>Olivenolje</td>
+            </tr>
+            <tr>
+              <td class="qty">Etter behov</td>
+              <td>Salt, pepper og litt pastavann</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Fremgangsmåte</h3>
+        <ol>
+          <li>Del cherrytomatene i to. Vend med litt olivenolje og salt, og bak dem med snittflaten opp ved 150 °C i 60–90 minutter til konsentrerte, men fortsatt saftige.</li>
+          <li>Skjær rødløken i svært tynne halvmåner. Kok opp eddik, vann, sukker og salt, hell over løken og avkjøl. La renne godt av før bruk.</li>
+          <li>Rist pinjekjernene gyllne i tørr panne eller på brett i ovn. Avkjøl helt.</li>
+          <li>Kok pastaen i godt saltet vann til tydelig al dente. Ta vare på litt pastavann. Spre pastaen utover store brett og vend med litt olivenolje.</li>
+          <li>Mens pastaen fortsatt er lun, vend inn pesto, parmesan og akkurat nok pastavann til at blandingen blir blank og smidig.</li>
+          <li>Vend forsiktig inn ovnsbakte tomater og godt avrent rødløk. Topp med pinjekjerner og grovt revet basilikum rett før servering.</li>
+        </ol>
+        <div
+          class="serve"><strong>Servering:</strong> Bruk to eller tre brede boller i stedet for én dyp. Ha noen tomater, pinjekjerner og basilikum igjen til topping slik at ingrediensene er synlige.</div>
+        <div
+          class="tip"><strong>Tips:</strong> Pastaen skal være litt saftigere enn du tror når den blandes; den absorberer dressing mens den står. Spe med pastavann, ikke bare mer olje.</div>
+      </section>
+      <section class="dish">
+        <header class="dish-header">
+          <div class="dish-number">10 · NATTMAT</div>
+          <div class="dish-titleline">
+            <h2>Lasagne al forno</h2>
+            <div
+              class="weight">Ca. 16–17 kg ferdig lasagne<br/>Ca. 50–55 nattmatporsjoner</div>
+          </div>
+        </header>
+        <div class="prepbox">
+          <div><b>Lag på forhånd</b>Bruk den reserverte halvparten av den felles tomatbasen. Ragù kan ferdigstilles torsdag. Lasagnen bør monteres og stekes helt ferdig fredag, kjøles raskt ned og bare varmes opp til nattmat lørdag.</div>
+          <div><b>Oppbevaring</b>Avkjøl ragù og ferdig lasagne raskt i grunne former. Oppbevar tildekket og ved maks 4 °C. Varm lasagnen rykende varm helt gjennom.</div>
+        </div>
+        <div
+          class="note"><strong>Felles sausproduksjon:</strong> Løk, hvitløk, tomatpuré, vin og passata er allerede medregnet i den felles tomatbasen på polpette-siden. De skal ikke kjøpes inn på nytt til lasagnen.</div>
+        <h3>Ingredienser</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Mengde</th>
+              <th>Ingrediens</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="qty">Ca. 50 %</td>
+              <td>Reservert felles tomatbase fra polpette-oppskriften</td>
+            </tr>
+            <tr>
+              <td class="qty">4,0 kg</td>
+              <td>Kjøttdeig, gjerne storfe og svin</td>
+            </tr>
+            <tr>
+              <td class="qty">500 g</td>
+              <td>Gulrot, fin terning på 4–5 mm</td>
+            </tr>
+            <tr>
+              <td class="qty">400 g</td>
+              <td>Stangselleri, fin terning på 4–5 mm</td>
+            </tr>
+            <tr>
+              <td class="qty">1,0 l</td>
+              <td>Kraft eller vann</td>
+            </tr>
+            <tr>
+              <td class="qty">4,5 l</td>
+              <td>Helmelk</td>
+            </tr>
+            <tr>
+              <td class="qty">400 g</td>
+              <td>Smør</td>
+            </tr>
+            <tr>
+              <td class="qty">400 g</td>
+              <td>Hvetemel</td>
+            </tr>
+            <tr>
+              <td class="qty">10 g</td>
+              <td>Revet muskat</td>
+            </tr>
+            <tr>
+              <td class="qty">2,0 kg</td>
+              <td>Lasagneplater</td>
+            </tr>
+            <tr>
+              <td class="qty">1,0 kg</td>
+              <td>Revet mozzarella</td>
+            </tr>
+            <tr>
+              <td class="qty">600 g</td>
+              <td>Finrevet Parmigiano</td>
+            </tr>
+            <tr>
+              <td class="qty">Etter behov</td>
+              <td>Salt, svart pepper og tørket oregano</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Fremgangsmåte</h3>
+        <ol>
+          <li>Skjær gulrot og selleri i jevne terninger på 4–5 mm. Mykstek dem i litt fett fra bruningen av kjøttet eller en liten øse av tomatbasen.</li>
+          <li>Brun kjøttet i flere omganger, slik at det steker i stedet for å koke. Ha kjøtt og grønnsaker i den reserverte halvparten av tomatbasen.</li>
+          <li>Tilsett kraft eller vann. La ragùen småkoke i minst 1,5–2 timer til den er tykk, konsentrert og fortsatt saftig. Smak til med salt, pepper og oregano.</li>
+          <li>Til béchamel: smelt smør, visp inn mel og spe gradvis med melk. Kok under omrøring til glatt og middels tykk. Smak til med salt, pepper og muskat.</li>
+          <li>Monter i tre store, dype former: et tynt lag ragù, lasagneplater, ragù, béchamel og litt ost. Gjenta til formene er fulle. Avslutt med béchamel, mozzarella og Parmigiano.</li>
+          <li>Stek ved 185 °C i 45–60 minutter. Dekk med folie dersom toppen blir for mørk. La hvile minst 30 minutter før oppskjæring.</li>
+          <li>Skjær hver form i 17–18 rektangulære biter.</li>
+        </ol>
+        <div
+          class="serve"><strong>Servering:</strong> Hold lasagnen i formene og sett ut én form om gangen. Server med brede stekespader og eventuelt litt ekstra revet Parmigiano ved siden av.</div>
+        <div
+          class="tip"><strong>Tips:</strong> Den felles tomatbasen gir betydelig mindre dobbeltarbeid. Bygg likevel ragùen ferdig separat med brunet kjøtt, gulrot, selleri og kraft; polpettesausen skal være renere og friskere.</div>
+      </section>
+      <section class="workflow">
+        <header class="dish-header">
+          <div
+            class="dish-number">PRODUKSJONSPLAN · FEST LØRDAG 22. AUGUST</div>
+          <h2>Uke- og dagsprogram</h2>
+        </header>
+        <div
+          class="note"><strong>Mål:</strong> Fredag kveld skal alt som tåler lagring være ferdig. Lørdag mellom ca. 11:30 og 14:00 er kjøkkenet i praksis reservert til biff-ciabatta-lunsjen. Etter lunsj skal du hovedsakelig steke kylling, koke pasta, varme polpette og montere fat.</div>
 
-<h3>Mandag 17. august · kontroll og logistikk</h3>
-<table><tbody>
-<tr><td class="qty">2–3 t</td><td>Bekreft antall, allergier og hjelpere. Bestill kjøtt, kylling, spekemat, ost, burrata og mozzarella. Kjøp tørrvarer og hermetikk.</td></tr>
-<tr><td class="qty">Utstyr</td><td>Tell store fat, boller, serveringsbestikk, lasagneformer og langpanner. Kontroller gryte- og kjølekapasitet. Skaff bokser, folie, bakepapir og etiketter.</td></tr>
-<tr><td class="qty">Organisering</td><td>Bestem fat per rett og merk beholdere: Polpette, Lasagne, Pasta, Caprese, Sommersalat, Verdure osv.</td></tr>
-</tbody></table>
+        <h3>Mandag 17. august · kontroll og logistikk</h3>
+        <table>
+          <tbody>
+            <tr>
+              <td class="qty">2–3 t</td>
+              <td>Bekreft antall, allergier og hjelpere. Bestill kjøtt, kylling, spekemat, ost, burrata og mozzarella. Kjøp tørrvarer og hermetikk.</td>
+            </tr>
+            <tr>
+              <td class="qty">Utstyr</td>
+              <td>Tell store fat, boller, serveringsbestikk, lasagneformer og langpanner. Kontroller gryte- og kjølekapasitet. Skaff bokser, folie, bakepapir og etiketter.</td>
+            </tr>
+            <tr>
+              <td class="qty">Organisering</td>
+              <td>Bestem fat per rett og merk beholdere: Polpette, Lasagne, Pasta, Caprese, Sommersalat, Verdure osv.</td>
+            </tr>
+          </tbody>
+        </table>
 
-<h3>Tirsdag 18. august · tørrvarer og kjøkkenrigg</h3>
-<table><tbody>
-<tr><td class="qty">Ca. 2 t</td><td>Fullfør holdbare innkjøp. Vask serveringsfat. Vei opp mel, pasta, nøtter og andre tørrvarer. Lag etiketter med rett, dato og sluttmontering.</td></tr>
-<tr><td class="qty">Ovn</td><td>Planlegg ovnsrekkefølge for fredag og lørdag. Finn frem brett til focaccia, grønnsaker, kylling og lasagne.</td></tr>
-</tbody></table>
+        <h3>Tirsdag 18. august · tørrvarer og kjøkkenrigg</h3>
+        <table>
+          <tbody>
+            <tr>
+              <td class="qty">Ca. 2 t</td>
+              <td>Fullfør holdbare innkjøp. Vask serveringsfat. Vei opp mel, pasta, nøtter og andre tørrvarer. Lag etiketter med rett, dato og sluttmontering.</td>
+            </tr>
+            <tr>
+              <td class="qty">Ovn</td>
+              <td>Planlegg ovnsrekkefølge for fredag og lørdag. Finn frem brett til focaccia, grønnsaker, kylling og lasagne.</td>
+            </tr>
+          </tbody>
+        </table>
 
-<h3>Onsdag 19. august · ferskvarer og stasjoner</h3>
-<table><tbody>
-<tr><td class="qty">3–4 t</td><td>Kjøp løk, hvitløk, gulrot, selleri, sitron, aubergine, squash, paprika, fennikel, rødløk, tomater, cherrytomater, urter og faste men modne fersken.</td></tr>
-<tr><td class="qty">Kjøl</td><td>Lag én sone for råvarer og én for ferdige komponenter. Rå kylling og rått kjøtt skal stå nederst. Lag en egen kasse/stasjon for lunsjen.</td></tr>
-<tr><td class="qty">Lunsj</td><td>Sørg for biff, ciabatta, løk og ingredienser til valgt dressing. Selve lunsjinnkjøpet er ikke medregnet i handlelisten under.</td></tr>
-</tbody></table>
+        <h3>Onsdag 19. august · ferskvarer og stasjoner</h3>
+        <table>
+          <tbody>
+            <tr>
+              <td class="qty">3–4 t</td>
+              <td>Kjøp løk, hvitløk, gulrot, selleri, sitron, aubergine, squash, paprika, fennikel, rødløk, tomater, cherrytomater, urter og faste men modne fersken.</td>
+            </tr>
+            <tr>
+              <td class="qty">Kjøl</td>
+              <td>Lag én sone for råvarer og én for ferdige komponenter. Rå kylling og rått kjøtt skal stå nederst. Lag en egen kasse/stasjon for lunsjen.</td>
+            </tr>
+            <tr>
+              <td class="qty">Lunsj</td>
+              <td>Sørg for biff, ciabatta, løk og ingredienser til valgt dressing. Selve lunsjinnkjøpet er ikke medregnet i handlelisten under.</td>
+            </tr>
+          </tbody>
+        </table>
 
-<h3>Torsdag 20. august · saus og kjøtt</h3>
-<table><thead><tr><th>Tid</th><th>Produksjon</th></tr></thead><tbody>
-<tr><td class="qty">08:30–10:30</td><td><strong>Felles tomatbase:</strong> finhakk løk og hvitløk, mykstek, tilsett tomatpuré, kok inn vin, tilsett passata og la småkoke 40–60 min. Del ca. 50/50 til polpette og lasagne.</td></tr>
-<tr><td class="qty">10:30–13:00</td><td><strong>Polpette:</strong> lag fars, form 30–35 g boller, stek på brett og trekk ferdig i sin halvdel av tomatsausen. Kjøl raskt ned i grunne beholdere.</td></tr>
-<tr><td class="qty">13:30–17:00</td><td><strong>Ragù:</strong> gulrot og selleri i 4–5 mm terning. Brun kjøttet i omganger, bygg videre på den reserverte tomatbasen med grønnsaker og kraft. Småkok 1,5–2 t og kjøl raskt ned.</td></tr>
-<tr><td class="qty">Hvis tid</td><td>Lag aioli, honning-sitrondressing og karamellisert løk til lunsjen.</td></tr>
-</tbody></table>
+        <h3>Torsdag 20. august · saus og kjøtt</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Tid</th>
+              <th>Produksjon</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="qty">08:30–10:30</td>
+              <td><strong>Felles tomatbase:</strong> finhakk løk og hvitløk, mykstek, tilsett tomatpuré, kok inn vin, tilsett passata og la småkoke 40–60 min. Del ca. 50/50 til polpette og lasagne.</td>
+            </tr>
+            <tr>
+              <td class="qty">10:30–13:00</td>
+              <td><strong>Polpette:</strong> lag fars, form 30–35 g boller, stek på brett og trekk ferdig i sin halvdel av tomatsausen. Kjøl raskt ned i grunne beholdere.</td>
+            </tr>
+            <tr>
+              <td class="qty">13:30–17:00</td>
+              <td><strong>Ragù:</strong> gulrot og selleri i 4–5 mm terning. Brun kjøttet i omganger, bygg videre på den reserverte tomatbasen med grønnsaker og kraft. Småkok 1,5–2 t og kjøl raskt ned.</td>
+            </tr>
+            <tr>
+              <td class="qty">Hvis tid</td>
+              <td>Lag aioli, honning-sitrondressing og karamellisert løk til lunsjen.</td>
+            </tr>
+          </tbody>
+        </table>
 
-<h3>Fredag 21. august · hovedproduksjon</h3>
-<table><thead><tr><th>Tid</th><th>Produksjon</th></tr></thead><tbody>
-<tr><td class="qty">08:00–10:30</td><td><strong>Lasagne:</strong> lag béchamel, monter og stek helt ferdig. Avkjøl raskt, dekk til og sett kaldt. Lørdag skal den bare varmes opp igjen.</td></tr>
-<tr><td class="qty">10:30–13:30</td><td><strong>Verdure:</strong> aubergine i 1,5 cm halvmåner, squash i 1 cm diagonale skiver, paprika i 3–4 cm strimler, rødløk i ca. 2 cm båter, fennikel i 8–10 mm halvmåner. Stek/grill separat, vend varme grønnsaker i marinade og kjøl ned. Oppbevar typene separat; urter først lørdag.</td></tr>
-<tr><td class="qty">13:30–16:30</td><td><strong>Strozzapreti-prep:</strong> bak cherrytomater, skjær rødløk i svært tynne halvmåner og sylt den, lag/klargjør pesto, rist pinjekjerner og riv parmesan. Oppbevar separat.</td></tr>
-<tr><td class="qty">16:30–18:00</td><td><strong>Kalde komponenter:</strong> rist pistasj, grill fersken og avkjøl, drener/krydre oliven og artisjokker, porsjoner oster. Oppbevar separat.</td></tr>
-<tr><td class="qty">18:00–19:00</td><td><strong>Kylling:</strong> trim lårene, lag sitron- og urtemarinade, mariner og sett kaldt tildekket.</td></tr>
-<tr><td class="qty">19:00–20:00</td><td><strong>Focaccia:</strong> sett deigen, gjør strekk/brett og sett til kaldheving.</td></tr>
-<tr><td class="qty">20:00–21:00</td><td><strong>Bruschetta + lunsj:</strong> skjær brød i 1,5 cm skiver og oppbevar tørt. Ferdigstill karamellisert løk og valgt dressing til lunsjen. Porsjoner biffen.</td></tr>
-</tbody></table>
-<div class="tip"><strong>Fredag kveld:</strong> Alt skal være merket. Alle varme produkter skal være helt nedkjølt før de stables tett. Rå kylling nederst i kjøleskapet. Serveringsfat og redskaper fordeles til hver rett.</div>
+        <h3>Fredag 21. august · hovedproduksjon</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Tid</th>
+              <th>Produksjon</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="qty">08:00–10:30</td>
+              <td><strong>Lasagne:</strong> lag béchamel, monter og stek helt ferdig. Avkjøl raskt, dekk til og sett kaldt. Lørdag skal den bare varmes opp igjen.</td>
+            </tr>
+            <tr>
+              <td class="qty">10:30–13:30</td>
+              <td><strong>Verdure:</strong> aubergine i 1,5 cm halvmåner, squash i 1 cm diagonale skiver, paprika i 3–4 cm strimler, rødløk i ca. 2 cm båter, fennikel i 8–10 mm halvmåner. Stek/grill separat, vend varme grønnsaker i marinade og kjøl ned. Oppbevar typene separat; urter først lørdag.</td>
+            </tr>
+            <tr>
+              <td class="qty">13:30–16:30</td>
+              <td><strong>Strozzapreti-prep:</strong> bak cherrytomater, skjær rødløk i svært tynne halvmåner og sylt den, lag/klargjør pesto, rist pinjekjerner og riv parmesan. Oppbevar separat.</td>
+            </tr>
+            <tr>
+              <td class="qty">16:30–18:00</td>
+              <td><strong>Kalde komponenter:</strong> rist pistasj, grill fersken og avkjøl, drener/krydre oliven og artisjokker, porsjoner oster. Oppbevar separat.</td>
+            </tr>
+            <tr>
+              <td class="qty">18:00–19:00</td>
+              <td><strong>Kylling:</strong> trim lårene, lag sitron- og urtemarinade, mariner og sett kaldt tildekket.</td>
+            </tr>
+            <tr>
+              <td class="qty">19:00–20:00</td>
+              <td><strong>Focaccia:</strong> sett deigen, gjør strekk/brett og sett til kaldheving.</td>
+            </tr>
+            <tr>
+              <td class="qty">20:00–21:00</td>
+              <td><strong>Bruschetta + lunsj:</strong> skjær brød i 1,5 cm skiver og oppbevar tørt. Ferdigstill karamellisert løk og valgt dressing til lunsjen. Porsjoner biffen.</td>
+            </tr>
+          </tbody>
+        </table>
+        <div
+          class="tip"><strong>Fredag kveld:</strong> Alt skal være merket. Alle varme produkter skal være helt nedkjølt før de stables tett. Rå kylling nederst i kjøleskapet. Serveringsfat og redskaper fordeles til hver rett.</div>
 
-<h3>Lørdag 22. august · før lunsj</h3>
-<table><thead><tr><th>Tid</th><th>Produksjon</th></tr></thead><tbody>
-<tr><td class="qty">07:00–08:00</td><td>Kontroll av kjøl og komponenter. Ta focacciadeigen ut, fordel i oljede former og la etterheve. Hold kyllingen kald.</td></tr>
-<tr><td class="qty">08:00–09:30</td><td>Bak focaccia med rosmarin, olje og flaksalt. Avkjøl helt på rist. Smak til aiolien.</td></tr>
-<tr><td class="qty">09:30–10:30</td><td>Legg verdure i seksjoner på fat, men vent med urter og sitronskall. Drener mozzarella, vask/tørk ruccola, kontroller burrata/fersken og rigg antipastifat.</td></tr>
-<tr><td class="qty">10:30–11:15</td><td>Bruschetta: fjern våteste tomatkjerne, skjær 8–10 mm terning, salt lett og la renne av. Ikke bland inn olje, hvitløk og basilikum ennå.</td></tr>
-<tr><td class="qty">11:15–11:30</td><td>Full overgang til lunsj. Rydd benkene, sett buffetkomponentene kaldt, rigg biff, ciabatta, løk og dressing.</td></tr>
-</tbody></table>
+        <h3>Lørdag 22. august · før lunsj</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Tid</th>
+              <th>Produksjon</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="qty">07:00–08:00</td>
+              <td>Kontroll av kjøl og komponenter. Ta focacciadeigen ut, fordel i oljede former og la etterheve. Hold kyllingen kald.</td>
+            </tr>
+            <tr>
+              <td class="qty">08:00–09:30</td>
+              <td>Bak focaccia med rosmarin, olje og flaksalt. Avkjøl helt på rist. Smak til aiolien.</td>
+            </tr>
+            <tr>
+              <td class="qty">09:30–10:30</td>
+              <td>Legg verdure i seksjoner på fat, men vent med urter og sitronskall. Drener mozzarella, vask/tørk ruccola, kontroller burrata/fersken og rigg antipastifat.</td>
+            </tr>
+            <tr>
+              <td class="qty">10:30–11:15</td>
+              <td>Bruschetta: fjern våteste tomatkjerne, skjær 8–10 mm terning, salt lett og la renne av. Ikke bland inn olje, hvitløk og basilikum ennå.</td>
+            </tr>
+            <tr>
+              <td class="qty">11:15–11:30</td>
+              <td>Full overgang til lunsj. Rydd benkene, sett buffetkomponentene kaldt, rigg biff, ciabatta, løk og dressing.</td>
+            </tr>
+          </tbody>
+        </table>
 
-<h3>Lørdag · lunsjblokk</h3>
-<table><thead><tr><th>Tid</th><th>Produksjon</th></tr></thead><tbody>
-<tr><td class="qty">11:30–14:00</td><td><strong>Grillet biff-ciabatta:</strong> varm/rist brød, stek biff i omganger, la hvile, skjær tynt på tvers av fibrene og monter med karamellisert løk og valgt dressing. Hold buffetproduksjonen adskilt i denne perioden.</td></tr>
-<tr><td class="qty">14:00–14:30</td><td><strong>Reset:</strong> rydd bort hele lunsjen, vask benker/kniver/brett, tøm søppel, sett på oppvask og rigg middag. Ikke planlegg en ny stor produksjonsoppgave her.</td></tr>
-</tbody></table>
+        <h3>Lørdag · lunsjblokk</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Tid</th>
+              <th>Produksjon</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="qty">11:30–14:00</td>
+              <td><strong>Grillet biff-ciabatta:</strong> varm/rist brød, stek biff i omganger, la hvile, skjær tynt på tvers av fibrene og monter med karamellisert løk og valgt dressing. Hold buffetproduksjonen adskilt i denne perioden.</td>
+            </tr>
+            <tr>
+              <td class="qty">14:00–14:30</td>
+              <td><strong>Reset:</strong> rydd bort hele lunsjen, vask benker/kniver/brett, tøm søppel, sett på oppvask og rigg middag. Ikke planlegg en ny stor produksjonsoppgave her.</td>
+            </tr>
+          </tbody>
+        </table>
 
-<h3>Lørdag · sluttproduksjon mot buffet ca. 18:00</h3>
-<table><thead><tr><th>Tid</th><th>Produksjon</th></tr></thead><tbody>
-<tr><td class="qty">14:30–15:30</td><td><strong>Kylling:</strong> stek i ett lag på brett ved ca. 210 °C til gjennomstekt. Grill/stek sitron til servering. Samtidig: sett polpette til rolig oppvarming og skjær focaccia.</td></tr>
-<tr><td class="qty">15:30–16:30</td><td><strong>Pasta:</strong> kok strozzapreti tydelig al dente. Spar pastavann. Spre på brede brett og vend med litt olje. Vend inn pesto og parmesan mens pastaen er lun; hold tomater, rødløk, pinjekjerner og basilikum separat.</td></tr>
-<tr><td class="qty">16:00–16:45</td><td><strong>Caprese:</strong> skjær store tomater i 8–10 mm skiver, del små tomater og skjær mozzarella. Legg opp, men vent med salt, basilikum, olje og balsamico.</td></tr>
-<tr><td class="qty">16:30–17:00</td><td><strong>Antipasti:</strong> fold prosciutto, legg opp salami/coppa, oster, oliven og artisjokker. Dekk løst og la temperere kontrollert.</td></tr>
-<tr><td class="qty">16:45–17:15</td><td><strong>Sommersalat:</strong> ruccola på fat, grillet fersken over. Hold burrata, dressing og pistasj til siste øyeblikk.</td></tr>
-<tr><td class="qty">17:00–17:30</td><td><strong>Bruschetta:</strong> rist brød og gni lett med hvitløk. Bland avrent tomat med olje, eddik, hvitløk og basilikum. Hold brød og topping separat til siste 15–20 min.</td></tr>
-<tr><td class="qty">17:15–17:40</td><td><strong>Sluttmontering:</strong> vend tomater og syltet løk inn i pasta, topp med pinjekjerner/basilikum. Finish caprese, burratasalat og verdure. Monter første runde bruschetta.</td></tr>
-<tr><td class="qty">17:40–18:00</td><td><strong>Buffet ut:</strong> focaccia/aioli → antipasti → bruschetta → caprese → sommersalat → verdure → strozzapreti → polpette → kylling. Sett ut ca. 60–70 % av kalde retter og behold resten som reserve.</td></tr>
-</tbody></table>
+        <h3>Lørdag · sluttproduksjon mot buffet ca. 18:00</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Tid</th>
+              <th>Produksjon</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="qty">14:30–15:30</td>
+              <td><strong>Kylling:</strong> stek i ett lag på brett ved ca. 210 °C til gjennomstekt. Grill/stek sitron til servering. Samtidig: sett polpette til rolig oppvarming og skjær focaccia.</td>
+            </tr>
+            <tr>
+              <td class="qty">15:30–16:30</td>
+              <td><strong>Pasta:</strong> kok strozzapreti tydelig al dente. Spar pastavann. Spre på brede brett og vend med litt olje. Vend inn pesto og parmesan mens pastaen er lun; hold tomater, rødløk, pinjekjerner og basilikum separat.</td>
+            </tr>
+            <tr>
+              <td class="qty">16:00–16:45</td>
+              <td><strong>Caprese:</strong> skjær store tomater i 8–10 mm skiver, del små tomater og skjær mozzarella. Legg opp, men vent med salt, basilikum, olje og balsamico.</td>
+            </tr>
+            <tr>
+              <td class="qty">16:30–17:00</td>
+              <td><strong>Antipasti:</strong> fold prosciutto, legg opp salami/coppa, oster, oliven og artisjokker. Dekk løst og la temperere kontrollert.</td>
+            </tr>
+            <tr>
+              <td class="qty">16:45–17:15</td>
+              <td><strong>Sommersalat:</strong> ruccola på fat, grillet fersken over. Hold burrata, dressing og pistasj til siste øyeblikk.</td>
+            </tr>
+            <tr>
+              <td class="qty">17:00–17:30</td>
+              <td><strong>Bruschetta:</strong> rist brød og gni lett med hvitløk. Bland avrent tomat med olje, eddik, hvitløk og basilikum. Hold brød og topping separat til siste 15–20 min.</td>
+            </tr>
+            <tr>
+              <td class="qty">17:15–17:40</td>
+              <td><strong>Sluttmontering:</strong> vend tomater og syltet løk inn i pasta, topp med pinjekjerner/basilikum. Finish caprese, burratasalat og verdure. Monter første runde bruschetta.</td>
+            </tr>
+            <tr>
+              <td class="qty">17:40–18:00</td>
+              <td><strong>Buffet ut:</strong> focaccia/aioli → antipasti → bruschetta → caprese → sommersalat → verdure → strozzapreti → polpette → kylling. Sett ut ca. 60–70 % av kalde retter og behold resten som reserve.</td>
+            </tr>
+          </tbody>
+        </table>
 
-<h3>Lørdag · nattmat</h3>
-<table><thead><tr><th>Tid</th><th>Produksjon</th></tr></thead><tbody>
-<tr><td class="qty">21:45</td><td>Ta lasagne ut av kjøl. Forvarm ovn til 190–200 °C. Dekk løst med folie og varm.</td></tr>
-<tr><td class="qty">22:30</td><td>Kontroller at lasagnen er gjennomvarm. Fjern folie mot slutten for å friske opp toppen. La hvile 15–20 min.</td></tr>
-<tr><td class="qty">23:00</td><td>Server én eller to former først og hold resten varmt til det faktisk trengs.</td></tr>
-</tbody></table>
+        <h3>Lørdag · nattmat</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Tid</th>
+              <th>Produksjon</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="qty">21:45</td>
+              <td>Ta lasagne ut av kjøl. Forvarm ovn til 190–200 °C. Dekk løst med folie og varm.</td>
+            </tr>
+            <tr>
+              <td class="qty">22:30</td>
+              <td>Kontroller at lasagnen er gjennomvarm. Fjern folie mot slutten for å friske opp toppen. La hvile 15–20 min.</td>
+            </tr>
+            <tr>
+              <td class="qty">23:00</td>
+              <td>Server én eller to former først og hold resten varmt til det faktisk trengs.</td>
+            </tr>
+          </tbody>
+        </table>
 
-<div class="workflow-grid">
-<div class="workflow-card"><h3>Kritisk før lørdag</h3><p>Tomatbase, ragù, polpette, ferdigstekt lasagne, marinerte grønnsaker, bakte cherrytomater, syltet løk, pesto, nøtter, kyllingmarinering, focacciadeig og lunsjens løk/dressing.</p></div>
-<div class="workflow-card"><h3>Må gjøres nær servering</h3><p>Koke pasta, steke kylling, skjære capresetomater, åpne burrata, riste og montere bruschetta, legge opp spekemat og gjøre siste oppvarming av polpette.</p></div>
-</div>
-<div class="note"><strong>Hvis du havner bakpå:</strong> Server bruschettabrød og tomatblanding separat; dropp dekorative detaljer; legg antipasti og verdure enklere opp. Ikke skyv på pasta, kylling eller oppvarming av polpette.</div>
-</section><section class="shopping">
-<header class="dish-header">
-<div class="dish-number">SAMLET INNKJØP</div>
-<h2>Fullstendig handleliste</h2>
-</header>
-<p class="shopping-intro">Mengdene under er konsolidert for hele menyen. Kolonnen «Kjøp ca.» runder opp til praktiske pakningsstørrelser og inkluderer en liten arbeidsmargin. Den felles tomatbasen til polpette og lasagne er bare telt én gang.</p>
-<div class="shopping-group">
-<h3>Frukt, grønnsaker &amp; urter</h3>
-<table><thead><tr><th></th><th>Kjøp ca.</th><th>Vare / faktisk behov</th></tr></thead><tbody>
-<tr><td>☐</td><td>6,5 kg</td><td>Modne tomater <span class="buy">· behov 6,1 kg</span></td></tr>
-<tr><td>☐</td><td>2,5 kg</td><td>Cherrytomater <span class="buy">· behov 2,2 kg</span></td></tr>
-<tr><td>☐</td><td>2,5 kg</td><td>Fersken, modne men faste <span class="buy">· behov 2,3 kg / ca. 16–18 stk.</span></td></tr>
-<tr><td>☐</td><td>2,0 kg</td><td>Aubergine <span class="buy">· ca. 4–5 stk.</span></td></tr>
-<tr><td>☐</td><td>2,0 kg</td><td>Squash <span class="buy">· ca. 6–8 stk.</span></td></tr>
-<tr><td>☐</td><td>2,5 kg</td><td>Paprika <span class="buy">· ca. 8–10 stk.</span></td></tr>
-<tr><td>☐</td><td>1,2 kg</td><td>Fennikel <span class="buy">· ca. 4 store</span></td></tr>
-<tr><td>☐</td><td>1,7–2,0 kg</td><td>Rødløk <span class="buy">· behov 1,7 kg</span></td></tr>
-<tr><td>☐</td><td>2,5 kg</td><td>Gul løk <span class="buy">· behov 2,1 kg</span></td></tr>
-<tr><td>☐</td><td>500 g</td><td>Gulrot</td></tr>
-<tr><td>☐</td><td>400–500 g</td><td>Stangselleri</td></tr>
-<tr><td>☐</td><td>600 g</td><td>Ruccola</td></tr>
-<tr><td>☐</td><td>500 g</td><td>Hvitløk <span class="buy">· behov ca. 450 g</span></td></tr>
-<tr><td>☐</td><td>Ca. 35 stk.</td><td>Sitroner <span class="buy">· dekker ca. 1,1 l saft, skall til flere retter og 6 serveringssitroner</span></td></tr>
-<tr><td>☐</td><td>450–500 g</td><td>Frisk basilikum</td></tr>
-<tr><td>☐</td><td>500 g</td><td>Bladpersille</td></tr>
-<tr><td>☐</td><td>150 g</td><td>Frisk rosmarin <span class="buy">· behov 140 g</span></td></tr>
-<tr><td>☐</td><td>100 g</td><td>Frisk timian <span class="buy">· behov 80 g</span></td></tr>
-</tbody></table>
-</div>
-<div class="shopping-group">
-<h3>Kjøtt &amp; spekemat</h3>
-<table><thead><tr><th></th><th>Kjøp ca.</th><th>Vare / faktisk behov</th></tr></thead><tbody>
-<tr><td>☐</td><td>8,8 kg</td><td>Kjøttdeig, gjerne blanding av storfe og svin</td></tr>
-<tr><td>☐</td><td>8,0 kg</td><td>Utbeinede kyllinglår, gjerne med skinn</td></tr>
-<tr><td>☐</td><td>1,0 kg</td><td>Prosciutto</td></tr>
-<tr><td>☐</td><td>800 g</td><td>Salami Milano</td></tr>
-<tr><td>☐</td><td>700 g</td><td>Coppa</td></tr>
-<tr><td>☐</td><td>600 g</td><td>Sterk italiensk salami</td></tr>
-</tbody></table>
-</div>
-<div class="shopping-group">
-<h3>Meieri &amp; egg</h3>
-<table><thead><tr><th></th><th>Kjøp ca.</th><th>Vare / faktisk behov</th></tr></thead><tbody>
-<tr><td>☐</td><td>6 l</td><td>Helmelk <span class="buy">· behov 5,15 l</span></td></tr>
-<tr><td>☐</td><td>12 stk.</td><td>Egg <span class="buy">· behov 9 stk.</span></td></tr>
-<tr><td>☐</td><td>2,2 kg</td><td>Parmigiano Reggiano <span class="buy">· behov 2,1 kg, pluss eventuelt litt til servering</span></td></tr>
-<tr><td>☐</td><td>600 g</td><td>Pecorino</td></tr>
-<tr><td>☐</td><td>700 g</td><td>Taleggio eller annen mild, myk italiensk ost</td></tr>
-<tr><td>☐</td><td>2,0 kg</td><td>Fersk mozzarella</td></tr>
-<tr><td>☐</td><td>1,0 kg</td><td>Revet mozzarella</td></tr>
-<tr><td>☐</td><td>1,5 kg</td><td>Burrata</td></tr>
-<tr><td>☐</td><td>400 g</td><td>Smør</td></tr>
-<tr><td>☐</td><td>1,2 kg</td><td>Majones</td></tr>
-</tbody></table>
-</div>
-<div class="shopping-group">
-<h3>Brød, pasta &amp; tørrvarer</h3>
-<table><thead><tr><th></th><th>Kjøp ca.</th><th>Vare / faktisk behov</th></tr></thead><tbody>
-<tr><td>☐</td><td>5 kg</td><td>Hvetemel / sterkt pizzamel <span class="buy">· behov 4,2 kg totalt</span></td></tr>
-<tr><td>☐</td><td>1 pose</td><td>Tørrgjær <span class="buy">· behov 35 g, alternativt ca. 100 g fersk gjær</span></td></tr>
-<tr><td>☐</td><td>600 g</td><td>Brødsmuler <span class="buy">· behov 550 g</span></td></tr>
-<tr><td>☐</td><td>2,6 kg</td><td>Ciabatta eller lyst surdeigsbrød</td></tr>
-<tr><td>☐</td><td>3,0 kg</td><td>Tørr strozzapreti <span class="buy">· behov 2,8 kg</span></td></tr>
-<tr><td>☐</td><td>2,0 kg</td><td>Lasagneplater</td></tr>
-<tr><td>☐</td><td>750 g</td><td>Pesto genovese</td></tr>
-<tr><td>☐</td><td>250 g</td><td>Pinjekjerner</td></tr>
-<tr><td>☐</td><td>250 g</td><td>Pistasjnøtter</td></tr>
-<tr><td>☐</td><td>300 g</td><td>Flytende honning <span class="buy">· behov ca. 240 g dersom focacciaen også søtes med honning</span></td></tr>
-<tr><td>☐</td><td>200 g</td><td>Sukker <span class="buy">· behov 120 g, pluss eventuell bruk i focaccia</span></td></tr>
-<tr><td>☐</td><td>1 kg</td><td>Fint salt <span class="buy">· oppskriftene bruker minst ca. 500 g, i tillegg til pastavann og justering</span></td></tr>
-<tr><td>☐</td><td>125–150 g</td><td>Flaksalt <span class="buy">· behov ca. 80 g</span></td></tr>
-<tr><td>☐</td><td>1 boks/kvern</td><td>Svart pepper</td></tr>
-<tr><td>☐</td><td>1 lite glass</td><td>Revet muskat <span class="buy">· behov 10 g</span></td></tr>
-<tr><td>☐</td><td>1 glass</td><td>Tørket oregano</td></tr>
-<tr><td>☐</td><td>1 glass</td><td>Chiliflak, valgfritt</td></tr>
-</tbody></table>
-</div>
-<div class="shopping-group">
-<h3>Olje, vin, eddik &amp; tomatvarer</h3>
-<table><thead><tr><th></th><th>Kjøp ca.</th><th>Vare / faktisk behov</th></tr></thead><tbody>
-<tr><td>☐</td><td>5 l</td><td>Olivenolje <span class="buy">· behov ca. 4,0 l; bruk gjerne minst 2 l god extra virgin til kalde retter og finishing</span></td></tr>
-<tr><td>☐</td><td>2 flasker</td><td>Rødvin à 750 ml <span class="buy">· behov 1,25 l til den felles tomatbasen</span></td></tr>
-<tr><td>☐</td><td>500 ml</td><td>Rødvinseddik <span class="buy">· behov ca. 420 ml</span></td></tr>
-<tr><td>☐</td><td>250 ml</td><td>Balsamicokrem <span class="buy">· behov ca. 100 ml; valgfritt</span></td></tr>
-<tr><td>☐</td><td>10 kg</td><td>Passata eller knuste tomater <span class="buy">· for eksempel 15 × 690 g flasker eller tilsvarende</span></td></tr>
-<tr><td>☐</td><td>300 g</td><td>Tomatpuré</td></tr>
-<tr><td>☐</td><td>1 l</td><td>Kraft til lasagneragù <span class="buy">· eventuelt vann</span></td></tr>
-</tbody></table>
-</div>
-<div class="shopping-group">
-<h3>Glass, bokser &amp; antipasti</h3>
-<table><thead><tr><th></th><th>Kjøp ca.</th><th>Vare / faktisk behov</th></tr></thead><tbody>
-<tr><td>☐</td><td>1,2 kg avrent</td><td>Oliven <span class="buy">· kontroller avrent vekt på glassene</span></td></tr>
-<tr><td>☐</td><td>800 g avrent</td><td>Marinerte artisjokker <span class="buy">· kontroller avrent vekt på glassene</span></td></tr>
-</tbody></table>
-</div>
-<div class="note"><strong>Viktig ved innkjøp:</strong> Handlelisten inkluderer en moderat sikkerhetsmargin, men ikke drikke, dessert eller ekstra brød til nattmaten. Salt, pepper, olje og sitron er rundet mer opp enn øvrige varer fordi de brukes på tvers av mange komponenter og må kunne justeres underveis.</div>
-</section>
-</main>
-</body>
+        <div class="workflow-grid">
+          <div class="workflow-card">
+            <h3>Kritisk før lørdag</h3>
+            <p>Tomatbase, ragù, polpette, ferdigstekt lasagne, marinerte grønnsaker, bakte cherrytomater, syltet løk, pesto, nøtter, kyllingmarinering, focacciadeig og lunsjens løk/dressing.</p>
+          </div>
+          <div class="workflow-card">
+            <h3>Må gjøres nær servering</h3>
+            <p>Koke pasta, steke kylling, skjære capresetomater, åpne burrata, riste og montere bruschetta, legge opp spekemat og gjøre siste oppvarming av polpette.</p>
+          </div>
+        </div>
+        <div
+          class="note"><strong>Hvis du havner bakpå:</strong> Server bruschettabrød og tomatblanding separat; dropp dekorative detaljer; legg antipasti og verdure enklere opp. Ikke skyv på pasta, kylling eller oppvarming av polpette.</div>
+      </section>
+      <section class="shopping">
+        <header class="dish-header">
+          <div class="dish-number">SAMLET INNKJØP</div>
+          <h2>Fullstendig handleliste</h2>
+        </header>
+        <p
+          class="shopping-intro">Mengdene under er konsolidert for hele menyen. Kolonnen «Kjøp ca.» runder opp til praktiske pakningsstørrelser og inkluderer en liten arbeidsmargin. Den felles tomatbasen til polpette og lasagne er bare telt én gang.</p>
+        <div class="shopping-group">
+          <h3>Frukt, grønnsaker &amp; urter</h3>
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Kjøp ca.</th>
+                <th>Vare / faktisk behov</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>☐</td>
+                <td>6,5 kg</td>
+                <td>Modne tomater <span class="buy">· behov 6,1 kg</span></td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>2,5 kg</td>
+                <td>Cherrytomater <span class="buy">· behov 2,2 kg</span></td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>2,5 kg</td>
+                <td>Fersken, modne men faste <span class="buy">· behov 2,3 kg / ca. 16–18 stk.</span></td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>2,0 kg</td>
+                <td>Aubergine <span class="buy">· ca. 4–5 stk.</span></td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>2,0 kg</td>
+                <td>Squash <span class="buy">· ca. 6–8 stk.</span></td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>2,5 kg</td>
+                <td>Paprika <span class="buy">· ca. 8–10 stk.</span></td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>1,2 kg</td>
+                <td>Fennikel <span class="buy">· ca. 4 store</span></td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>1,7–2,0 kg</td>
+                <td>Rødløk <span class="buy">· behov 1,7 kg</span></td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>2,5 kg</td>
+                <td>Gul løk <span class="buy">· behov 2,1 kg</span></td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>500 g</td>
+                <td>Gulrot</td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>400–500 g</td>
+                <td>Stangselleri</td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>600 g</td>
+                <td>Ruccola</td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>500 g</td>
+                <td>Hvitløk <span class="buy">· behov ca. 450 g</span></td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>Ca. 35 stk.</td>
+                <td>Sitroner <span class="buy">· dekker ca. 1,1 l saft, skall til flere retter og 6 serveringssitroner</span></td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>450–500 g</td>
+                <td>Frisk basilikum</td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>500 g</td>
+                <td>Bladpersille</td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>150 g</td>
+                <td>Frisk rosmarin <span class="buy">· behov 140 g</span></td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>100 g</td>
+                <td>Frisk timian <span class="buy">· behov 80 g</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="shopping-group">
+          <h3>Kjøtt &amp; spekemat</h3>
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Kjøp ca.</th>
+                <th>Vare / faktisk behov</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>☐</td>
+                <td>8,8 kg</td>
+                <td>Kjøttdeig, gjerne blanding av storfe og svin</td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>8,0 kg</td>
+                <td>Utbeinede kyllinglår, gjerne med skinn</td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>1,0 kg</td>
+                <td>Prosciutto</td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>800 g</td>
+                <td>Salami Milano</td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>700 g</td>
+                <td>Coppa</td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>600 g</td>
+                <td>Sterk italiensk salami</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="shopping-group">
+          <h3>Meieri &amp; egg</h3>
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Kjøp ca.</th>
+                <th>Vare / faktisk behov</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>☐</td>
+                <td>6 l</td>
+                <td>Helmelk <span class="buy">· behov 5,15 l</span></td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>12 stk.</td>
+                <td>Egg <span class="buy">· behov 9 stk.</span></td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>2,2 kg</td>
+                <td>Parmigiano Reggiano <span class="buy">· behov 2,1 kg, pluss eventuelt litt til servering</span></td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>600 g</td>
+                <td>Pecorino</td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>700 g</td>
+                <td>Taleggio eller annen mild, myk italiensk ost</td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>2,0 kg</td>
+                <td>Fersk mozzarella</td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>1,0 kg</td>
+                <td>Revet mozzarella</td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>1,5 kg</td>
+                <td>Burrata</td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>400 g</td>
+                <td>Smør</td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>1,2 kg</td>
+                <td>Majones</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="shopping-group">
+          <h3>Brød, pasta &amp; tørrvarer</h3>
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Kjøp ca.</th>
+                <th>Vare / faktisk behov</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>☐</td>
+                <td>5 kg</td>
+                <td>Hvetemel / sterkt pizzamel <span class="buy">· behov 4,2 kg totalt</span></td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>1 pose</td>
+                <td>Tørrgjær <span class="buy">· behov 35 g, alternativt ca. 100 g fersk gjær</span></td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>600 g</td>
+                <td>Brødsmuler <span class="buy">· behov 550 g</span></td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>2,6 kg</td>
+                <td>Ciabatta eller lyst surdeigsbrød</td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>3,0 kg</td>
+                <td>Tørr strozzapreti <span class="buy">· behov 2,8 kg</span></td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>2,0 kg</td>
+                <td>Lasagneplater</td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>750 g</td>
+                <td>Pesto genovese</td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>250 g</td>
+                <td>Pinjekjerner</td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>250 g</td>
+                <td>Pistasjnøtter</td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>300 g</td>
+                <td>Flytende honning <span class="buy">· behov ca. 240 g dersom focacciaen også søtes med honning</span></td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>200 g</td>
+                <td>Sukker <span class="buy">· behov 120 g, pluss eventuell bruk i focaccia</span></td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>1 kg</td>
+                <td>Fint salt <span class="buy">· oppskriftene bruker minst ca. 500 g, i tillegg til pastavann og justering</span></td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>125–150 g</td>
+                <td>Flaksalt <span class="buy">· behov ca. 80 g</span></td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>1 boks/kvern</td>
+                <td>Svart pepper</td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>1 lite glass</td>
+                <td>Revet muskat <span class="buy">· behov 10 g</span></td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>1 glass</td>
+                <td>Tørket oregano</td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>1 glass</td>
+                <td>Chiliflak, valgfritt</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="shopping-group">
+          <h3>Olje, vin, eddik &amp; tomatvarer</h3>
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Kjøp ca.</th>
+                <th>Vare / faktisk behov</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>☐</td>
+                <td>5 l</td>
+                <td>Olivenolje <span class="buy">· behov ca. 4,0 l; bruk gjerne minst 2 l god extra virgin til kalde retter og finishing</span></td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>2 flasker</td>
+                <td>Rødvin à 750 ml <span class="buy">· behov 1,25 l til den felles tomatbasen</span></td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>500 ml</td>
+                <td>Rødvinseddik <span class="buy">· behov ca. 420 ml</span></td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>250 ml</td>
+                <td>Balsamicokrem <span class="buy">· behov ca. 100 ml; valgfritt</span></td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>10 kg</td>
+                <td>Passata eller knuste tomater <span class="buy">· for eksempel 15 × 690 g flasker eller tilsvarende</span></td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>300 g</td>
+                <td>Tomatpuré</td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>1 l</td>
+                <td>Kraft til lasagneragù <span class="buy">· eventuelt vann</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="shopping-group">
+          <h3>Glass, bokser &amp; antipasti</h3>
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Kjøp ca.</th>
+                <th>Vare / faktisk behov</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>☐</td>
+                <td>1,2 kg avrent</td>
+                <td>Oliven <span class="buy">· kontroller avrent vekt på glassene</span></td>
+              </tr>
+              <tr>
+                <td>☐</td>
+                <td>800 g avrent</td>
+                <td>Marinerte artisjokker <span class="buy">· kontroller avrent vekt på glassene</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div
+          class="note"><strong>Viktig ved innkjøp:</strong> Handlelisten inkluderer en moderat sikkerhetsmargin, men ikke drikke, dessert eller ekstra brød til nattmaten. Salt, pepper, olje og sitron er rundet mer opp enn øvrige varer fordi de brukes på tvers av mange komponenter og må kunne justeres underveis.</div>
+      </section>
+    </main>
+  </body>
 </html>
