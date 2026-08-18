@@ -3,5 +3,5 @@
 set -e
 cd "$(dirname "$0")"
 rm -rf dist && mkdir dist
-cp index.html oppskrifter.html handleliste.html styles.css dist/
+cp index.html oppskrifter.html handleliste.html styles.css nav.js dist/
 npx --yes wrangler pages deploy dist --project-name mat-rix1-dev --commit-dirty=true
