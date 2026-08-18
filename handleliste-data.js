@@ -846,15 +846,16 @@ window.HANDLELISTE_DATA = {
     },
     {
       "id": "natt-vegetarpolser",
-      "vendor": "oda",
+      "vendor": "manuelt",
       "meal": "nattmat",
       "qty": "2 pk (480 g)",
       "name": "Vegetarpølser",
       "aria": "Vegetarpølser kjøpt",
-      "product": "<a href=\"https://oda.com/no/products/60216-govegan-grillpolse/\" target=\"_blank\" rel=\"noopener\">Go'Vegan Grillpølse</a>",
+      "product": "Dagligvare/Meny – Go’Vegan Grillpølse er utsolgt hos Oda",
       "price": 103,
-      "buy": "2 × 51,6 kr (240 g)",
-      "note": "Til de tre vegetarene, med margin."
+      "buy": "2 pk × ca. 50 kr",
+      "note": "Utsolgt hos Oda – kjøp 2 pk vegetarpølser manuelt, f.eks. sammen med feldsalaten på Meny fredag. Til de tre vegetarene, med margin.",
+      "priceText": "ca. 103 kr"
     },
     {
       "id": "natt-polsebrod",
