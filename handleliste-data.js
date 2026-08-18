@@ -98,13 +98,13 @@ window.HANDLELISTE_DATA = {
       "id": "parmigiano",
       "vendor": "smak",
       "meal": "middag",
-      "qty": "1,5 kg",
+      "qty": "1,6 kg",
       "name": "Parmigiano Reggiano",
       "aria": "Parmigiano Reggiano kjøpt",
       "product": "<a href=\"https://smakavitalia.no/parmigiano-reggiano-21-24-mnd-dop-ca-1kg-gennari\" target=\"_blank\" rel=\"noopener\">Parmigiano Reggiano 21-24 mnd DOP ca 1 kg – Caseificio Gennari</a>",
-      "price": 675,
-      "buy": "1,5 kg × 450 kr/kg",
-      "note": "Behov uten lasagne: ca. 1,4 kg (antipasti 600 g + polpette 320 g + pasta 450 g). Be om ett stykke à ca. 1,1 kg og ett à ca. 400 g, betales etter faktisk vekt."
+      "price": 720,
+      "buy": "1,6 kg × 450 kr/kg",
+      "note": "Behov: ca. 1,47 kg (antipasti 600 g + polpette 320 g + pasta 550 g). Be om ett stykke à ca. 1,1 kg og ett à ca. 500 g, betales etter faktisk vekt."
     },
     {
       "id": "pecorino",
@@ -170,13 +170,13 @@ window.HANDLELISTE_DATA = {
       "id": "strozzapreti",
       "vendor": "smak",
       "meal": "middag",
-      "qty": "3,0 kg",
+      "qty": "3,5 kg",
       "name": "Tørr pasta (strozzapreti)",
       "aria": "Tørr pasta (strozzapreti) kjøpt",
       "product": "<a href=\"https://smakavitalia.no/e-caserecce\" target=\"_blank\" rel=\"noopener\">e Caserecce – La Fabbrica della Pasta di Gragnano</a>",
-      "price": 216,
-      "buy": "6 × 36 kr (500 g)",
-      "note": "Strozzapreti finnes ikke hos Smak av Italia – caserecce fra Gragnano er erstatningen (samme rolle i retten)."
+      "price": 252,
+      "buy": "7 × 36 kr (500 g)",
+      "note": "Strozzapreti finnes ikke hos Smak av Italia – caserecce fra Gragnano er erstatningen (samme rolle i retten). Skalert opp fra 3,0 kg: eneste pastarett, mange fyller tallerkenen her (oppskriften bruker 3,4 kg)."
     },
     {
       "id": "pizzamel",
@@ -194,13 +194,13 @@ window.HANDLELISTE_DATA = {
       "id": "pesto-genovese",
       "vendor": "smak",
       "meal": "middag",
-      "qty": "800 g",
+      "qty": "900 g",
       "name": "Pesto genovese",
       "aria": "Pesto genovese kjøpt",
       "product": "<a href=\"https://smakavitalia.no/pesto-alla-genovese-500g-gran-cucina\" target=\"_blank\" rel=\"noopener\">Pesto alla Genovese – Gran Cucina</a>",
-      "price": 398,
-      "buy": "2 × 199 kr (500 g)",
-      "note": "2 × 500 g gir 200 g buffer. Lavt lagerantall enkelte butikker – bestill tidlig."
+      "price": 597,
+      "buy": "3 × 199 kr (500 g)",
+      "note": "Pastaen bruker 900 g (skalert opp med pastaen); resten er margin til lunsjens vegetar-ciabatta og søl. Lavt lagerantall enkelte butikker – bestill tidlig."
     },
     {
       "id": "pesto-gf-lf",
@@ -420,12 +420,13 @@ window.HANDLELISTE_DATA = {
       "id": "sukker",
       "vendor": "oda",
       "meal": "middag",
-      "qty": "200 g",
+      "qty": "100 g",
       "name": "Sukker",
       "aria": "Sukker kjøpt",
       "product": "<a href=\"https://oda.com/no/products/7813-dansukker-sukker/\" target=\"_blank\" rel=\"noopener\">Dansukker Sukker</a>",
       "price": 37,
-      "buy": "1 × 37,1 kr (1 kg)"
+      "buy": "1 × 37,1 kr (1 kg)",
+      "note": "Til focaccia (60 g) og lunsjens karamelliserte løk. Pastaens syltelake er utgått."
     },
     {
       "id": "salt-fint",
@@ -486,12 +487,13 @@ window.HANDLELISTE_DATA = {
       "id": "rodvinseddik",
       "vendor": "oda",
       "meal": "middag",
-      "qty": "500 ml",
+      "qty": "250 ml",
       "name": "Rødvinseddik",
       "aria": "Rødvinseddik kjøpt",
       "product": "<a href=\"https://oda.com/no/products/32491-il-torrione-rodvinseddik/\" target=\"_blank\" rel=\"noopener\">Il Torrione Rødvinseddik</a>",
-      "price": 79,
-      "buy": "2 × 39,4 kr (250 ml)"
+      "price": 39,
+      "buy": "1 × 39,4 kr (250 ml)",
+      "note": "Bruschetta 70 ml + verdure 100 ml + skvett til lunsjens løk. Pastaens syltelake er utgått – rødløken brukes rå."
     },
     {
       "id": "tomater",
@@ -508,13 +510,13 @@ window.HANDLELISTE_DATA = {
       "id": "cherrytomater",
       "vendor": "oda",
       "meal": "middag",
-      "qty": "2,5 kg",
+      "qty": "2,75 kg",
       "name": "Cherrytomater",
       "aria": "Cherrytomater kjøpt",
       "product": "<a href=\"https://oda.com/no/products/63848-cherrytomater-var-laveste-pris-nederland-spania/\" target=\"_blank\" rel=\"noopener\">Cherrytomater – Vår laveste pris (Nederland/Spania)</a>",
-      "price": 199,
-      "buy": "10 × 19,9 kr (250 g)",
-      "note": "Prisen er kampanje t.o.m. 31.8."
+      "price": 219,
+      "buy": "11 × 19,9 kr (250 g)",
+      "note": "Pastaen bruker 2,5 kg (skalert opp). Prisen er kampanje t.o.m. 31.8."
     },
     {
       "id": "fersken",
