@@ -46,7 +46,7 @@ window.HANDLELISTE_DATA = {
           "key": "nattmat",
           "title": "Nattmat lørdag kveld",
           "sub": "pølser i brød/lompe · ca. 50–55 sene gjester",
-          "note": "Kjøpes med Oda-leveringen onsdag 19. august. Hovedpølsen skal være merket gluten- og laktosefri – mange norske grill- og wienerpølser er det, men les etiketten. Vegetar- og kyllingpølsene varmes i egen liten kjele med egen klype; de glutenfrie brødene serveres fra egen pose/kurv. Konkrete produkter er lagt i Oda-handlekurven 18. august; hovedpølsene (Gilde) er merket gluten- og laktosefrie, men les etiketten ved levering."
+          "note": "Kjøpes med Oda-leveringen onsdag 19. august. Hovedpølsen skal være merket gluten- og laktosefri – mange norske grill- og wienerpølser er det, men les etiketten. Vegetar- og kyllingpølsene varmes i egen liten kjele med egen klype; de glutenfrie brødene serveres fra egen pose/kurv. Konkrete produkter er lagt i Oda-handlekurven 18. august; hovedpølsene (Leiv Vidar wienerpølser) er merket gluten- og melkefrie, men les etiketten ved levering."
         }
       ]
     }
@@ -824,13 +824,13 @@ window.HANDLELISTE_DATA = {
       "id": "natt-polser",
       "vendor": "oda",
       "meal": "nattmat",
-      "qty": "6,0 kg (ca. 100 stk)",
-      "name": "Grill-/wienerpølser, gluten- og laktosefrie",
-      "aria": "Grillpølser/wienerpølser kjøpt",
-      "product": "<a href=\"https://oda.com/no/products/40419-gilde-grillpolser-2-pk-2x600g/\" target=\"_blank\" rel=\"noopener\">Gilde Grillpølser 2 pk (2 × 600 g)</a>",
-      "price": 360,
-      "buy": "5 × 71,9 kr (1,2 kg)",
-      "note": "Gilde Grillpølser er merket gluten- og laktosefrie – dobbeltsjekk etiketten ved levering. Ca. 2 pølser per sen gjest."
+      "qty": "ca. 98 stk (5,4 kg)",
+      "name": "Wienerpølser, gluten- og laktosefrie",
+      "aria": "Wienerpølser kjøpt",
+      "product": "<a href=\"https://oda.com/no/products/67174-leiv-vidar-wienerpolser-14-stk/\" target=\"_blank\" rel=\"noopener\">Leiv Vidar Wienerpølser 14 stk</a>",
+      "price": 489,
+      "buy": "7 × 69,9 kr (14 stk / 770 g)",
+      "note": "Wiener, ikke grillpølse. Leiv Vidar wienerpølser er merket gluten- og melkefrie – dobbeltsjekk etiketten ved levering. Ca. 2 pølser per sen gjest."
     },
     {
       "id": "natt-kyllingpolser",
