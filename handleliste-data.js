@@ -46,7 +46,7 @@ window.HANDLELISTE_DATA = {
           "key": "nattmat",
           "title": "Nattmat lørdag kveld",
           "sub": "pølser i brød/lompe · ca. 50–55 sene gjester",
-          "note": "Kjøpes med Oda-leveringen onsdag 19. august. Hovedpølsen skal være merket gluten- og laktosefri – mange norske grill- og wienerpølser er det, men les etiketten. Vegetar- og kyllingpølsene varmes i egen liten kjele med egen klype; de glutenfrie brødene serveres fra egen pose/kurv. Prisene er anslag."
+          "note": "Kjøpes med Oda-leveringen onsdag 19. august. Hovedpølsen skal være merket gluten- og laktosefri – mange norske grill- og wienerpølser er det, men les etiketten. Vegetar- og kyllingpølsene varmes i egen liten kjele med egen klype; de glutenfrie brødene serveres fra egen pose/kurv. Konkrete produkter er lagt i Oda-handlekurven 18. august; hovedpølsene (Gilde) er merket gluten- og laktosefrie, men les etiketten ved levering."
         }
       ]
     }
@@ -788,14 +788,13 @@ window.HANDLELISTE_DATA = {
       "id": "lunsj-dijon",
       "vendor": "oda",
       "meal": "lunsj",
-      "qty": "2 glass (ca. 430 g)",
+      "qty": "2 glass (760 g)",
       "name": "Dijonsennep",
       "aria": "Dijonsennep kjøpt",
-      "product": "Oda, f.eks. Maille Dijon Original 215 g",
-      "price": 90,
-      "buy": "2 × ca. 45 kr",
-      "note": "Smøres på brødet; ca. 10 g per sandwich gir god margin. Anslått pris.",
-      "priceText": "ca. 90 kr"
+      "product": "<a href=\"https://oda.com/no/products/545-maille-dijonsennep-original/\" target=\"_blank\" rel=\"noopener\">Maille Dijonsennep Original</a>",
+      "price": 70,
+      "buy": "2 × 34,8 kr (380 g)",
+      "note": "Smøres på brødet; ca. 10 g per sandwich gir god margin. Rester brukes til nattmaten."
     },
     {
       "id": "lunsj-ruccola",
@@ -828,37 +827,34 @@ window.HANDLELISTE_DATA = {
       "qty": "6,0 kg (ca. 100 stk)",
       "name": "Grill-/wienerpølser, gluten- og laktosefrie",
       "aria": "Grillpølser/wienerpølser kjøpt",
-      "product": "Oda, f.eks. Gilde",
-      "price": 620,
-      "buy": "10 × ca. 62 kr (600 g)",
-      "note": "Velg variant merket gluten- og laktosefri. Ca. 2 pølser per sen gjest.",
-      "priceText": "ca. 620 kr"
+      "product": "<a href=\"https://oda.com/no/products/40419-gilde-grillpolser-2-pk-2x600g/\" target=\"_blank\" rel=\"noopener\">Gilde Grillpølser 2 pk (2 × 600 g)</a>",
+      "price": 360,
+      "buy": "5 × 71,9 kr (1,2 kg)",
+      "note": "Gilde Grillpølser er merket gluten- og laktosefrie – dobbeltsjekk etiketten ved levering. Ca. 2 pølser per sen gjest."
     },
     {
       "id": "natt-kyllingpolser",
       "vendor": "oda",
       "meal": "nattmat",
-      "qty": "1 pk (ca. 350 g)",
+      "qty": "1 pk (460 g)",
       "name": "Kyllingpølser",
       "aria": "Kyllingpølser kjøpt",
-      "product": "Oda",
-      "price": 55,
-      "buy": "1 × ca. 55 kr",
-      "note": "Til gjestene uten svin og uten rødt kjøtt.",
-      "priceText": "ca. 55 kr"
+      "product": "<a href=\"https://oda.com/no/products/61618-solvinge-grillpolser-av-kylling/\" target=\"_blank\" rel=\"noopener\">Solvinge Grillpølser av kylling</a>",
+      "price": 44,
+      "buy": "1 × 43,7 kr (460 g)",
+      "note": "Til gjestene uten svin og uten rødt kjøtt."
     },
     {
       "id": "natt-vegetarpolser",
       "vendor": "oda",
       "meal": "nattmat",
-      "qty": "2 pk",
+      "qty": "2 pk (480 g)",
       "name": "Vegetarpølser",
       "aria": "Vegetarpølser kjøpt",
-      "product": "Oda",
-      "price": 90,
-      "buy": "2 × ca. 45 kr",
-      "note": "Til de tre vegetarene, med margin.",
-      "priceText": "ca. 90 kr"
+      "product": "<a href=\"https://oda.com/no/products/60216-govegan-grillpolse/\" target=\"_blank\" rel=\"noopener\">Go'Vegan Grillpølse</a>",
+      "price": 103,
+      "buy": "2 × 51,6 kr (240 g)",
+      "note": "Til de tre vegetarene, med margin."
     },
     {
       "id": "natt-polsebrod",
@@ -867,23 +863,21 @@ window.HANDLELISTE_DATA = {
       "qty": "60 stk",
       "name": "Pølsebrød",
       "aria": "Pølsebrød kjøpt",
-      "product": "Oda",
-      "price": 280,
-      "buy": "10 × ca. 28 kr (6 stk)",
-      "priceText": "ca. 280 kr"
+      "product": "<a href=\"https://oda.com/no/products/8342-prima-lavpris-polsebrod-12-stk/\" target=\"_blank\" rel=\"noopener\">Prima Lavpris Pølsebrød 12 stk</a>",
+      "price": 79,
+      "buy": "5 × 15,7 kr (12 stk)"
     },
     {
       "id": "natt-lomper",
       "vendor": "oda",
       "meal": "nattmat",
-      "qty": "50 stk",
+      "qty": "ca. 48 stk (6 pk)",
       "name": "Lomper",
       "aria": "Lomper kjøpt",
-      "product": "Oda",
-      "price": 150,
-      "buy": "6 × ca. 25 kr",
-      "note": "NB: vanlige lomper inneholder hvete – de er ikke til glutengjesten.",
-      "priceText": "ca. 150 kr"
+      "product": "<a href=\"https://oda.com/no/products/32194-ola-lompa-store-lomper/\" target=\"_blank\" rel=\"noopener\">Ola Lompa Store lomper</a>",
+      "price": 102,
+      "buy": "6 × 17 kr (290 g)",
+      "note": "NB: vanlige lomper inneholder hvete – de er ikke til glutengjesten."
     },
     {
       "id": "natt-gf-brod",
@@ -892,35 +886,32 @@ window.HANDLELISTE_DATA = {
       "qty": "1 pk",
       "name": "Glutenfrie pølsebrød",
       "aria": "Glutenfrie pølsebrød kjøpt",
-      "product": "Oda, f.eks. Hatting glutenfri",
-      "price": 45,
-      "buy": "1 × ca. 45 kr",
-      "note": "Oppbevares og serveres fra egen pose/kurv, adskilt fra hvetebrødet.",
-      "priceText": "ca. 45 kr"
+      "product": "<a href=\"https://oda.com/no/products/28535-fria-polsebrod-glutenfri/\" target=\"_blank\" rel=\"noopener\">Fria Pølsebrød Glutenfri</a>",
+      "price": 65,
+      "buy": "1 × 65,4 kr (210 g)",
+      "note": "Oppbevares og serveres fra egen pose/kurv, adskilt fra hvetebrødet."
     },
     {
       "id": "natt-ketchup",
       "vendor": "oda",
       "meal": "nattmat",
-      "qty": "1,0 kg",
+      "qty": "910 g",
       "name": "Ketchup",
       "aria": "Ketchup kjøpt",
-      "product": "Oda",
-      "price": 80,
-      "buy": "2 × ca. 40 kr (500 g)",
-      "priceText": "ca. 80 kr"
+      "product": "<a href=\"https://oda.com/no/products/57266-idun-tomatketchup/\" target=\"_blank\" rel=\"noopener\">Idun Tomatketchup</a>",
+      "price": 35,
+      "buy": "1 × 34,9 kr (910 g)"
     },
     {
       "id": "natt-sennep",
       "vendor": "oda",
       "meal": "nattmat",
-      "qty": "500 g",
+      "qty": "490 g",
       "name": "Mild sennep",
       "aria": "Mild sennep kjøpt",
-      "product": "Oda",
-      "price": 70,
-      "buy": "2 × ca. 35 kr (250 g)",
-      "priceText": "ca. 70 kr"
+      "product": "<a href=\"https://oda.com/no/products/570-idun-polsesennep/\" target=\"_blank\" rel=\"noopener\">Idun Pølsesennep</a>",
+      "price": 24,
+      "buy": "1 × 24 kr (490 g)"
     }
   ]
 };
