@@ -17,13 +17,13 @@ window.HANDLELISTE_DATA = {
           "key": "oda",
           "title": "Oda",
           "sub": "dagligvarer med hjemlevering",
-          "note": "<a href=\"https://oda.com/no/\" target=\"_blank\" rel=\"noopener\">oda.com</a> – hjemlevering i Oslo. Bestill leveringsvindu i god tid; ferskvarer leveres onsdag 19. august (jf. produksjonsplanen). Varene merket «Lunsj» og «Nattmat» bestilles i samme levering. Prisene er bekreftet 15. august og kan endres noe."
+          "note": "<a href=\"https://oda.com/no/\" target=\"_blank\" rel=\"noopener\">oda.com</a> – hjemlevering i Oslo. Bestill leveringsvindu i god tid; ferskvarer leveres onsdag 19. august (jf. produksjonsplanen). Varene merket «Lunsj» og «Nattmat» bestilles i samme levering. Prisene er bekreftet 15. august og kan endres noe. Hovedbestillingen ble lagt inn 19. august – radene kan krysses av; maks-grensene er flyttet til Manuelt."
         },
         {
           "key": "manuelt",
           "title": "Manuelt",
           "sub": "grønnsakshandler, fiskehandler, bakeri og Vinmonopolet",
-          "note": "Friske urter kjøpes hos grønnsakshandler (f.eks. Grønland) og feldsalatmiksen hos Meny (fredag) – all annen frukt og grønt ligger i Oda-bestillingen. Laksen bestilles hos fiskehandler senest mandag 17. august; lunsjens surdeigs-ciabatta (merket «Lunsj») avtales med bakeri samme dag. Vinen kjøpes på Vinmonopolet."
+          "note": "Friske urter kjøpes hos grønnsakshandler (f.eks. Grønland) og feldsalatmiksen hos Meny (fredag) – all annen frukt og grønt ligger i Oda-bestillingen. Laksen bestilles hos fiskehandler senest mandag 17. august; lunsjens surdeigs-ciabatta (merket «Lunsj») avtales med bakeri samme dag. Vinen kjøpes på Vinmonopolet. Suppleringsvarene fra Oda-bestillingens maks-grenser kjøpes hos grønnsakshandleren onsdag; wienerpølser og vegetarpølser i dagligvare innen lørdag."
         }
       ]
     },
@@ -46,7 +46,7 @@ window.HANDLELISTE_DATA = {
           "key": "nattmat",
           "title": "Nattmat lørdag kveld",
           "sub": "pølser i brød/lompe · ca. 50–55 sene gjester",
-          "note": "Kjøpes med Oda-leveringen onsdag 19. august. Hovedpølsen skal være merket gluten- og laktosefri – mange norske grill- og wienerpølser er det, men les etiketten. Vegetar- og kyllingpølsene varmes i egen liten kjele med egen klype; de glutenfrie brødene serveres fra egen pose/kurv. Konkrete produkter er lagt i Oda-handlekurven 18. august; hovedpølsene (Leiv Vidar wienerpølser) er merket gluten- og melkefrie, men les etiketten ved levering."
+          "note": "Hovedpølsene (wiener) og vegetarpølsene kjøpes nå manuelt – velg varianter merket gluten- og laktosefrie/melkefrie og les etiketten. Resten ble bestilt hos Oda 18.–19. august. Vegetar- og kyllingpølsene varmes i egen liten kjele med egen klype; de glutenfrie brødene serveres fra egen pose/kurv."
         }
       ]
     }
@@ -510,13 +510,13 @@ window.HANDLELISTE_DATA = {
       "id": "cherrytomater",
       "vendor": "oda",
       "meal": "middag",
-      "qty": "2,75 kg",
+      "qty": "750 g (bestilt)",
       "name": "Cherrytomater",
       "aria": "Cherrytomater kjøpt",
       "product": "<a href=\"https://oda.com/no/products/63848-cherrytomater-var-laveste-pris-nederland-spania/\" target=\"_blank\" rel=\"noopener\">Cherrytomater – Vår laveste pris (Nederland/Spania)</a>",
-      "price": 219,
-      "buy": "11 × 19,9 kr (250 g)",
-      "note": "Pastaen bruker 2,5 kg (skalert opp). Prisen er kampanje t.o.m. 31.8."
+      "price": 60,
+      "buy": "3 × 19,9 kr (250 g)",
+      "note": "Maks-grense hos Oda – kun 3 av 11 pakker fikk plass i bestillingen. Resten (2,0 kg) står under Manuelt."
     },
     {
       "id": "fersken",
@@ -557,23 +557,25 @@ window.HANDLELISTE_DATA = {
       "id": "squash",
       "vendor": "oda",
       "meal": "middag",
-      "qty": "2,0 kg (ca. 6–8 stk)",
+      "qty": "5 stk (bestilt)",
       "name": "Squash",
       "aria": "Squash kjøpt",
       "product": "<a href=\"https://oda.com/no/products/9287-squash-gronn-spania-nederland/\" target=\"_blank\" rel=\"noopener\">Squash grønn (Spania/Nederland)</a>",
-      "price": 151,
-      "buy": "6 × 25,2 kr (1 stk (ca. 355 g))"
+      "price": 124,
+      "buy": "5 × 24,7 kr (1 stk)",
+      "note": "Maks-grense hos Oda – 1 squash ekstra står under Manuelt."
     },
     {
       "id": "paprika",
       "vendor": "oda",
       "meal": "middag",
-      "qty": "2,5 kg (ca. 8–10 stk)",
+      "qty": "1,8 kg (bestilt)",
       "name": "Paprika",
       "aria": "Paprika kjøpt",
       "product": "<a href=\"https://oda.com/no/products/27016-paprika-rod-var-laveste-pris-spania-nederland/\" target=\"_blank\" rel=\"noopener\">Paprika rød – Vår laveste pris (Spania/Nederland)</a>",
-      "price": 210,
-      "buy": "5 × 41,9 kr (600 g)"
+      "price": 126,
+      "buy": "3 × 41,9 kr (600 g)",
+      "note": "Maks-grense hos Oda – resten (ca. 1,2 kg) står under Manuelt."
     },
     {
       "id": "fennikel",
@@ -644,6 +646,58 @@ window.HANDLELISTE_DATA = {
       "buy": "1 × ca. 50 kr",
       "note": "Erstatter griljermel i polpettene (550 g brød uten skorpe rives og bløtlegges i melk). Kjøp tirsdag/onsdag – dagsgammelt brød rives lettest.",
       "priceText": "ca. 50 kr"
+    },
+    {
+      "id": "cherrytomater-manuell",
+      "vendor": "manuelt",
+      "meal": "middag",
+      "qty": "2,0 kg",
+      "name": "Cherrytomater (suppler Oda-bestillingen)",
+      "aria": "Cherrytomater manuelt kjøpt",
+      "product": "Grønnsakshandler – kjøpes onsdag sammen med urtene",
+      "price": 160,
+      "priceText": "ca. 160 kr",
+      "buy": "ca. 80 kr/kg",
+      "note": "Oda-bestillingen dekker bare 750 g av pastaens 2,5 kg + margin. Brukes fredag (ovnsbakes)."
+    },
+    {
+      "id": "paprika-manuell",
+      "vendor": "manuelt",
+      "meal": "middag",
+      "qty": "1,2 kg (ca. 4 stk)",
+      "name": "Paprika, rød (suppler Oda-bestillingen)",
+      "aria": "Paprika manuelt kjøpt",
+      "product": "Grønnsakshandler – kjøpes onsdag sammen med urtene",
+      "price": 85,
+      "priceText": "ca. 85 kr",
+      "buy": "ca. 70 kr/kg",
+      "note": "Verdure trenger 2,5 kg totalt; Oda-bestillingen dekker 1,8 kg. Brukes fredag."
+    },
+    {
+      "id": "squash-manuell",
+      "vendor": "manuelt",
+      "meal": "middag",
+      "qty": "1 stk (ca. 350 g)",
+      "name": "Squash (suppler Oda-bestillingen)",
+      "aria": "Squash manuelt kjøpt",
+      "product": "Grønnsakshandler – kjøpes onsdag sammen med urtene",
+      "price": 25,
+      "priceText": "ca. 25 kr",
+      "buy": "1 × ca. 25 kr",
+      "note": "Verdure trenger 2,0 kg; Oda-bestillingen dekker ca. 1,8 kg. Brukes fredag."
+    },
+    {
+      "id": "lok-manuell",
+      "vendor": "manuelt",
+      "meal": "lunsj",
+      "qty": "1,0 kg",
+      "name": "Gul løk (suppler Oda-bestillingen)",
+      "aria": "Gul løk manuelt kjøpt",
+      "product": "Grønnsakshandler – kjøpes onsdag sammen med urtene",
+      "price": 35,
+      "priceText": "ca. 35 kr",
+      "buy": "ca. 35 kr/kg",
+      "note": "Lunsjens karamelliserte løk trenger 4 kg; Oda-bestillingen dekker 3 kg (maks-grense). NB: brukes allerede torsdag – kjøp onsdag."
     },
     {
       "id": "feldsalat",
@@ -738,14 +792,14 @@ window.HANDLELISTE_DATA = {
       "id": "lunsj-biff",
       "vendor": "oda",
       "meal": "lunsj",
-      "qty": "6,0 kg (3 stk)",
-      "name": "Ytrefilet av storfe, hele stykker – <strong>produkt TBD</strong>",
-      "aria": "Ytrefilet til lunsj kjøpt",
-      "product": "Endelig produkt under avklaring: <a href=\"https://oda.com/no/products/15262-strom-larsen-hel-ytrefilet-av-storfe/\" target=\"_blank\" rel=\"noopener\">Str&#248;m-Larsen hel ytrefilet via Oda</a> (2 722 kr) eller modnet ytrefilet fra <a href=\"https://polsemakeri.no/produkt-kategori/kjott/storfe/\" target=\"_blank\" rel=\"noopener\">Annis P&#248;lsemakeri</a> (pris bekreftes)",
-      "price": 2722,
-      "buy": "3 × ca. 2 kg",
-      "note": "Uansett produkt: 3 hele, renskårne stykker à ca. 2 kg – ikke oppskåret. Langtidsstekes hele (reverse sear), brunes hardt og skjæres tynt fortløpende under service. 43 porsjoner à ca. 140 g rå (2 gjester får vegetarvarianten). Prisen i summen er Oda-referansen; Annis blir dyrere.",
-      "priceText": "fra 2 722 kr"
+      "qty": "4 stk (vektvare, ca. 2 kg/stk)",
+      "name": "Ytrefilet av storfe, hele stykker – Strøm-Larsen",
+      "aria": "Ytrefilet til lunsj bestilt",
+      "product": "<a href=\"https://oda.com/no/products/15262-strom-larsen-hel-ytrefilet-av-storfe/\" target=\"_blank\" rel=\"noopener\">Strøm-Larsen Hel ytrefilet av storfe (via Oda)</a>",
+      "price": 3630,
+      "buy": "4 stk × ca. 907 kr (vektvare)",
+      "note": "Bestilt 19.8 – TBD avklart: Strøm-Larsen via Oda, ikke Annis. Vektvare: endelig pris etter faktisk vekt. 43 porsjoner à ca. 140 g trenger ca. 6 kg; fjerde stykket er margin. Langtidsstekes hele (reverse sear), brunes hardt og skjæres tynt fortløpende under service.",
+      "priceText": "ca. 3 630 kr"
     },
     {
       "id": "lunsj-brod",
@@ -764,13 +818,13 @@ window.HANDLELISTE_DATA = {
       "id": "lunsj-lok",
       "vendor": "oda",
       "meal": "lunsj",
-      "qty": "4,0 kg",
+      "qty": "3,0 kg (bestilt)",
       "name": "Gul løk til karamellisering",
       "aria": "Gul løk til karamellisering kjøpt",
       "product": "<a href=\"https://oda.com/no/products/19627-gul-lok-var-laveste-pris-nerderland-danmark/\" target=\"_blank\" rel=\"noopener\">Gul løk – Vår laveste pris (Nederland/Danmark)</a>",
-      "price": 140,
-      "buy": "4 × 34,9 kr (1 kg)",
-      "note": "Gir ca. 1,2 kg karamellisert løk (~27 g per porsjon). Karamelliseres i olivenolje og ca. 100 g smør fra marginene."
+      "price": 105,
+      "buy": "3 × 34,9 kr (1 kg)",
+      "note": "Maks-grense hos Oda på gul løk totalt – 1 kg ekstra står under Manuelt. Gir ca. 1,2 kg karamellisert løk (~27 g per porsjon). Karamelliseres i olivenolje og ca. 100 g smør fra marginene."
     },
     {
       "id": "lunsj-tomater",
@@ -822,15 +876,16 @@ window.HANDLELISTE_DATA = {
     },
     {
       "id": "natt-polser",
-      "vendor": "oda",
+      "vendor": "manuelt",
       "meal": "nattmat",
       "qty": "ca. 98 stk (5,4 kg)",
       "name": "Wienerpølser, gluten- og laktosefrie",
       "aria": "Wienerpølser kjøpt",
-      "product": "<a href=\"https://oda.com/no/products/67174-leiv-vidar-wienerpolser-14-stk/\" target=\"_blank\" rel=\"noopener\">Leiv Vidar Wienerpølser 14 stk</a>",
+      "product": "Dagligvare – f.eks. Leiv Vidar Wienerpølser 14 stk (tatt ut av Oda-bestillingen)",
       "price": 489,
-      "buy": "7 × 69,9 kr (14 stk / 770 g)",
-      "note": "Wiener, ikke grillpølse. Leiv Vidar wienerpølser er merket gluten- og melkefrie – dobbeltsjekk etiketten ved levering. Ca. 2 pølser per sen gjest."
+      "buy": "7 × ca. 70 kr (14 stk / 770 g)",
+      "note": "Kjøpes manuelt innen lørdag. Wiener, ikke grillpølse. Velg variant merket gluten- og laktosefri/melkefri (f.eks. Leiv Vidar) – les etiketten. Ca. 2 pølser per sen gjest.",
+      "priceText": "ca. 489 kr"
     },
     {
       "id": "natt-kyllingpolser",
