@@ -700,6 +700,32 @@ window.HANDLELISTE_DATA = {
       "note": "Lunsjens karamelliserte løk trenger 4 kg; Oda-bestillingen dekker 3 kg (maks-grense). NB: brukes allerede torsdag – kjøp onsdag."
     },
     {
+      "id": "solsikkeolje-ekstra",
+      "vendor": "manuelt",
+      "meal": "middag",
+      "qty": "1 l",
+      "name": "Solsikkeolje, ekstra flaske",
+      "aria": "Ekstra solsikkeolje kjøpt",
+      "product": "Dagligvare",
+      "price": 45,
+      "priceText": "ca. 45 kr",
+      "buy": "1 × ca. 45 kr",
+      "note": "Ekstra flaske i tillegg til literen fra Oda – reserve til aioli og steking."
+    },
+    {
+      "id": "flaksalt-ekstra",
+      "vendor": "manuelt",
+      "meal": "middag",
+      "qty": "250 g",
+      "name": "Flaksalt (Maldon), ekstra boks",
+      "aria": "Ekstra flaksalt kjøpt",
+      "product": "Dagligvare",
+      "price": 39,
+      "priceText": "ca. 39 kr",
+      "buy": "1 × ca. 39 kr",
+      "note": "Ekstra boks i tillegg til den fra Oda – focaccia og caprese bruker mye flaksalt."
+    },
+    {
       "id": "feldsalat",
       "vendor": "manuelt",
       "meal": "middag",
