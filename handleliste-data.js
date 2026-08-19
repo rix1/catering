@@ -23,7 +23,7 @@ window.HANDLELISTE_DATA = {
           "key": "manuelt",
           "title": "Manuelt",
           "sub": "grønnsakshandler, fiskehandler, bakeri og Vinmonopolet",
-          "note": "Friske urter kjøpes hos grønnsakshandler (f.eks. Grønland) og feldsalatmiksen hos Meny (fredag) – all annen frukt og grønt ligger i Oda-bestillingen. Laksen bestilles hos fiskehandler senest mandag 17. august; lunsjens surdeigs-ciabatta (merket «Lunsj») avtales med bakeri samme dag. Vinen kjøpes på Vinmonopolet. Suppleringsvarene fra Oda-bestillingens maks-grenser kjøpes hos grønnsakshandleren onsdag; wienerpølser og vegetarpølser i dagligvare innen lørdag."
+          "note": "Friske urter kjøpes hos grønnsakshandler (f.eks. Grønland) og feldsalatmiksen hos Meny (fredag) – all annen frukt og grønt ligger i Oda-bestillingen. Laksen bestilles hos fiskehandler senest mandag 17. august; lunsjens surdeigs-ciabatta (merket «Lunsj») avtales med bakeri samme dag. Vinen kjøpes på Vinmonopolet. Suppleringsvarene fra Oda-bestillingens maks-grenser og rødløken (falt ut av Oda-bestillingen) kjøpes hos grønnsakshandleren onsdag; wienerpølser og vegetarpølser i dagligvare innen lørdag."
         }
       ]
     },
@@ -590,14 +590,16 @@ window.HANDLELISTE_DATA = {
     },
     {
       "id": "rodlok",
-      "vendor": "oda",
+      "vendor": "manuelt",
       "meal": "middag",
       "qty": "2,0 kg",
       "name": "Rødløk",
       "aria": "Rødløk kjøpt",
-      "product": "<a href=\"https://oda.com/no/products/19630-rodlok-laveste-pris-nederland-egypt/\" target=\"_blank\" rel=\"noopener\">Rødløk – Laveste pris (Nederland/Egypt)</a>",
-      "price": 94,
-      "buy": "2 × 46,9 kr (1 kg)"
+      "product": "Grønnsakshandler – kjøpes onsdag sammen med urtene",
+      "price": 90,
+      "priceText": "ca. 90 kr",
+      "buy": "ca. 45 kr/kg",
+      "note": "Falt ut av Oda-bestillingen – hele mengden kjøpes manuelt. Verdure bruker 1,0 kg (stekes fredag), pastaen 800 g rå (skjæres lørdag)."
     },
     {
       "id": "gul-lok",
