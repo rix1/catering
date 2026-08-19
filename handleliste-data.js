@@ -349,13 +349,13 @@ window.HANDLELISTE_DATA = {
       "id": "smor",
       "vendor": "oda",
       "meal": "middag",
-      "qty": "150 g",
+      "qty": "150 g (kjøpt 1,0 kg)",
       "name": "Smør",
       "aria": "Smør kjøpt",
       "product": "<a href=\"https://oda.com/no/products/130-tine-ekte-meierismor/\" target=\"_blank\" rel=\"noopener\">Tine Ekte meierismør</a>",
-      "price": 62,
-      "buy": "1 × 61,5 kr (500 g)",
-      "note": "Til karamellisert løk – béchamel er utgått."
+      "price": 123,
+      "buy": "2 × 61,5 kr (500 g)",
+      "note": "Bestilt 2 pk – Kviteseidsmøret i ordren ble byttet til vanlig meierismør. Til karamellisert løk (buffet 150 g + lunsjens ca. 100 g); resten er margin."
     },
     {
       "id": "solsikkeolje",
