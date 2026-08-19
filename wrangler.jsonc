@@ -1,0 +1,13 @@
+{
+  // Cloudflare Pages-prosjektet bak mat.rix1.dev. Deploy med ./deploy.sh.
+  "name": "mat-rix1-dev",
+  "pages_build_output_dir": "dist",
+  "compatibility_date": "2026-08-01",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "handleliste",
+      "database_id": "004bd8bc-3043-4293-b2ab-1d02b32a0696"
+    }
+  ]
+}

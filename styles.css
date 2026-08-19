@@ -548,6 +548,14 @@ thead {
   font-size: 13px;
   margin: -2px 0 12px;
 }
+.sync-status {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 10px 0 0;
+}
+.sync-status--offline {
+  color: var(--accent);
+}
 .shopping--priced a {
   color: inherit;
   text-decoration-color: rgba(123,45,38,.5);

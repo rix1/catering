@@ -28,6 +28,7 @@
           <div class="cost-box"><b id="done-sum">0 kr</b><span>Krysset av</span></div>
           <div class="cost-box cost-box--accent"><b id="remaining-sum">23 133 kr</b><span>Gjenstår</span></div>
         </div>
+        <p class="sync-status" id="sync-status">Avkryssingen deles på tvers av enheter.</p>
         <div class="view-toggle" role="group" aria-label="Grupper handlelisten">
           <span class="view-toggle-label">Grupper etter</span>
           <button type="button" data-view="vendor" aria-pressed="true">Innkjøpssted</button>
@@ -36,7 +37,7 @@
         <div id="shopping-groups">
           <noscript><p class="note">Handlelisten bygges med JavaScript fra <code>handleliste-data.js</code> – skru på JavaScript for å se den.</p></noscript>
         </div>
-        <div class="note"><strong>Viktig ved innkjøp:</strong> Handlelisten inkluderer en moderat sikkerhetsmargin, men ikke drikke eller dessert. Bytt til måltidsvisningen for å se lunsjen og nattmaten samlet; pølseprisene er anslag, og nattmatens hovedpølser skal være merket gluten- og laktosefrie. Minst 450&nbsp;g av pestoen må være kontrollert gluten- og laktosefri til laksen. Laksen (3 hele sider) bør bestilles hos fiskehandler senest mandag 17. august, og lunsjens surdeigs-ciabatta avtales med bakeri samme dag; rødvinen kjøpes på Vinmonopolet. Avkryssingen lagres lokalt i nettleseren.</div>
+        <div class="note"><strong>Viktig ved innkjøp:</strong> Handlelisten inkluderer en moderat sikkerhetsmargin, men ikke drikke eller dessert. Bytt til måltidsvisningen for å se lunsjen og nattmaten samlet; pølseprisene er anslag, og nattmatens hovedpølser skal være merket gluten- og laktosefrie. Minst 450&nbsp;g av pestoen må være kontrollert gluten- og laktosefri til laksen. Laksen (3 hele sider) bør bestilles hos fiskehandler senest mandag 17. august, og lunsjens surdeigs-ciabatta avtales med bakeri samme dag; rødvinen kjøpes på Vinmonopolet. Avkryssingen deles på tvers av enheter – kryss av på mobilen i butikken, så oppdateres listen hos de andre.</div>
       </section>
     </main>
     <script src="handleliste-data.js"></script>
@@ -51,6 +52,70 @@
       function loadChecked() {
         try { return JSON.parse(localStorage.getItem(CHECK_KEY)) || []; } catch (e) { return []; }
       }
+
+      // --- Deling på tvers av enheter -------------------------------------
+      // Serveren (/api/checked, D1-database) er fasit; localStorage er
+      // frakoblet-buffer. Avkryssinger sendes per vare, aldri som hel liste,
+      // så en gammel fane kan ikke overskrive det andre har krysset av.
+      var API = "/api/checked";
+      var PENDING_KEY = "handleliste-pending-v1";
+      var SYNC_FLAG = "handleliste-synced-v1";
+      var pending = {}; // vare-id -> ønsket tilstand, ennå ikke bekreftet av serveren
+      var lastLocalChange = 0;
+      try { pending = JSON.parse(localStorage.getItem(PENDING_KEY)) || {}; } catch (e) { pending = {}; }
+
+      function savePending() {
+        try { localStorage.setItem(PENDING_KEY, JSON.stringify(pending)); } catch (e) {}
+      }
+      function setStatus(offline) {
+        var el = document.getElementById("sync-status");
+        if (!el) return;
+        el.textContent = offline
+          ? "Frakoblet – avkryssingen lagres lokalt og deles når du er på nett igjen."
+          : "Avkryssingen deles på tvers av enheter.";
+        el.classList.toggle("sync-status--offline", offline);
+      }
+      function onToggle(id, isChecked) {
+        lastLocalChange = Date.now();
+        pending[id] = isChecked;
+        savePending();
+        update();
+        flush();
+      }
+      function flush() {
+        Object.keys(pending).forEach(function (id) {
+          var val = pending[id];
+          fetch(API, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ id: id, checked: val })
+          }).then(function (res) {
+            if (res.ok) {
+              if (pending[id] === val) { delete pending[id]; savePending(); }
+              setStatus(false);
+            }
+          }).catch(function () { setStatus(true); });
+        });
+      }
+      function syncFromServer() {
+        var started = Date.now();
+        fetch(API).then(function (res) {
+          if (!res.ok) throw new Error("HTTP " + res.status);
+          return res.json();
+        }).then(function (data) {
+          setStatus(false);
+          if (lastLocalChange > started) return; // lokal endring underveis – ta neste runde
+          var set = {};
+          (data.checked || []).forEach(function (id) { set[id] = true; });
+          Array.prototype.forEach.call(container.querySelectorAll("tr[data-id]"), function (r) {
+            var id = r.getAttribute("data-id");
+            if (Object.prototype.hasOwnProperty.call(pending, id)) return;
+            r.querySelector("input").checked = !!set[id];
+          });
+          update();
+        }).catch(function () { setStatus(true); });
+      }
+      // ---------------------------------------------------------------------
       function fmt(n) {
         return Math.round(n).toLocaleString("nb-NO") + " kr";
       }
@@ -99,7 +164,7 @@
             cb.type = "checkbox";
             cb.setAttribute("aria-label", it.aria);
             cb.checked = checked.indexOf(it.id) !== -1;
-            cb.addEventListener("change", update);
+            cb.addEventListener("change", function () { onToggle(it.id, cb.checked); });
             tdCheck.appendChild(cb);
 
             var tdQty = document.createElement("td");
@@ -191,6 +256,25 @@
         if (v === "meal" || v === "vendor") initial = v;
       } catch (e) {}
       setView(initial);
+
+      // Engangsflytting: avkryssinger gjort før delingen fantes skyves til serveren.
+      try {
+        if (localStorage.getItem(SYNC_FLAG) !== "1") {
+          loadChecked().forEach(function (id) { pending[id] = true; });
+          savePending();
+          localStorage.setItem(SYNC_FLAG, "1");
+        }
+      } catch (e) {}
+      flush();
+      syncFromServer();
+      setInterval(function () {
+        if (document.visibilityState !== "visible") return;
+        flush();
+        syncFromServer();
+      }, 20000);
+      document.addEventListener("visibilitychange", function () {
+        if (document.visibilityState === "visible") { flush(); syncFromServer(); }
+      });
     })();
     </script>
   </body>
