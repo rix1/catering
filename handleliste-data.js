@@ -24,6 +24,12 @@ window.HANDLELISTE_DATA = {
           "title": "Manuelt",
           "sub": "grønnsakshandler, fiskehandler, bakeri og Vinmonopolet",
           "note": "Friske urter kjøpes hos grønnsakshandler (f.eks. Grønland) og feldsalatmiksen hos Meny (fredag) – all annen frukt og grønt ligger i Oda-bestillingen. Laksen bestilles hos fiskehandler senest mandag 17. august; lunsjens surdeigs-ciabatta (merket «Lunsj») avtales med bakeri samme dag. Vinen kjøpes på Vinmonopolet. Suppleringsvarene fra Oda-bestillingens maks-grenser og rødløken (falt ut av Oda-bestillingen) kjøpes hos grønnsakshandleren onsdag; wienerpølser og vegetarpølser i dagligvare innen lørdag."
+        },
+        {
+          "key": "kiwi",
+          "title": "Kiwi Tofte",
+          "sub": "frokost søndag",
+          "note": "Alt til søndagsfrokosten handles her i én tur. Prisene er anslag – Kiwi har ikke nettpriser. Handle fredag eller lørdag og ikke gjør frokosten avhengig av søndagsåpen butikk; alt tåler kjølelagring, og de halvstekte baguettene skal uansett stekes ferdig søndag morgen."
         }
       ]
     },
@@ -47,6 +53,12 @@ window.HANDLELISTE_DATA = {
           "title": "Nattmat lørdag kveld",
           "sub": "pølser i brød/lompe · ca. 50–55 sene gjester",
           "note": "Hovedpølsene (wiener) og vegetarpølsene kjøpes nå manuelt – velg varianter merket gluten- og laktosefrie/melkefrie og les etiketten. Resten ble bestilt hos Oda 18.–19. august. Vegetar- og kyllingpølsene varmes i egen liten kjele med egen klype; de glutenfrie brødene serveres fra egen pose/kurv."
+        },
+        {
+          "key": "frokost",
+          "title": "Frokost søndag",
+          "sub": "enkel påleggsfrokost · 43 gjester",
+          "note": "Bevisst nøkternt dimensjonert: rester fra lørdagsbuffeten (kun det som ble kjølt ned og satt bort – mat som sto fremme på buffeten kastes) settes frem sammen med frokosten, og kaffe finnes allerede. Alt handles på Kiwi Tofte. Vegetarene (3) dekkes av egg, gulost, brunost og syltetøy; gjesten uten svin og gjesten uten rødt kjøtt får egg, ost og makrell i tomat i stedet for bacon og leverpostei. Allergiene (gluten, laktose, hasselnøtt) gjelder kun middagen."
         }
       ]
     }
@@ -55,9 +67,11 @@ window.HANDLELISTE_DATA = {
     "smak": "Smak av Italia",
     "oda": "Oda",
     "manuelt": "Manuelt",
+    "kiwi": "Kiwi Tofte",
     "middag": "Middag",
     "lunsj": "Lunsj",
-    "nattmat": "Nattmat"
+    "nattmat": "Nattmat",
+    "frokost": "Frokost"
   },
   "items": [
     {
@@ -996,6 +1010,159 @@ window.HANDLELISTE_DATA = {
       "product": "<a href=\"https://oda.com/no/products/570-idun-polsesennep/\" target=\"_blank\" rel=\"noopener\">Idun Pølsesennep</a>",
       "price": 24,
       "buy": "1 × 24 kr (490 g)"
+    },
+    {
+      "id": "frokost-brod",
+      "vendor": "kiwi",
+      "meal": "frokost",
+      "qty": "3 brød (ca. 2,2 kg)",
+      "name": "Brød (2 grove + 1 loff)",
+      "aria": "Brød til frokost kjøpt",
+      "product": "Kiwi Tofte – brød à ca. 750 g",
+      "price": 90,
+      "priceText": "ca. 90 kr",
+      "buy": "3 × ca. 30 kr",
+      "note": "Ca. 50–55 skiver. Bevisst lavt – halvstekte baguetter og brødrester fra lørdag (focaccia m.m.) fyller på."
+    },
+    {
+      "id": "frokost-baguetter",
+      "vendor": "kiwi",
+      "meal": "frokost",
+      "qty": "8 stk halvstekte",
+      "name": "Halvstekte baguetter",
+      "aria": "Halvstekte baguetter kjøpt",
+      "product": "Kiwi Tofte – bake-off/halvstekte baguetter, f.eks. 4 pk à 2 stk",
+      "price": 100,
+      "priceText": "ca. 100 kr",
+      "buy": "4 pk × ca. 25 kr",
+      "note": "Stekes ferdig søndag morgen (ca. 200 °C, 8–10 min – følg pakken) og skjæres i biter på buffeten."
+    },
+    {
+      "id": "frokost-egg",
+      "vendor": "kiwi",
+      "meal": "frokost",
+      "qty": "48 stk",
+      "name": "Egg (kokes)",
+      "aria": "Egg til frokost kjøpt",
+      "product": "Kiwi Tofte – f.eks. First Price egg 24 stk",
+      "price": 190,
+      "priceText": "ca. 190 kr",
+      "buy": "2 × 24 stk (eller 4 × 12)",
+      "note": "Ca. 1 egg per gjest + margin. Kokes søndag morgen i to store kjeler. Viktigste pålegg for vegetarene og gjestene som ikke spiser bacon/leverpostei."
+    },
+    {
+      "id": "frokost-bacon",
+      "vendor": "kiwi",
+      "meal": "frokost",
+      "qty": "1,2 kg",
+      "name": "Bacon",
+      "aria": "Bacon kjøpt",
+      "product": "Kiwi Tofte – 3 pk à ca. 400 g",
+      "price": 165,
+      "priceText": "ca. 165 kr",
+      "buy": "3 × ca. 55 kr (400 g)",
+      "note": "Ca. 2 skiver per gjest. Stekes på brett i ovnen (200 °C, 15–20 min) etter baguettene – ikke i panne."
+    },
+    {
+      "id": "frokost-leverpostei",
+      "vendor": "kiwi",
+      "meal": "frokost",
+      "qty": "570 g (3 bokser)",
+      "name": "Leverpostei",
+      "aria": "Leverpostei kjøpt",
+      "product": "Kiwi Tofte – f.eks. Gilde ovnsbakt 190 g",
+      "price": 90,
+      "priceText": "ca. 90 kr",
+      "buy": "3 × ca. 30 kr (190 g)"
+    },
+    {
+      "id": "frokost-gulost",
+      "vendor": "kiwi",
+      "meal": "frokost",
+      "qty": "1,0 kg",
+      "name": "Gulost (Norvegia el.l.)",
+      "aria": "Gulost kjøpt",
+      "product": "Kiwi Tofte – 1 kg-stykke (billigst) + ostehøvel på benken",
+      "price": 140,
+      "priceText": "ca. 140 kr",
+      "buy": "1 × ca. 140 kr (1 kg)",
+      "note": "Buffetens italienske oster skal ikke røres – eventuelle kjølte rester av dem supplerer søndag."
+    },
+    {
+      "id": "frokost-brunost",
+      "vendor": "kiwi",
+      "meal": "frokost",
+      "qty": "500 g",
+      "name": "Brunost",
+      "aria": "Brunost kjøpt",
+      "product": "Kiwi Tofte – f.eks. Gudbrandsdalsost 500 g",
+      "price": 85,
+      "priceText": "ca. 85 kr",
+      "buy": "1 × ca. 85 kr (500 g)"
+    },
+    {
+      "id": "frokost-smor",
+      "vendor": "kiwi",
+      "meal": "frokost",
+      "qty": "600 g",
+      "name": "Smør/margarin til brødet",
+      "aria": "Smør til frokost kjøpt",
+      "product": "Kiwi Tofte – 2 beger myk type (f.eks. Bremykt)",
+      "price": 90,
+      "priceText": "ca. 90 kr",
+      "buy": "2 × ca. 45 kr (300 g)",
+      "note": "Myk type som lar seg smøre rett fra kjøleskapet. Buffetens meierismør-margin er forbeholdt kjøkkenet og eggstekingen."
+    },
+    {
+      "id": "frokost-syltetoy",
+      "vendor": "kiwi",
+      "meal": "frokost",
+      "qty": "2 glass (ca. 800 g)",
+      "name": "Jordbærsyltetøy",
+      "aria": "Syltetøy kjøpt",
+      "product": "Kiwi Tofte – store glass",
+      "price": 100,
+      "priceText": "ca. 100 kr",
+      "buy": "2 × ca. 50 kr"
+    },
+    {
+      "id": "frokost-makrell",
+      "vendor": "kiwi",
+      "meal": "frokost",
+      "qty": "2 bokser (340 g)",
+      "name": "Makrell i tomat",
+      "aria": "Makrell i tomat kjøpt",
+      "product": "Kiwi Tofte – f.eks. Stabburet 170 g",
+      "price": 50,
+      "priceText": "ca. 50 kr",
+      "buy": "2 × ca. 25 kr (170 g)",
+      "note": "Pålegg uten svin og rødt kjøtt – dekker gjesten uten svin og gjesten uten rødt kjøtt."
+    },
+    {
+      "id": "frokost-melk",
+      "vendor": "kiwi",
+      "meal": "frokost",
+      "qty": "3,5 l",
+      "name": "Lettmelk",
+      "aria": "Melk til frokost kjøpt",
+      "product": "Kiwi Tofte – 2 × 1,75 l",
+      "price": 80,
+      "priceText": "ca. 80 kr",
+      "buy": "2 × ca. 40 kr (1,75 l)",
+      "note": "Til kaffen og frokosten – buffetens ene liter helmelk er øremerket polpettefarsen."
+    },
+    {
+      "id": "frokost-juice",
+      "vendor": "kiwi",
+      "meal": "frokost",
+      "qty": "4,5 l",
+      "name": "Appelsinjuice",
+      "aria": "Juice kjøpt",
+      "product": "Kiwi Tofte – f.eks. First Price 1,5 l",
+      "price": 90,
+      "priceText": "ca. 90 kr",
+      "buy": "3 × ca. 30 kr (1,5 l)",
+      "note": "Ca. 1 glass per gjest. Eneste «utover det nødvendige»-varen – kutt denne raden hvis det skal strammes inn."
     }
   ]
 };
