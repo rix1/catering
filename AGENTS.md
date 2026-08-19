@@ -208,3 +208,39 @@ Never improve scheduling convenience by creating an unsafe food-handling plan.
 Create git commits without GPG signing:
 
 `git -c commit.gpgsign=false commit`
+
+## Shared shopping-list check-off state
+
+The check-off state on `handleliste.html` is shared across devices. It lives in
+the Cloudflare D1 database `handleliste` (table `checked`, schema in
+`schema.sql`), exposed through the Pages Function `functions/api/checked.js`
+under the same Pages project as the site (`mat-rix1-dev`, mat.rix1.dev).
+The D1 binding `DB` is configured in `wrangler.jsonc`; `./deploy.sh` deploys
+site and function together.
+
+How it works:
+
+- One row per item, keyed by `item_id` = the `id` field in
+  `handleliste-data.js`. `checked` is 0/1, last write wins per item.
+- API: `GET /api/checked` returns `{"checked": ["<id>", ...]}`;
+  `POST /api/checked` with `{"id": "<id>", "checked": true|false}` upserts one
+  row. The API is unauthenticated by design.
+- The client treats the server as authoritative and localStorage as an offline
+  cache with a persisted pending-retry queue. Toggles sync per item, never as a
+  whole list, so a stale tab cannot overwrite other devices. It polls every
+  20 s while visible and re-syncs on tab focus.
+
+Reading or updating the state from the CLI (note `--remote`; without it you hit
+a local dev copy, not production):
+
+```
+npx wrangler d1 execute handleliste --remote --command "SELECT * FROM checked"
+npx wrangler d1 execute handleliste --remote --command "UPDATE checked SET checked = 1 WHERE item_id = '<id>'"
+```
+
+Consequences for editing `handleliste-data.js`:
+
+- Item `id` values are the join key to the database. Keep an item's `id`
+  stable when editing it; renaming an id silently drops its check-off state.
+- Rows for removed ids are harmless orphans; delete them with the CLI if
+  tidiness matters.
