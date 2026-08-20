@@ -17,7 +17,7 @@
     <main>
       <section class="shopping shopping--priced">
         <header class="dish-header">
-          <div class="dish-number">SAMLET INNKJØP<span class="prices-flag"> · MED PRISER</span><span class="inventory-flag"> · LAGERSJEKK TOR–LØR</span></div>
+          <div class="dish-number">SAMLET INNKJØP<span class="prices-flag"> · MED PRISER</span><span class="inventory-flag"> · LAGERSJEKK TOR–SØN</span></div>
           <div class="dish-titleline">
             <h2>Handleliste</h2>
             <div class="weight">Priser innhentet 15. august 2026<br/>Kryss av det du allerede har</div>
@@ -138,7 +138,7 @@
           var scroll = document.createElement("div");
           scroll.className = "table-scroll";
           var table = document.createElement("table");
-          table.innerHTML = '<thead><tr><th></th><th>Kjøp ca.</th><th>Vare</th><th>Produkt / prisreferanse</th><th class="num">Pris</th><th class="day-col">Tor</th><th class="day-col">Fre</th><th class="day-col">Lør</th></tr></thead>';
+          table.innerHTML = '<thead><tr><th></th><th>Kjøp ca.</th><th>Vare</th><th>Produkt / prisreferanse</th><th class="num">Pris</th><th class="day-col">Tor</th><th class="day-col">Fre</th><th class="day-col">Lør</th><th class="day-col">Søn</th></tr></thead>';
 
           var tbody = document.createElement("tbody");
           items.forEach(function (it) {
@@ -186,7 +186,7 @@
             tr.appendChild(tdProd);
             tr.appendChild(tdPrice);
             // Print-only inventory tick boxes, one per day (see styles.css).
-            for (var d = 0; d < 3; d++) {
+            for (var d = 0; d < 4; d++) {
               var tdDay = document.createElement("td");
               tdDay.className = "day-col";
               tr.appendChild(tdDay);
