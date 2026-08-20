@@ -35,13 +35,18 @@
     true
   );
 
-  // ---- Floating anchor menu ----
+  // ---- Anchor menu: fixed sidebar on wide screens, floating button otherwise ----
   var tocLinks = [];
+  var fab = null;
 
   function textOf(h) {
     var clone = h.cloneNode(true);
-    var sub = clone.querySelector(".vendor-sub");
-    if (sub) sub.parentNode.removeChild(sub);
+    Array.prototype.forEach.call(
+      clone.querySelectorAll(".vendor-sub, .group-meta"),
+      function (n) {
+        n.parentNode.removeChild(n);
+      }
+    );
     return clone.textContent.replace(/\s+/g, " ").trim();
   }
 
@@ -86,12 +91,112 @@
     return targets;
   }
 
+  function makeAnchor(t, beforeScroll) {
+    var a = document.createElement("a");
+    a.href = "#" + t.el.id;
+    a.textContent = t.label;
+    a.title = t.label;
+    if (t.sub) a.className = "toc-sub";
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      if (beforeScroll) beforeScroll();
+      t.el.scrollIntoView({ behavior: "smooth", block: "start" });
+      history.replaceState(null, "", "#" + t.el.id);
+    });
+    return a;
+  }
+
+  function ensureFab() {
+    if (fab) return fab;
+
+    var root = document.createElement("div");
+    root.className = "toc-fab";
+
+    var backdrop = document.createElement("div");
+    backdrop.className = "toc-fab-backdrop";
+
+    var panel = document.createElement("nav");
+    panel.className = "toc-fab-panel";
+    panel.id = "toc-fab-panel";
+    panel.setAttribute("aria-label", "Innhold på siden");
+
+    var pagesRow = document.createElement("div");
+    pagesRow.className = "toc-fab-pages";
+    [
+      ["index.html", "Plan"],
+      ["oppskrifter.html", "Oppskrifter"],
+      ["handleliste.html", "Handleliste"],
+    ].forEach(function (p) {
+      var a = document.createElement("a");
+      a.href = p[0];
+      a.textContent = p[1];
+      if (pageKey() === p[0].replace(/\.html$/, "")) a.setAttribute("aria-current", "page");
+      pagesRow.appendChild(a);
+    });
+
+    var title = document.createElement("div");
+    title.className = "page-toc-title";
+    title.textContent = "Innhold";
+
+    var list = document.createElement("div");
+    list.className = "toc-fab-list";
+
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "toc-fab-btn";
+    btn.setAttribute("aria-expanded", "false");
+    btn.setAttribute("aria-controls", "toc-fab-panel");
+    btn.setAttribute("aria-label", "Innhold på siden");
+    btn.innerHTML = '<span class="toc-fab-icon" aria-hidden="true"><i></i><i></i><i></i></span>';
+
+    function setOpen(open) {
+      root.classList.toggle("open", open);
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+      document.documentElement.classList.toggle("toc-fab-lock", open);
+      if (open) {
+        // Center the current section in the list so long pages open "where you are".
+        var active = list.querySelector("a.active");
+        if (active) list.scrollTop = active.offsetTop - (list.clientHeight - active.offsetHeight) / 2;
+      }
+    }
+
+    btn.addEventListener("click", function () {
+      setOpen(!root.classList.contains("open"));
+    });
+    backdrop.addEventListener("click", function () {
+      setOpen(false);
+    });
+    window.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && root.classList.contains("open")) setOpen(false);
+    });
+
+    panel.appendChild(pagesRow);
+    panel.appendChild(title);
+    panel.appendChild(list);
+    root.appendChild(backdrop);
+    root.appendChild(panel);
+    root.appendChild(btn);
+    document.body.appendChild(root);
+
+    fab = {
+      root: root,
+      list: list,
+      close: function () {
+        setOpen(false);
+      },
+    };
+    return fab;
+  }
+
   function buildToc() {
     var old = document.querySelector(".page-toc");
     if (old) old.parentNode.removeChild(old);
     tocLinks = [];
     var targets = collectTargets();
-    if (targets.length < 2) return;
+    if (targets.length < 2) {
+      if (fab) fab.root.style.display = "none";
+      return;
+    }
 
     var nav = document.createElement("nav");
     nav.className = "page-toc";
@@ -101,6 +206,10 @@
     title.textContent = "Innhold";
     nav.appendChild(title);
 
+    var f = ensureFab();
+    f.root.style.display = "";
+    while (f.list.firstChild) f.list.removeChild(f.list.firstChild);
+
     targets.forEach(function (t) {
       if (!t.el.id) {
         var base = slugify(t.label);
@@ -109,18 +218,11 @@
         while (document.getElementById(id)) id = base + "-" + n++;
         t.el.id = id;
       }
-      var a = document.createElement("a");
-      a.href = "#" + t.el.id;
-      a.textContent = t.label;
-      a.title = t.label;
-      if (t.sub) a.className = "toc-sub";
-      a.addEventListener("click", function (e) {
-        e.preventDefault();
-        t.el.scrollIntoView({ behavior: "smooth", block: "start" });
-        history.replaceState(null, "", "#" + t.el.id);
-      });
-      nav.appendChild(a);
-      tocLinks.push({ a: a, el: t.el });
+      var sideA = makeAnchor(t);
+      nav.appendChild(sideA);
+      var fabA = makeAnchor(t, f.close);
+      f.list.appendChild(fabA);
+      tocLinks.push({ el: t.el, links: [sideA, fabA] });
     });
     document.body.appendChild(nav);
     updateActive();
@@ -138,7 +240,9 @@
     }
     if (!active) active = tocLinks[0];
     tocLinks.forEach(function (l) {
-      l.a.classList.toggle("active", l === active);
+      l.links.forEach(function (a) {
+        a.classList.toggle("active", l === active);
+      });
     });
   }
 

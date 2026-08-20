@@ -55,6 +55,33 @@
         return Math.round(n).toLocaleString("nb-NO") + " kr";
       }
 
+      var OPEN_KEY = "handleliste-open-v1";
+      function loadOpen() {
+        try { return JSON.parse(localStorage.getItem(OPEN_KEY)) || []; } catch (e) { return []; }
+      }
+      function saveOpenState(key, open) {
+        var keys = loadOpen();
+        var i = keys.indexOf(key);
+        if (open && i === -1) keys.push(key);
+        if (!open && i !== -1) keys.splice(i, 1);
+        try { localStorage.setItem(OPEN_KEY, JSON.stringify(keys)); } catch (e) {}
+      }
+      function setGroupOpen(wrap, open) {
+        wrap.classList.toggle("open", open);
+        var b = wrap.querySelector(".group-toggle");
+        if (b) b.setAttribute("aria-expanded", open ? "true" : "false");
+        saveOpenState(wrap.getAttribute("data-group-key"), open);
+      }
+
+      // Anchor links (sidebar/floating "Innhold") should reveal a collapsed group.
+      document.addEventListener("click", function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a[href^="#"]') : null;
+        if (!a) return;
+        var el = document.getElementById(a.getAttribute("href").slice(1));
+        var grp = el && el.closest ? el.closest(".shopping-group") : null;
+        if (grp && !grp.classList.contains("open")) setGroupOpen(grp, true);
+      });
+
       function render(view) {
         var grouping = DATA.groupings[view];
         var checked = loadChecked();
@@ -67,20 +94,44 @@
 
           var wrap = document.createElement("div");
           wrap.className = "shopping-group";
+          wrap.setAttribute("data-group-key", view + ":" + g.key);
+          var isOpen = loadOpen().indexOf(view + ":" + g.key) !== -1;
+          if (isOpen) wrap.classList.add("open");
 
           var h = document.createElement("h3");
-          h.appendChild(document.createTextNode(g.title + " "));
+          var toggle = document.createElement("button");
+          toggle.type = "button";
+          toggle.className = "group-toggle";
+          toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+          var caret = document.createElement("span");
+          caret.className = "group-caret";
+          toggle.appendChild(caret);
+          var titleSpan = document.createElement("span");
+          titleSpan.className = "group-title";
+          titleSpan.appendChild(document.createTextNode(g.title + " "));
           var sub = document.createElement("span");
           sub.className = "vendor-sub";
           sub.textContent = g.sub;
-          h.appendChild(sub);
+          titleSpan.appendChild(sub);
+          toggle.appendChild(titleSpan);
+          var meta = document.createElement("span");
+          meta.className = "group-meta";
+          meta.setAttribute("data-group-remaining-head", "");
+          toggle.appendChild(meta);
+          toggle.addEventListener("click", function () {
+            setGroupOpen(wrap, !wrap.classList.contains("open"));
+          });
+          h.appendChild(toggle);
           wrap.appendChild(h);
+
+          var body = document.createElement("div");
+          body.className = "group-body";
 
           if (g.note) {
             var p = document.createElement("p");
             p.className = "vendor-note";
             p.innerHTML = g.note;
-            wrap.appendChild(p);
+            body.appendChild(p);
           }
 
           var scroll = document.createElement("div");
@@ -143,7 +194,8 @@
           table.appendChild(tfoot);
 
           scroll.appendChild(table);
-          wrap.appendChild(scroll);
+          body.appendChild(scroll);
+          wrap.appendChild(body);
           container.appendChild(wrap);
         });
         update();
@@ -164,6 +216,8 @@
           if (rem) rem.textContent = "gjenstår " + fmt(gTotal - gDone);
           var tot = g.querySelector("[data-group-total]");
           if (tot) tot.textContent = fmt(gTotal);
+          var head = g.querySelector("[data-group-remaining-head]");
+          if (head) head.textContent = gDone >= gTotal - 0.001 ? "✓ alt kjøpt" : "gjenstår " + fmt(gTotal - gDone);
           total += gTotal;
           done += gDone;
         });
