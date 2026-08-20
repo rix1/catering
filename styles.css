@@ -877,6 +877,60 @@ thead {
   }
 }
 
+/* ---- Print: shopping list becomes a clean inventory sheet ----
+   Notes, prices, product references, and subtotals are hidden; three
+   print-only tick columns (one per day) appear instead. */
+.day-col,
+.inventory-flag {
+  display: none;
+}
+@media print {
+  .inventory-flag {
+    display: inline;
+  }
+  .prices-flag,
+  .shopping--priced .shopping-intro,
+  .shopping--priced .cost-summary,
+  .shopping--priced .weight,
+  .shopping .note,
+  .vendor-note,
+  .vendor-sub,
+  .shopping--priced tfoot,
+  .shopping--priced th:nth-child(1),
+  .shopping--priced td:nth-child(1),
+  .shopping--priced th:nth-child(4),
+  .shopping--priced td:nth-child(4),
+  .shopping--priced th:nth-child(5),
+  .shopping--priced td:nth-child(5) {
+    display: none;
+  }
+  .shopping--priced .day-col {
+    display: table-cell;
+  }
+  .shopping--priced th.day-col {
+    text-align: center;
+  }
+  .shopping--priced td.day-col {
+    text-align: center;
+    width: 36px;
+  }
+  .shopping--priced td.day-col::before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border: 1.5px solid var(--ink);
+    border-radius: 2px;
+  }
+  /* Items checked off on screen should not look "done" on the inventory sheet. */
+  .shopping--priced tr.done td {
+    color: var(--ink);
+  }
+  .shopping--priced tr.done td:nth-child(3) {
+    text-decoration: none;
+  }
+}
+
 /* ---- Printable round checklist ---- */
 .checklist .subhead {
   margin: 12px 0 0;
