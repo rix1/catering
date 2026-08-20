@@ -3,7 +3,7 @@
 set -e
 cd "$(dirname "$0")"
 rm -rf dist && mkdir dist
-cp index.html oppskrifter.html handleliste.html handleliste-data.js styles.css nav.js dist/
+cp index.html oppskrifter.html handleliste.html sjekkliste.html handleliste-data.js styles.css nav.js dist/
 
 # Cache-busting: rename each asset to include a hash of its content and rewrite
 # the references in the HTML. A changed file gets a new URL, so a browser can
@@ -23,6 +23,8 @@ cat > dist/_headers <<'EOF'
 /oppskrifter
   Cache-Control: no-cache
 /handleliste
+  Cache-Control: no-cache
+/sjekkliste
   Cache-Control: no-cache
 EOF
 

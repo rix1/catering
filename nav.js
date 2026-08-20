@@ -4,9 +4,11 @@
     Digit1: "index.html",
     Digit2: "oppskrifter.html",
     Digit3: "handleliste.html",
+    Digit4: "sjekkliste.html",
     Numpad1: "index.html",
     Numpad2: "oppskrifter.html",
     Numpad3: "handleliste.html",
+    Numpad4: "sjekkliste.html",
   };
 
   // "index" | "oppskrifter" | "handleliste" — works for both file:// and the
@@ -126,6 +128,7 @@
       ["index.html", "Plan"],
       ["oppskrifter.html", "Oppskrifter"],
       ["handleliste.html", "Handleliste"],
+      ["sjekkliste.html", "Sjekkliste"],
     ].forEach(function (p) {
       var a = document.createElement("a");
       a.href = p[0];
