@@ -907,20 +907,22 @@ thead {
   .shopping--priced .day-col {
     display: table-cell;
   }
-  .shopping--priced th.day-col {
+  .shopping--priced th.day-col,
+  .shopping--priced td.day-col {
+    border-left: 1px solid var(--line);
     text-align: center;
   }
   .shopping--priced td.day-col {
-    text-align: center;
-    width: 36px;
+    width: 58px;
   }
-  .shopping--priced td.day-col::before {
-    content: "";
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border: 1.5px solid var(--ink);
-    border-radius: 2px;
+  .shopping--priced th.day-col:last-child,
+  .shopping--priced td.day-col:last-child {
+    border-right: 1px solid var(--line);
+  }
+  /* Room for a handwritten amount/count in each day cell. */
+  .shopping--priced tbody td {
+    padding-top: 7px;
+    padding-bottom: 7px;
   }
   /* Items checked off on screen should not look "done" on the inventory sheet. */
   .shopping--priced tr.done td {
