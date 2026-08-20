@@ -266,7 +266,8 @@ li {
   }
   body {
     max-width: none;
-    font-size: 10.5pt;
+    font-size: 9.5pt;
+    line-height: 1.35;
     padding: 0;
   }
   main {
@@ -283,10 +284,65 @@ li {
     box-shadow: none;
   }
   h1 {
-    font-size: 31pt;
+    font-size: 26pt;
   }
   h2 {
-    font-size: 23pt;
+    font-size: 18pt;
+  }
+  h3 {
+    font-size: 9pt;
+    margin: 14px 0 6px;
+  }
+  .subhead {
+    font-size: 11.5pt;
+  }
+  .chip,
+  .kicker,
+  .cover-footer {
+    font-size: 8.5pt;
+  }
+  .menu-item b {
+    font-size: 10.5pt;
+  }
+  .dish-number {
+    font-size: 9pt;
+  }
+  .weight {
+    font-size: 8.5pt;
+  }
+  table {
+    font-size: 9pt;
+    margin: 6px 0 12px;
+  }
+  th {
+    font-size: 7.5pt;
+    padding: 4px 6px;
+  }
+  td {
+    padding: 4px 6px;
+  }
+  td.qty {
+    width: 95px;
+  }
+  ol {
+    margin: 6px 0 12px 18px;
+  }
+  li {
+    margin-bottom: 5px;
+  }
+  .note,
+  .serve,
+  .tip,
+  .prepbox > div,
+  .workflow-card {
+    padding: 8px 10px;
+  }
+  .note,
+  .serve {
+    margin: 12px 0;
+  }
+  .small {
+    font-size: 8.5pt;
   }
   .cover {
     min-height: 267mm;
